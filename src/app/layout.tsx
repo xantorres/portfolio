@@ -12,7 +12,7 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xantorres.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
 const title = `${profile.name} · Senior Frontend Engineer & Product Architect`;
 
 export const metadata: Metadata = {

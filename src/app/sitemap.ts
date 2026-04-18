@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { cases } from "@/lib/data";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xantorres.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
