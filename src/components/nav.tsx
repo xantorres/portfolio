@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AvailabilityPill } from "@/components/availability-pill";
 import { navLinks, profile } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -35,13 +36,7 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div
-            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
-            title={profile.availability.long}
-          >
-            <span className="relative inline-block size-1.5 rounded-full bg-blue-500 pulse-ring" />
-            {profile.availability.short}
-          </div>
+          <AvailabilityPill className="hidden sm:inline-flex" />
           <ThemeToggle />
           <Button
             variant="ghost"

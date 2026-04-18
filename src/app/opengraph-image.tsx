@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { profile } from "@/lib/data";
+import { currentQuarter, profile } from "@/lib/data";
 
 export const alt = `${profile.name} · Senior Frontend Engineer & Product Architect`;
 export const size = { width: 1200, height: 630 };
@@ -70,7 +70,7 @@ export default function OpengraphImage() {
           }}
         >
           <span>{profile.location}</span>
-          <span>{profile.availability.short}</span>
+          <span>{profile.availability.short} · {currentQuarter()}</span>
         </div>
       </div>
     ),

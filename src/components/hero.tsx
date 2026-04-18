@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { AvailabilityPill } from "@/components/availability-pill";
 import { profile } from "@/lib/data";
 
 export function Hero() {
@@ -10,13 +11,7 @@ export function Hero() {
       id="top"
       className="mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pb-24 sm:pt-24 lg:px-8 lg:pb-32 lg:pt-28"
     >
-      <div
-        className="mb-6 inline-flex sm:hidden items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
-        title={profile.availability.long}
-      >
-        <span className="relative inline-block size-1.5 rounded-full bg-blue-500 pulse-ring" />
-        {profile.availability.short}
-      </div>
+      <AvailabilityPill className="mb-6 sm:hidden" />
 
       <h1 className="max-w-[18ch] text-balance font-sans text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
         {profile.tagline} <span className="text-blue-500">{profile.accentWord}</span>.

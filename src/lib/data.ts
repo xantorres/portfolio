@@ -25,8 +25,8 @@ export const profile = {
     "14+ years building production web applications in TypeScript and React. I solve hard UI problems at scale and own features end-to-end, from data model through to pixel.",
   location: "Cyprus (EU) · Remote · CET/EET",
   availability: {
-    short: "Available · Q3 2026",
-    long: "Booking new engagements · Q3 2026",
+    short: "Available",
+    long: "Booking new engagements",
   },
   email: "xan.torres@gmail.com",
   links: {
@@ -38,6 +38,11 @@ export const profile = {
 
 export function stripProtocol(url: string): string {
   return url.replace(/^https?:\/\//, "");
+}
+
+export function currentQuarter(date = new Date()): string {
+  const quarter = Math.floor(date.getUTCMonth() / 3) + 1;
+  return `Q${quarter} ${date.getUTCFullYear()}`;
 }
 
 export const cases: CaseStudy[] = [
