@@ -17,12 +17,20 @@ export type CaseStudy = {
   stats: CaseStat[];
 };
 
+export const CAREER_START_YEAR = 2012;
+
+export function yearsOfExperience(date = new Date()): number {
+  return date.getUTCFullYear() - CAREER_START_YEAR;
+}
+
+export function getSubhead(date = new Date()): string {
+  return `${yearsOfExperience(date)}+ years building production web applications in TypeScript and React. I solve hard UI problems at scale and own features end-to-end, from data model through to pixel.`;
+}
+
 export const profile = {
   name: "Xan Torres",
   tagline: "Senior Frontend Engineer & Product",
   accentWord: "Architect",
-  subhead:
-    "14+ years building production web applications in TypeScript and React. I solve hard UI problems at scale and own features end-to-end, from data model through to pixel.",
   location: "Cyprus (EU) · Remote · CET/EET",
   availability: {
     short: "Available",

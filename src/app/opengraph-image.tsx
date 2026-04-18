@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { currentQuarter, profile } from "@/lib/data";
+import { currentQuarter, getSubhead, profile } from "@/lib/data";
 
 export const alt = `${profile.name} · Senior Frontend Engineer & Product Architect`;
 export const size = { width: 1200, height: 630 };
@@ -55,7 +55,7 @@ export default function OpengraphImage() {
               display: "flex",
             }}
           >
-            {profile.subhead}
+            {getSubhead()}
           </div>
         </div>
 

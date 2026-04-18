@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { profile } from "@/lib/data";
+import { getSubhead, profile } from "@/lib/data";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans", display: "swap" });
@@ -18,11 +18,11 @@ const title = `${profile.name} · Senior Frontend Engineer & Product Architect`;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
-  description: profile.subhead,
+  description: getSubhead(),
   authors: [{ name: profile.name, url: profile.links.linkedin }],
   openGraph: {
     title,
-    description: profile.subhead,
+    description: getSubhead(),
     url: siteUrl,
     type: "website",
     siteName: profile.name,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title,
-    description: profile.subhead,
+    description: getSubhead(),
   },
   alternates: { canonical: siteUrl },
 };

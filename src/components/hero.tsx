@@ -3,7 +3,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { AvailabilityPill } from "@/components/availability-pill";
-import { profile } from "@/lib/data";
+import { getSubhead, profile } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -18,7 +18,7 @@ export function Hero() {
       </h1>
 
       <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:mt-8 sm:text-lg md:text-xl">
-        <span className="font-medium text-foreground">{profile.name}.</span> {profile.subhead}
+        <span className="font-medium text-foreground">{profile.name}.</span> {getSubhead()}
       </p>
 
       <div className="mt-10 flex flex-col gap-6 sm:mt-14 sm:flex-row sm:items-center sm:justify-between">
