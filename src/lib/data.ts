@@ -387,9 +387,9 @@ export const skills: { group: string; items: string[] }[] = [
 ];
 
 export const navLinks = [
-  { href: "#strengths", label: "Strengths" },
-  { href: "#work", label: "Work" },
-  { href: "#approach", label: "Approach" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#strengths", label: "Strengths" },
+  { href: "/#work", label: "Work" },
+  { href: "/#approach", label: "Approach" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#contact", label: "Contact" },
 ];
