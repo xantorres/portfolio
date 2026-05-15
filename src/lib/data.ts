@@ -17,10 +17,16 @@ export type CaseStudy = {
   stats: CaseStat[];
 };
 
-export const CAREER_START_YEAR = 2012;
+// First professional role: Dec 9, 2010 (IGM / Hotusa Group)
+const CAREER_START = new Date("2010-12-09");
 
 export function yearsOfExperience(date = new Date()): number {
-  return date.getUTCFullYear() - CAREER_START_YEAR;
+  const years = date.getFullYear() - CAREER_START.getFullYear();
+  const hasHadAnniversary =
+    date.getMonth() > CAREER_START.getMonth() ||
+    (date.getMonth() === CAREER_START.getMonth() &&
+      date.getDate() >= CAREER_START.getDate());
+  return hasHadAnniversary ? years : years - 1;
 }
 
 export function getSubhead(date = new Date()): string {
