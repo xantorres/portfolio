@@ -51,7 +51,7 @@ export function ProofPlate({ caseStudy, compact = false, className }: Props) {
         "proof-plate relative overflow-hidden rounded-[var(--radius-md)] border border-border bg-card text-card-foreground",
         className,
       )}
-      aria-label={`${caseStudy.company} proof plate`}
+      aria-label={`Outcomes for ${caseStudy.company}`}
     >
       <div className="proof-plate__grid absolute inset-0 opacity-20 [background-image:linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [background-size:28px_28px]" />
       <div className="relative grid gap-5 p-4 sm:p-5">

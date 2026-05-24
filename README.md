@@ -1,6 +1,6 @@
 # portfolio
 
-Personal site for Xan Torres — senior frontend engineer, 14+ years on production TypeScript/React. Built as a working piece of the portfolio itself: the stack on display is the stack I use day-to-day.
+Personal site for Xan Torres — senior frontend engineer working in production TypeScript/React since 2010. Built as a working piece of the portfolio itself: the stack on display is the stack I use day-to-day.
 
 ## Stack
 
@@ -41,14 +41,15 @@ Opens on http://localhost:3000. Everything in `.env.example` is optional — the
 
 See [.env.example](.env.example). Summary:
 
-| var | purpose |
-|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata + sitemap |
-| `RESEND_API_KEY` | Enables real email delivery via Resend |
-| `RESEND_FROM_EMAIL` | Verified sender on your Resend account (default: `onboarding@resend.dev`) |
-| `CONTACT_TO_EMAIL` | Recipient — required when `RESEND_API_KEY` is set |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` · `TURNSTILE_SECRET_KEY` | Enables captcha |
-| `UPSTASH_REDIS_REST_URL` · `UPSTASH_REDIS_REST_TOKEN` | Enables per-IP rate limiting |
+| var | required | purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | recommended | Canonical URL for metadata + sitemap. Defaults to the Vercel preview URL. |
+| `CONTACT_TOKEN_SECRET` | recommended | HMAC secret for the contact form's per-visit fill-time token. Falls back to a non-secret default in dev. |
+| `RESEND_API_KEY` | optional | Enables real email delivery via Resend. Without it, submissions are logged server-side. |
+| `RESEND_FROM_EMAIL` | required *if `RESEND_API_KEY` is set* | Verified sender on your Resend account. |
+| `CONTACT_TO_EMAIL` | required *if `RESEND_API_KEY` is set* | Recipient inbox. |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` · `TURNSTILE_SECRET_KEY` | optional | Enables captcha. Both required together. |
+| `UPSTASH_REDIS_REST_URL` · `UPSTASH_REDIS_REST_TOKEN` | optional | Enables per-IP rate limiting. Both required together. |
 
 ## Scripts
 
@@ -67,7 +68,7 @@ npm run vizzly:tdd  Start local visual TDD review loop
 
 ## Design system
 
-The visual contract lives in [DESIGN.md](DESIGN.md). It defines the editorial direction, palette, typography, component rules, and anti-patterns. `CLAUDE.md` tells future agents to read that contract before UI work.
+The visual contract lives in [DESIGN.md](DESIGN.md). It defines the editorial direction, palette, typography, component rules, and anti-patterns.
 
 The implemented system is dark-first and uses:
 

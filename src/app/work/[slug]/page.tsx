@@ -11,6 +11,8 @@ import { cases } from "@/lib/data";
 type Params = { slug: string };
 
 export const dynamicParams = false;
+// Daily ISR keeps any data-driven copy (year counts, quarter labels) accurate.
+export const revalidate = 86_400;
 
 export function generateStaticParams(): Params[] {
   return cases.map((c) => ({ slug: c.slug }));
@@ -24,9 +26,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = cases.find((x) => x.slug === slug);
   if (!c) return {};
+  const path = `/work/${c.slug}`;
+  const title = `${c.company} · ${c.headline}`;
   return {
-    title: `${c.company} · ${c.headline}`,
+    title,
     description: c.summary,
+    alternates: { canonical: path },
+    openGraph: {
+      title,
+      description: c.summary,
+      url: path,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: c.summary,
+    },
   };
 }
 
@@ -42,7 +58,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
         <article className="container-editorial py-12 sm:py-16 lg:py-20">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-signal"
+            className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground underline-offset-4 transition-colors hover:text-signal hover:underline"
           >
             <ArrowLeft className="size-3.5" />
             Back to work
@@ -164,7 +180,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
             </Link>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-foreground hover:text-signal"
+              className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-foreground underline-offset-4 transition-colors hover:text-signal hover:underline"
             >
               Work together
               <ArrowUpRight className="size-3.5" />

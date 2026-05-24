@@ -2,6 +2,14 @@
 
 import { useEffect } from "react";
 
+function safeDecode(raw: string): string | null {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return null;
+  }
+}
+
 function samePageHash(anchor: HTMLAnchorElement): string | null {
   const href = anchor.getAttribute("href");
   if (!href || href === "#") return null;
@@ -15,11 +23,22 @@ function samePageHash(anchor: HTMLAnchorElement): string | null {
     return null;
   }
 
-  return decodeURIComponent(url.hash.slice(1));
+  return safeDecode(url.hash.slice(1));
+}
+
+function scrollToHash(hash: string, smooth: boolean) {
+  const target = document.getElementById(hash);
+  if (!target) return false;
+  target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+  return true;
 }
 
 export function HashScrollController() {
   useEffect(() => {
+    function prefersReduced(): boolean {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
     function handleClick(event: MouseEvent) {
       if (
         event.defaultPrevented ||
@@ -45,21 +64,27 @@ export function HashScrollController() {
       }
 
       const hash = samePageHash(anchor);
-      const target = hash ? document.getElementById(hash) : null;
-      if (!target) return;
+      if (!hash || !scrollToHash(hash, !prefersReduced())) return;
 
       event.preventDefault();
-
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      target.scrollIntoView({
-        behavior: reduceMotion ? "auto" : "smooth",
-        block: "start",
-      });
       history.pushState(null, "", `#${hash}`);
     }
 
+    function handlePopState() {
+      const raw = window.location.hash.slice(1);
+      if (!raw) return;
+      const hash = safeDecode(raw);
+      if (!hash) return;
+      // Browser-restored navigation should mirror the smooth-scroll behaviour of forward clicks.
+      scrollToHash(hash, !prefersReduced());
+    }
+
     document.addEventListener("click", handleClick, { capture: true });
-    return () => document.removeEventListener("click", handleClick, { capture: true });
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      document.removeEventListener("click", handleClick, { capture: true });
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, []);
 
   return null;

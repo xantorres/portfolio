@@ -23,15 +23,15 @@ export type CaseStudy = {
   stats: CaseStat[];
 };
 
-// First professional role: Dec 9, 2010 (IGM / Hotusa Group)
-const CAREER_START = new Date("2010-12-09");
+// First professional role: 2010-12-09 (IGM / Hotusa Group), stored as UTC.
+const CAREER_START = new Date("2010-12-09T00:00:00Z");
 
 export function yearsOfExperience(date = new Date()): number {
-  const years = date.getFullYear() - CAREER_START.getFullYear();
+  const years = date.getUTCFullYear() - CAREER_START.getUTCFullYear();
   const hasHadAnniversary =
-    date.getMonth() > CAREER_START.getMonth() ||
-    (date.getMonth() === CAREER_START.getMonth() &&
-      date.getDate() >= CAREER_START.getDate());
+    date.getUTCMonth() > CAREER_START.getUTCMonth() ||
+    (date.getUTCMonth() === CAREER_START.getUTCMonth() &&
+      date.getUTCDate() >= CAREER_START.getUTCDate());
   return hasHadAnniversary ? years : years - 1;
 }
 
@@ -96,13 +96,13 @@ export const cases: CaseStudy[] = [
       { value: "0", label: "release gaps during the migration" },
     ],
     highlights: [
-      "Migrated 229 frontend files from JavaScript on CRA to TypeScript on Vite in three months without blocking a release. `allowJs` let the team convert module by module, starting with forms and data hooks where types caught real bugs.",
+      "Migrated 229 frontend files from JavaScript on CRA to TypeScript on Vite in three months without blocking a release. The allowJs flag let the team convert module by module, starting with forms and data hooks where types caught real bugs.",
       "Replaced hand-rolled fetch hooks with RTK Query. Tag-based cache invalidation removed a long tail of stale-data bugs and loading states that disagreed with each other.",
-      "Made Zod schemas the shared contract for forms and API edges. The same schema drove validation, `useState` shape, and DTO typing through react-hook-form.",
+      "Made Zod schemas the shared contract for forms and API edges. The same schema drove validation, component state, and DTO typing through react-hook-form.",
       "Built autocomplete across server records, ArcGIS suggestions, and tenant-defined locations. Each source could fail without killing the typeahead.",
       "Shipped ArcGIS occupancy maps with drag-and-drop safety markers, persistent zoom and pan, and staged marker updates that stopped flicker during edits.",
       "Modeled 2FA as an explicit state machine: credentials submitted, awaiting code, hydrating session, recovery code, and refresh mid-flow all had named transitions.",
-      "Moved tenant config from `.env` to a server-driven settings endpoint for theme tokens, default map coordinates, and admin UI shape. New municipalities no longer required a redeploy.",
+      "Moved tenant config from build-time .env to a server-driven settings endpoint for theme tokens, default map coordinates, and admin UI shape. New municipalities no longer required a redeploy.",
       "Added guided inspection text with backoff, deterministic fallback, and human review before save. Drafted language stayed editable and never blocked the inspection flow.",
       "Built the checklist-template admin: drag-and-drop sections and items, fee-type fields, and cascading deletes for the authoring surface the product depends on.",
       "Built the contractor portal as its own routing tree with role-scoped permit lists, activities, invoices, and document uploads.",
@@ -221,7 +221,7 @@ export const cases: CaseStudy[] = [
     ],
     highlights: [
       "Built a multi-promo announcement bar across tokens, component library code, and the shared navigation package. The release chain shipped without breaking consumers.",
-      "Added `fetchPriority=\"high\"` to hero images for a measurable LCP improvement on high-traffic landing pages. Small diff, real Core Web Vitals impact.",
+      "Set fetchPriority=\"high\" on hero images for a measurable LCP improvement on high-traffic landing pages. Small diff, real Core Web Vitals impact.",
       "Worked through the Pardot-to-Eloqua form migration across hundreds of forms: field mapping, post-submit rich text, and defensive handling for incomplete CMS payloads.",
       "Revamped card grids with variant sizing, hover treatments, inverse-theme fixes, and graceful deprecation of legacy props.",
       "Introduced a scoped override pattern for style-precedence bugs in the Tailwind + theme-ui stack, then documented it as a team practice.",

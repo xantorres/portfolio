@@ -3,24 +3,28 @@
 import { headers } from "next/headers";
 import { Resend } from "resend";
 import { z } from "zod";
+import { mintFormToken, verifyFormToken } from "@/lib/form-token";
 import { rateLimit } from "@/lib/rate-limit";
 
 const MIN_FILL_MS = 2_000;
+// Tokens minted more than this many ms ago are stale and rejected.
+const MAX_TOKEN_AGE_MS = 24 * 60 * 60 * 1_000;
 
 // Disallow header-injection characters in fields that feed into the email subject/body envelope.
+// Trim first so leading/trailing whitespace doesn't trip the no-newline regex.
 const noControlChars = z
   .string()
-  .regex(/^[^\r\n]*$/, "Invalid characters")
-  .trim();
+  .trim()
+  .regex(/^[^\r\n]*$/, "Invalid characters");
 
 const ContactSchema = z.object({
   name: noControlChars.min(1, "Name is required").max(120),
   email: z.email("Enter a valid email"),
   company: noControlChars.max(200).optional().or(z.literal("")),
-  message: z.string().min(10, "At least 10 characters").max(5000),
+  message: z.string().trim().min(10, "At least 10 characters").max(5_000),
   // Spam controls.
   website: z.string().max(0).optional().or(z.literal("")), // honeypot
-  startedAt: z.number().int().positive(),
+  formToken: z.string().min(1, "Missing form token"),
   turnstileToken: z.string().optional(),
 });
 
@@ -55,6 +59,13 @@ async function verifyTurnstile(token: string | undefined): Promise<boolean> {
   }
 }
 
+// Public helper the client form calls on mount to obtain a fresh, server-signed token.
+// Each visit gets its own token whose `issuedAt` is the only thing the server trusts
+// when computing the fill-time gate.
+export async function requestFormToken(): Promise<string> {
+  return mintFormToken();
+}
+
 export async function sendContact(input: ContactInput): Promise<ContactResult> {
   const parsed = ContactSchema.safeParse(input);
   if (!parsed.success) {
@@ -65,7 +76,7 @@ export async function sendContact(input: ContactInput): Promise<ContactResult> {
     };
   }
 
-  const { name, email, company, message, website, startedAt, turnstileToken } = parsed.data;
+  const { name, email, company, message, website, formToken, turnstileToken } = parsed.data;
 
   // Honeypot: silently succeed. Never tell the bot why it failed.
   if (website && website.length > 0) {
@@ -73,10 +84,22 @@ export async function sendContact(input: ContactInput): Promise<ContactResult> {
     return { ok: true };
   }
 
-  // Time check: humans take >2s to fill a form.
-  if (Date.now() - startedAt < MIN_FILL_MS) {
+  // Verify the server-signed time anchor. Forged tokens fail HMAC and look like a bot.
+  const verified = verifyFormToken(formToken);
+  if (!verified) {
+    console.warn("[contact] invalid form token");
+    return { ok: true };
+  }
+
+  const age = Date.now() - verified.issuedAt;
+  // Sub-threshold fill time: humans take longer than MIN_FILL_MS from token mint to submit.
+  if (age < MIN_FILL_MS) {
     console.warn("[contact] sub-threshold fill time");
     return { ok: true };
+  }
+  // Stale token: page sat open too long. Refuse rather than accept; the client can re-mint.
+  if (age > MAX_TOKEN_AGE_MS) {
+    return { ok: false, error: "Form expired. Please reload and try again." };
   }
 
   const captchaOk = await verifyTurnstile(turnstileToken);
@@ -107,12 +130,13 @@ export async function sendContact(input: ContactInput): Promise<ContactResult> {
   }
 
   const to = process.env.CONTACT_TO_EMAIL;
-  if (!to) {
-    console.error("[contact] CONTACT_TO_EMAIL is required when RESEND_API_KEY is set");
+  const from = process.env.RESEND_FROM_EMAIL;
+  if (!to || !from) {
+    console.error(
+      "[contact] RESEND_API_KEY set but CONTACT_TO_EMAIL or RESEND_FROM_EMAIL missing; refusing to send from a default sender.",
+    );
     return { ok: false, error: "Contact not configured. Please email directly." };
   }
-
-  const from = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
 
   try {
     const resend = new Resend(apiKey);

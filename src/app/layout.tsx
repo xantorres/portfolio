@@ -32,27 +32,26 @@ const splineMono = Spline_Sans_Mono({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
-const title = `${profile.name} · Senior Frontend Engineer & Product Architect`;
+const titleTemplate = `${profile.name} · ${profile.tagline} ${profile.accentWord}`;
 
+// Canonical and openGraph.url are set per-page so each route advertises its own URL.
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title,
+  title: { default: titleTemplate, template: `%s · ${profile.name}` },
   description: getSubhead(),
   authors: [{ name: profile.name, url: profile.links.linkedin }],
   openGraph: {
-    title,
+    title: titleTemplate,
     description: getSubhead(),
-    url: siteUrl,
     type: "website",
     siteName: profile.name,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: titleTemplate,
     description: getSubhead(),
   },
-  alternates: { canonical: siteUrl },
 };
 
 export const viewport: Viewport = {
@@ -75,10 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <HashScrollController />
           {children}
-          <Toaster position="bottom-right" />
+          <Toaster position="top-right" />
           <Analytics />
         </ThemeProvider>
       </body>

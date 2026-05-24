@@ -11,13 +11,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Turnstile } from "@/components/turnstile";
-import { sendContact } from "@/lib/contact-action";
+import { requestFormToken, sendContact } from "@/lib/contact-action";
 
 const FormSchema = z.object({
   name: z.string().min(1, "Name is required").max(120),
   email: z.email("Enter a valid email"),
   company: z.string().max(200).optional().or(z.literal("")),
-  message: z.string().min(10, "At least 10 characters").max(5000),
+  message: z.string().min(10, "At least 10 characters").max(5_000),
 });
 
 type FormValues = z.infer<typeof FormSchema>;
@@ -28,13 +28,19 @@ export function ContactForm() {
   const [isPending, startTransition] = useTransition();
   const [honeypot, setHoneypot] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-  // Stamped on client mount so static prerender doesn't bake in a build-time timestamp.
-  // This is exactly the "sync with external system" case the rule docs describe: the
-  // external system here is wall-clock time at the point the user actually loaded the form.
-  const [startedAt, setStartedAt] = useState(0);
+  // Server-signed time anchor used by the fill-time gate. Prefetched on mount so
+  // a typical submit pays no extra round-trip; falls back to a fresh fetch if the
+  // user submits before prefetch completes.
+  const [formToken, setFormToken] = useState<string | null>(null);
+
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- deliberate one-time client stamp
-    setStartedAt(Date.now());
+    let cancelled = false;
+    requestFormToken().then((token) => {
+      if (!cancelled) setFormToken(token);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const {
@@ -55,10 +61,11 @@ export function ContactForm() {
       return;
     }
     startTransition(async () => {
+      const token = formToken ?? (await requestFormToken());
       const res = await sendContact({
         ...values,
         website: honeypot,
-        startedAt,
+        formToken: token,
         turnstileToken: turnstileToken ?? undefined,
       });
       if (res.ok) {
@@ -66,7 +73,10 @@ export function ContactForm() {
         reset();
         setHoneypot("");
         setTurnstileToken(null);
-        setStartedAt(Date.now());
+        // Burn the consumed token; the next mount-effect prefetch already fired off
+        // the replacement promise on the previous render.
+        setFormToken(null);
+        requestFormToken().then(setFormToken);
       } else {
         toast.error(res.error ?? "Something went wrong");
       }
@@ -75,12 +85,13 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
-      {/* Honeypot: hidden from users, visible to naive bots. */}
+      {/* Honeypot: hidden from users, named so naive form-fill bots take the bait. */}
       <div aria-hidden="true" className="absolute left-[-9999px] top-[-9999px] h-0 w-0 overflow-hidden">
         <label>
           Website
           <input
-            type="text"
+            type="url"
+            name="website"
             tabIndex={-1}
             autoComplete="off"
             value={honeypot}
@@ -162,7 +173,12 @@ export function ContactForm() {
         <p className="meta-label">
           Typically replies within 48h · EU/EMEA time zones
         </p>
-        <Button type="submit" disabled={isPending} size="lg">
+        <Button
+          type="submit"
+          disabled={isPending}
+          aria-busy={isPending}
+          size="lg"
+        >
           {isPending ? (
             <>
               <Loader2 className="size-4 animate-spin" />

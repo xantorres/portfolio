@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint src tests",
     "typecheck": "tsc --noEmit",
     "design:lint": "design.md lint DESIGN.md",
     "design:diff": "design.md diff",
@@ -18,6 +18,7 @@
     "vizzly:run": "vizzly run \"npm run test:visual\" --wait"
   },
   "dependencies": {
+    "@fontsource/geologica": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
