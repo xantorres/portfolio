@@ -4,12 +4,12 @@ import { skills } from "@/lib/data";
 
 export function Skills() {
   return (
-    <section id="skills" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+    <section id="skills" className="section-band">
+      <div className="container-editorial section-pad">
         <SectionHeader
           index="04"
           eyebrow="Stack"
-          title="Tools in daily use."
+          title="Tools I use."
           aside={
             <>
               Strict TS
@@ -19,22 +19,18 @@ export function Skills() {
           }
         />
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((g) => (
-            <div key={g.group} className="flex flex-col gap-4">
-              <h3 className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                {g.group}
-              </h3>
-              <ul className="flex flex-wrap gap-1.5">
+            <section key={g.group} className="bg-card p-5">
+              <h3 className="meta-label text-signal">{g.group}</h3>
+              <ul className="mt-5 flex flex-wrap gap-1.5">
                 {g.items.map((item) => (
                   <li key={item}>
-                    <Badge variant="secondary" className="font-mono text-[10px] uppercase tracking-wider">
-                      {item}
-                    </Badge>
+                    <Badge variant="secondary">{item}</Badge>
                   </li>
                 ))}
               </ul>
-            </div>
+            </section>
           ))}
         </div>
       </div>

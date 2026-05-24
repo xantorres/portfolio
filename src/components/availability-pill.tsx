@@ -17,13 +17,13 @@ export function AvailabilityPill({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground",
+        "inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-border bg-card px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-muted-foreground",
         className,
       )}
       title={`${profile.availability.long}${quarter ? ` · ${quarter}` : ""}`}
     >
       <span
-        className="relative inline-block size-1.5 rounded-full bg-blue-500 pulse-ring"
+        className="pulse-ring relative inline-block size-1.5 rounded-full bg-signal"
         aria-hidden
       />
       {profile.availability.short}

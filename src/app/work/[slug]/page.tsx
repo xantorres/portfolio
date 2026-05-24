@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { Nav } from "@/components/nav";
+import { ProofPlate } from "@/components/proof-plate";
 import { SiteFooter } from "@/components/footer";
 import { cases } from "@/lib/data";
 
@@ -38,121 +38,139 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
   return (
     <>
       <Nav />
-      <main className="mx-auto max-w-4xl px-4 pb-24 pt-12 sm:px-6 sm:pb-32 sm:pt-16 lg:px-8">
-        <Link
-          href="/#work"
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="size-3.5" />
-          Back to work
-        </Link>
-
-        <header className="mt-10 flex flex-col gap-6">
-          <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-            <span className="text-foreground">{c.company}</span>
-            <span aria-hidden>·</span>
-            <span>{c.sector}</span>
-            <span aria-hidden>·</span>
-            <span>{c.period}</span>
-          </div>
-
-          <h1 className="max-w-[24ch] text-balance text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-            {c.headline}
-          </h1>
-
-          <p className="max-w-prose text-base text-muted-foreground sm:text-lg">{c.summary}</p>
-
-          <div className="flex flex-wrap gap-1.5">
-            {c.tags.map((t) => (
-              <Badge key={t} variant="secondary" className="font-mono text-[10px] uppercase tracking-wider">
-                {t}
-              </Badge>
-            ))}
-          </div>
-        </header>
-
-        <Separator className="my-12" />
-
-        <section className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <h2 className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              Role
-            </h2>
-            <p className="mt-2 text-sm">{c.role}</p>
-            <h2 className="mt-6 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              Scope
-            </h2>
-            <p className="mt-2 text-sm">{c.scope}</p>
-          </div>
-
-          <div className="md:col-span-8">
-            <h2 className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              Highlights
-            </h2>
-            <ul className="mt-4 flex flex-col gap-3">
-              {c.highlights.map((h) => (
-                <li key={h} className="flex gap-3 text-sm sm:text-base">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-blue-500" aria-hidden />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <Separator className="my-12" />
-
-        <section className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <h2 className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              Outcomes
-            </h2>
-          </div>
-          <ul className="flex flex-col gap-4 md:col-span-8">
-            {c.outcomes.map((o) => (
-              <li key={o} className="border-l-2 border-blue-500 pl-4 text-base sm:text-lg">
-                {o}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <Separator className="my-12" />
-
-        <section className="grid grid-cols-1 gap-6 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <h2 className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              Stack
-            </h2>
-          </div>
-          <div className="md:col-span-8">
-            <ul className="flex flex-wrap gap-1.5">
-              {c.stack.map((s) => (
-                <li key={s}>
-                  <Badge variant="outline" className="font-mono text-[10px] uppercase tracking-wider">
-                    {s}
-                  </Badge>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <div className="mt-16 flex items-center justify-between border-t border-border pt-8">
+      <main id="main-content">
+        <article className="container-editorial py-12 sm:py-16 lg:py-20">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-signal"
           >
             <ArrowLeft className="size-3.5" />
-            All work
+            Back to work
           </Link>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-foreground hover:text-blue-500"
-          >
-            Start a project →
-          </Link>
-        </div>
+
+          <header className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-8">
+              <div className="flex flex-wrap items-center gap-3 text-muted-foreground">
+                <span className="meta-label text-foreground">{c.company}</span>
+                <span className="meta-label">{c.sector}</span>
+                <span className="meta-label">{c.period}</span>
+              </div>
+
+              <h1 className="headline-type mt-6 max-w-[20ch] text-balance">
+                {c.headline}
+              </h1>
+
+              <p className="mt-8 body-measure text-base text-muted-foreground sm:text-lg">
+                {c.summary}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-1.5">
+                {c.tags.map((t) => (
+                  <Badge key={t} variant="secondary">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 lg:pt-20">
+              <ProofPlate caseStudy={c} />
+            </div>
+          </header>
+
+          <div className="mt-16 grid grid-cols-1 gap-10 border-t border-border pt-10 lg:grid-cols-12">
+            <aside className="lg:col-span-4">
+              <div className="grid gap-8 lg:sticky lg:top-24">
+                <div>
+                  <h2 className="meta-label text-signal">Role</h2>
+                  <p className="mt-2 text-sm">{c.role}</p>
+                </div>
+                <div>
+                  <h2 className="meta-label text-signal">Scope</h2>
+                  <p className="mt-2 text-sm">{c.scope}</p>
+                </div>
+                <div>
+                  <h2 className="meta-label text-signal">Problem</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.problem}</p>
+                </div>
+              </div>
+            </aside>
+
+            <div className="grid gap-14 lg:col-span-8">
+              <section>
+                <h2 className="meta-label text-signal">What changed</h2>
+                <p className="mt-4 max-w-[62ch] font-display text-xl font-medium leading-snug tracking-normal sm:text-2xl">
+                  {c.systemMove}
+                </p>
+              </section>
+
+              <section>
+                <h2 className="meta-label text-signal">Measured outcomes</h2>
+                <dl className="mt-5 grid gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-3">
+                  {c.featuredMetrics.map((metric) => (
+                    <div key={metric.label} className="bg-card p-5">
+                      <dt className="meta-label">{metric.label}</dt>
+                      <dd className="mt-4 font-display text-3xl font-medium leading-none tracking-normal text-signal">
+                        {metric.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+
+              <section>
+                <h2 className="meta-label text-signal">Highlights</h2>
+                <ul className="mt-5 grid gap-4">
+                  {c.highlights.map((h) => (
+                    <li key={h} className="grid grid-cols-[1.25rem_1fr] gap-4 text-sm leading-relaxed sm:text-base">
+                      <span className="mt-2 h-px bg-signal" aria-hidden />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="meta-label text-signal">Outcomes</h2>
+                <ul className="mt-5 grid gap-4">
+                  {c.outcomes.map((o) => (
+                    <li key={o} className="border-l-2 border-signal pl-4 text-base leading-relaxed sm:text-lg">
+                      {o}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="meta-label text-signal">Stack</h2>
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {c.stack.map((s) => (
+                    <li key={s}>
+                      <Badge variant="outline">{s}</Badge>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </div>
+
+          <div className="mt-16 flex items-center justify-between border-t border-border pt-8">
+            <Link
+              href="/#work"
+              className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground hover:text-signal"
+            >
+              <ArrowLeft className="size-3.5" />
+              All work
+            </Link>
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-foreground hover:text-signal"
+            >
+              Work together
+              <ArrowUpRight className="size-3.5" />
+            </Link>
+          </div>
+        </article>
       </main>
       <SiteFooter />
     </>

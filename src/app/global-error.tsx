@@ -25,25 +25,25 @@ export default function GlobalError({
           justifyContent: "center",
           gap: "1rem",
           padding: "2rem",
-          fontFamily: "system-ui, sans-serif",
-          background: "#0a0a0b",
-          color: "#edeae4",
+          fontFamily: "'Spline Sans', sans-serif",
+          background: "#070B0F",
+          color: "#EEE7DB",
         }}
       >
-        <p style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.6 }}>
+        <p style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.72 }}>
           Unrecoverable error
         </p>
-        <h1 style={{ fontSize: 40, fontWeight: 900, margin: 0 }}>Something went sideways.</h1>
+        <h1 style={{ fontSize: 44, fontWeight: 700, lineHeight: 1, margin: 0 }}>Something went sideways.</h1>
         <button
           type="button"
           onClick={reset}
           style={{
             marginTop: 8,
             padding: "0.5rem 1rem",
-            borderRadius: 6,
-            border: "1px solid #333",
-            background: "#edeae4",
-            color: "#0a0a0b",
+            borderRadius: 4,
+            border: "1px solid #293139",
+            background: "#EEE7DB",
+            color: "#070B0F",
             cursor: "pointer",
           }}
         >

@@ -3,21 +3,24 @@ import { approach } from "@/lib/data";
 
 export function Approach() {
   return (
-    <section id="approach" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-        <SectionHeader index="03" eyebrow="Approach" title="Approach." />
+    <section id="approach" className="section-band">
+      <div className="container-editorial section-pad">
+        <SectionHeader index="03" eyebrow="How I work" title="How I work." />
 
-        <ol className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 md:gap-y-14">
+        <ol className="grid grid-cols-1 gap-8 md:grid-cols-12">
           {approach.map((s, i) => (
-            <li key={s.title} className="grid grid-cols-[auto_1fr] gap-5">
-              <span className="pt-2 font-mono text-xs text-muted-foreground">
+            <li
+              key={s.title}
+              className="grid gap-5 border-t border-border pt-6 md:col-span-6 lg:col-span-3"
+            >
+              <span className="meta-label text-signal">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="flex flex-col gap-3">
-                <h3 className="max-w-[22ch] text-xl font-bold leading-tight tracking-tight sm:text-2xl">
+              <div className="grid gap-4">
+                <h3 className="max-w-[18ch] font-display text-xl font-medium leading-tight tracking-normal sm:text-2xl">
                   {s.title}
                 </h3>
-                <p className="max-w-prose text-sm text-muted-foreground sm:text-base">{s.body}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{s.body}</p>
               </div>
             </li>
           ))}

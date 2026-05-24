@@ -1,16 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import {
+  Geologica,
+  Spline_Sans,
+  Spline_Sans_Mono,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { HashScrollController } from "@/components/hash-scroll-controller";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { getSubhead, profile } from "@/lib/data";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans", display: "swap" });
-const jetbrains = JetBrains_Mono({
+const geologica = Geologica({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-geologica",
   display: "swap",
+  weight: "variable",
+  axes: ["SHRP"],
+});
+const splineSans = Spline_Sans({
+  subsets: ["latin"],
+  variable: "--font-spline-sans",
+  display: "swap",
+  weight: "variable",
+});
+const splineMono = Spline_Sans_Mono({
+  subsets: ["latin"],
+  variable: "--font-spline-mono",
+  display: "swap",
+  weight: "variable",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
@@ -41,19 +59,24 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+    { media: "(prefers-color-scheme: light)", color: "#F9F5EC" },
+    { media: "(prefers-color-scheme: dark)", color: "#070B0F" },
   ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geologica.variable} ${splineSans.variable} ${splineMono.variable}`}
+    >
       <body className="font-sans antialiased">
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <HashScrollController />
           {children}
           <Toaster position="bottom-right" />
           <Analytics />

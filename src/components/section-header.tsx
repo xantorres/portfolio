@@ -17,20 +17,20 @@ export function SectionHeader({ index, eyebrow, title, aside, className }: Props
       )}
     >
       <div className="flex flex-col gap-2 md:col-span-3">
-        <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+        <span className="meta-label">
           [ {index} ]
         </span>
-        <span className="font-mono text-[11px] uppercase tracking-wider text-foreground/80">
+        <span className="meta-label text-foreground">
           {eyebrow}
         </span>
       </div>
 
-      <h2 className="max-w-[16ch] font-sans text-4xl font-extrabold leading-none tracking-tight sm:text-5xl md:col-span-7 lg:text-6xl xl:text-7xl">
+      <h2 className="max-w-[18ch] text-balance font-display text-3xl font-medium leading-[1.05] tracking-normal sm:text-4xl md:col-span-7 lg:text-5xl">
         {title}
       </h2>
 
       {aside && (
-        <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground md:col-span-2 md:self-end md:text-right">
+        <div className="meta-label md:col-span-2 md:self-end md:text-right">
           {aside}
         </div>
       )}

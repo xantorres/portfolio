@@ -7,12 +7,13 @@ Personal site for Xan Torres — senior frontend engineer, 14+ years on producti
 - **Next.js 16** (App Router, Turbopack)
 - **React 19** — ref-as-prop throughout, `useTransition` for mutations
 - **TypeScript** (strict)
-- **Tailwind CSS v4** with OKLCH tokens and CSS-variable theme bridge
+- **Tailwind CSS v4** with OKLCH editorial tokens and CSS-variable theme bridge
 - **shadcn/ui** primitives (new-york, zinc)
 - **react-hook-form + Zod 4** form validation
 - **Server Actions** for the contact endpoint
 - **next-themes** dark/light toggle
-- **sonner** toasts · **lucide-react** icons
+- **Playwright + axe** for visual, overflow, and accessibility gates
+- **Google DESIGN.md + Vizzly** for design-system linting and optional visual TDD review
 
 ## Contact form — layered anti-spam
 
@@ -57,7 +58,24 @@ npm run build       Production build
 npm run start       Serve the production build
 npm run lint        next lint (eslint-config-next flat config)
 npm run typecheck   tsc --noEmit
+npm run design:lint Validate DESIGN.md
+npm run test:design Static anti-pattern checks
+npm run test:visual Playwright visual + overflow checks
+npm run test:a11y   Playwright axe checks
+npm run vizzly:tdd  Start local visual TDD review loop
 ```
+
+## Design system
+
+The visual contract lives in [DESIGN.md](DESIGN.md). It defines the editorial direction, palette, typography, component rules, and anti-patterns. `CLAUDE.md` tells future agents to read that contract before UI work.
+
+The implemented system is dark-first and uses:
+
+- `Geologica` for display type
+- `Spline Sans` for body/UI
+- `Spline Sans Mono` for metadata
+- OKLCH CSS variables in `src/app/globals.css`, with muted trust-blue as the primary signal
+- evidence plates generated from real case-study data
 
 ## Structure
 
@@ -81,6 +99,7 @@ src/
     turnstile            Script loader with failure recovery
     theme-provider · theme-toggle
     section-header · icons
+    proof-plate           Abstract evidence plates generated from case data
   lib/
     data.ts               Single source of profile + case studies + skills
     contact-action.ts     Server Action

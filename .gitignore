@@ -22,5 +22,13 @@ next-env.d.ts
 .env.test
 .env*.local
 
+# local agent memory
+CLAUDE.md
+
 # vercel
 .vercel
+
+# visual test artifacts
+.vizzly/
+playwright-report/
+test-results/

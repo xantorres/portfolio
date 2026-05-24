@@ -12,21 +12,32 @@ export default function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#0a0a0b",
-          color: "#edeae4",
+          position: "relative",
+          background: "#070B0F",
+          color: "#EEE7DB",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          fontFamily: "system-ui, sans-serif",
+          fontFamily: "sans-serif",
         }}
       >
         <div
           style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(#293139 1px, transparent 1px), linear-gradient(90deg, #293139 1px, transparent 1px)",
+            backgroundSize: "96px 96px",
+            opacity: 0.22,
+          }}
+        />
+        <div
+          style={{
             fontSize: 18,
-            letterSpacing: "0.12em",
+            letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: "#6b6860",
+            color: "#61AFDA",
             display: "flex",
           }}
         >
@@ -36,21 +47,21 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontSize: 112,
-              fontWeight: 900,
+            fontSize: 112,
+              fontWeight: 700,
               lineHeight: 0.95,
-              letterSpacing: "-0.04em",
+              letterSpacing: "0",
               maxWidth: 1050,
               display: "flex",
               flexWrap: "wrap",
             }}
           >
-            {profile.tagline}&nbsp;<span style={{ color: "#8fa8ff" }}>{profile.accentWord}</span>.
+            Senior Frontend Engineer &amp;&nbsp;<span style={{ color: "#61AFDA" }}>Product Architect</span>.
           </div>
           <div
             style={{
               fontSize: 26,
-              color: "#b8b5ae",
+              color: "#939CA6",
               maxWidth: 960,
               display: "flex",
             }}
@@ -62,9 +73,9 @@ export default function OpengraphImage() {
         <div
           style={{
             fontSize: 18,
-            letterSpacing: "0.12em",
+            letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: "#6b6860",
+            color: "#939CA6",
             display: "flex",
             justifyContent: "space-between",
           }}

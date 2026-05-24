@@ -13,13 +13,13 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-border bg-background">
+      <div className="container-editorial flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 font-mono text-xs font-medium tracking-wide"
+          className="flex items-center gap-2 font-mono text-xs font-semibold tracking-[0.08em]"
         >
-          <span className="inline-block size-1.5 rounded-full bg-foreground" aria-hidden />
+          <span className="inline-block h-5 w-px bg-signal" aria-hidden />
           {profile.name.toUpperCase()}
         </Link>
 
@@ -28,7 +28,7 @@ export function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+              className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-signal"
             >
               {l.label}
             </Link>
@@ -57,7 +57,7 @@ export function Nav() {
         aria-hidden={!open}
         inert={!open}
         className={cn(
-          "md:hidden overflow-hidden border-t border-border/60 transition-[max-height] duration-300",
+          "overflow-hidden border-t border-border transition-[max-height] duration-300 md:hidden",
           open ? "max-h-64" : "max-h-0",
         )}
       >
@@ -67,7 +67,7 @@ export function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground"
+              className="px-4 py-3 font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground hover:text-signal"
             >
               {l.label}
             </Link>

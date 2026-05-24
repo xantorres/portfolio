@@ -1,60 +1,73 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { ProofPlate } from "@/components/proof-plate";
 import { SectionHeader } from "@/components/section-header";
-import { cases } from "@/lib/data";
+import { cases, type CaseStudy } from "@/lib/data";
+
+type WorkCardStyle = CSSProperties & {
+  "--work-accent": string;
+  "--work-accent-foreground": string;
+};
+
+function workCardStyle(proofTheme: CaseStudy["proofTheme"]): WorkCardStyle {
+  return {
+    "--work-accent": `var(--${proofTheme})`,
+    "--work-accent-foreground": `var(--${proofTheme}-foreground)`,
+  };
+}
 
 export function SelectedWork() {
   return (
-    <section id="work" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+    <section id="work" className="section-band">
+      <div className="container-editorial section-pad">
         <SectionHeader
           index="02"
-          eyebrow="Case studies"
-          title="Selected work."
-          aside="2023 – 2026"
+          eyebrow="Selected work"
+          title="Recent work."
+          aside="2023 / 2026"
         />
 
-        <ul className="flex flex-col">
-          {cases.map((c) => (
+        <ul className="grid gap-6">
+          {cases.map((c, index) => (
             <li key={c.slug}>
               <Link
                 href={`/work/${c.slug}`}
-                className="group grid grid-cols-1 items-start gap-6 border-t border-border py-10 transition-colors hover:bg-muted/30 md:grid-cols-12 md:gap-6 md:py-12"
+                style={workCardStyle(c.proofTheme)}
+                className="work-card group grid grid-cols-1 gap-6 overflow-hidden rounded-[var(--radius-md)] border-t border-border px-3 py-8 md:grid-cols-12 md:items-stretch md:px-5 md:py-10 md:pl-16"
               >
-                <div className="flex flex-col gap-2 md:col-span-3">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                    {c.period.match(/\d{4}/)?.[0] ?? ""}
-                  </span>
-                  <span className="font-mono text-sm uppercase tracking-wide text-foreground">
-                    {c.company}
-                  </span>
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                    {c.sector}
+                <span className="work-card__ruler work-card__ruler--top" aria-hidden />
+                <span className="work-card__ruler work-card__ruler--bottom" aria-hidden />
+                <span className="work-card__index-rail" aria-hidden>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                </span>
+
+                <div className="work-card__meta flex flex-col justify-between gap-6 md:col-span-3">
+                  <div className="grid gap-2">
+                    <span className="work-card__case-chip meta-label">
+                      Case {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-mono text-sm font-semibold uppercase tracking-[0.08em] text-foreground">
+                      {c.company}
+                    </span>
+                    <span className="meta-label">{c.period}</span>
+                  </div>
+                  <span className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground transition-colors group-hover:text-signal">
+                    Read case
+                    <ArrowUpRight className="work-card__arrow size-3.5" />
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-5 md:col-span-5">
-                  <h3 className="max-w-[22ch] text-balance text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
+                <div className="md:col-span-5">
+                  <h3 className="work-card__title max-w-[22ch] text-balance font-display text-2xl font-medium leading-[1.05] tracking-normal sm:text-3xl">
                     {c.title}
                   </h3>
-                  <span className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors group-hover:text-foreground">
-                    Read case
-                    <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </span>
+                  <p className="work-card__problem mt-5 body-measure text-sm text-muted-foreground sm:text-base">
+                    {c.problem}
+                  </p>
                 </div>
 
-                <dl className="grid grid-cols-1 gap-6 md:col-span-4 sm:grid-cols-2">
-                  {c.stats.map((s) => (
-                    <div key={s.label} className="flex flex-col gap-2">
-                      <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                        {s.label}
-                      </dt>
-                      <dd className="font-sans text-xl font-black leading-tight tracking-tight text-balance sm:text-2xl lg:text-3xl">
-                        {s.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
+                <ProofPlate caseStudy={c} compact className="md:col-span-4" />
               </Link>
             </li>
           ))}

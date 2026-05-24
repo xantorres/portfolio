@@ -159,7 +159,7 @@ export function ContactForm() {
       )}
 
       <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+        <p className="meta-label">
           Typically replies within 48h · EU/EMEA time zones
         </p>
         <Button type="submit" disabled={isPending} size="lg">

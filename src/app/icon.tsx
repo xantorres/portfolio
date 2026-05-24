@@ -8,17 +8,17 @@ export default function Icon() {
     (
       <div
         style={{
-          background: "#0a0a0b",
-          color: "#edeae4",
+          background: "#070B0F",
+          color: "#61AFDA",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           fontSize: 18,
-          fontWeight: 900,
-          letterSpacing: "-0.08em",
-          fontFamily: "system-ui, sans-serif",
+          fontWeight: 700,
+          letterSpacing: "0",
+          fontFamily: "sans-serif",
         }}
       >
         XT

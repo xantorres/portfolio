@@ -18,12 +18,14 @@ export default function Error({
   return (
     <main
       id="main-content"
-      className="mx-auto flex min-h-[70vh] max-w-2xl flex-col items-start justify-center gap-4 px-4 sm:px-6 lg:px-8"
+      className="container-editorial flex min-h-[70vh] max-w-3xl flex-col items-start justify-center gap-4"
     >
-      <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+      <p className="meta-label text-signal">
         Unexpected error
       </p>
-      <h1 className="text-4xl font-black tracking-tight sm:text-5xl">Something went sideways.</h1>
+      <h1 className="font-display text-3xl font-medium leading-tight tracking-normal sm:text-4xl">
+        Something went sideways.
+      </h1>
       <p className="max-w-prose text-muted-foreground">
         Sorry, that wasn&apos;t supposed to happen. Try again, or head home.
       </p>

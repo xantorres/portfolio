@@ -7,7 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "design:lint": "design.md lint DESIGN.md",
+    "design:diff": "design.md diff",
+    "design:export": "design.md export DESIGN.md --format tailwind",
+    "test:design": "node --test tests/design/*.test.mjs",
+    "test:visual": "playwright test tests/visual",
+    "test:a11y": "playwright test tests/a11y",
+    "vizzly:tdd": "vizzly tdd start --open",
+    "vizzly:run": "vizzly run \"npm run test:visual\" --wait"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -33,11 +41,15 @@
     "postcss": ">=8.5.10"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@eslint/eslintrc": "^3.3.5",
+    "@google/design.md": "^0.1.1",
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vizzly-testing/cli": "^0.32.0",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.6",
     "tailwindcss": "^4.2.2",
