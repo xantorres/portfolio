@@ -282,7 +282,7 @@ export const cases: CaseStudy[] = [
       "Shipped a Next.js router wrapper with explicit history, scroll restoration on back navigation, and section-anchor handling.",
       "Made Storybook the main place to test complex states: 34 stories covering auth, games, leagues, teams, Firebase, and card variants.",
       "Compiled 800+ Portuguese translation keys into TypeScript with zero fallback strings. Each feature shipped with pt-BR coverage checked before merge.",
-      "Built real-time leaderboards over Socket.io with explicit join, leave, and update subscription lifecycles.",
+      "Built real-time leaderboards on Firebase listeners with explicit subscription, teardown, and update lifecycles.",
       "Extracted shared page-header and carousel primitives to replace duplicated variants across the product.",
     ],
     outcomes: [
@@ -299,7 +299,6 @@ export const cases: CaseStudy[] = [
       "Radix UI",
       "Firebase",
       "Sendbird",
-      "Socket.io",
       "react-intl",
       "Tailwind",
       "Sentry",
