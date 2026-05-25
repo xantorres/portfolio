@@ -75,8 +75,8 @@ export const cases: CaseStudy[] = [
     scope: "20 months · 2-person team",
     title: "Live govtech migration, no release gaps.",
     stats: [
-      { value: "229 → 0", label: "JS files migrated to TS without blocking a release" },
-      { value: "30 min", label: "saved per inspection via assisted report drafts" },
+      { value: "JS → TS", label: "Whole frontend moved off CRA onto Vite without blocking a release" },
+      { value: "20 months", label: "owning the frontend on a two-engineer team" },
     ],
     headline:
       "Migrated a live govtech SaaS while fire departments kept using it.",
@@ -91,12 +91,12 @@ export const cases: CaseStudy[] = [
     timeline: ["CRA to Vite", "JS to TypeScript", "Ad-hoc fetch to RTK Query", "Runtime tenant settings"],
     proofTheme: "blueprint",
     featuredMetrics: [
-      { value: "229 → 0", label: "JavaScript files left after migration" },
+      { value: "JS → TS", label: "Whole frontend migrated, weekly releases preserved" },
       { value: "7", label: "domain modules shipped on the new stack" },
       { value: "0", label: "release gaps during the migration" },
     ],
     highlights: [
-      "Migrated 229 frontend files from JavaScript on CRA to TypeScript on Vite in three months without blocking a release. The allowJs flag let the team convert module by module, starting with forms and data hooks where types caught real bugs.",
+      "Moved the whole frontend off JavaScript on CRA onto TypeScript on Vite in roughly three months without blocking a release. Leaned on the allowJs flag to convert module by module, starting with forms and data hooks where types kept catching real bugs.",
       "Replaced hand-rolled fetch hooks with RTK Query. Tag-based cache invalidation removed a long tail of stale-data bugs and loading states that disagreed with each other.",
       "Made Zod schemas the shared contract for forms and API edges. The same schema drove validation, component state, and DTO typing through react-hook-form.",
       "Built autocomplete across server records, ArcGIS suggestions, and tenant-defined locations. Each source could fail without killing the typeahead.",
