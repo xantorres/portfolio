@@ -50,7 +50,8 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 lg:col-span-6">
             <span className="h-px w-10 bg-border" aria-hidden />
             <span className="meta-label">{profile.location}</span>
-            <span className="meta-label text-signal">Toptal network since 2017</span>
+            <span className="meta-label" aria-hidden>·</span>
+            <span className="meta-label text-signal">Toptal Verified Expert since 2017</span>
           </div>
           <div className="flex flex-wrap items-center gap-2 lg:col-span-5 lg:col-start-8 lg:justify-end">
             <Button asChild variant="outline" size="lg">
