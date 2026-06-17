@@ -25,7 +25,7 @@ export function SelectedWork() {
           index="02"
           eyebrow="Selected work"
           title="Recent work."
-          aside="2023 / 2026"
+          aside="2020 / 2026"
         />
 
         <ul className="grid gap-6">
