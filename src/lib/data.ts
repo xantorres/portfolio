@@ -52,6 +52,7 @@ export const profile = {
   links: {
     github: "https://github.com/xantorres",
     linkedin: "https://linkedin.com/in/xan-torres",
+    toptal: "https://www.toptal.com/developers/resume/xan-torres#XM6Epk",
   },
   lastApproachUpdate: "April 2026",
 };
