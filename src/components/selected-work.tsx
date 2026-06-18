@@ -24,7 +24,7 @@ export function SelectedWork() {
         <SectionHeader
           index="02"
           eyebrow="Selected work"
-          title="Recent work."
+          title="Latest projects."
           aside="2020 / 2026"
         />
 

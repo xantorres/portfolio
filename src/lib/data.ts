@@ -3,6 +3,7 @@ export type CaseStat = { value: string; label: string };
 export type CaseStudy = {
   slug: string;
   company: string;
+  url: string; // live product or company site
   role: string;
   period: string;
   sector: string;
@@ -53,9 +54,7 @@ export const profile = {
     github: "https://github.com/xantorres",
     linkedin: "https://linkedin.com/in/xan-torres",
     toptal: "https://www.toptal.com/developers/resume/xan-torres#XM6Epk",
-  },
-  lastApproachUpdate: "April 2026",
-};
+  },};
 
 export function stripProtocol(url: string): string {
   return url.replace(/^https?:\/\//, "");
@@ -70,34 +69,35 @@ export const cases: CaseStudy[] = [
   {
     slug: "sunflower-games",
     company: "Sunflower Games",
+    url: "https://crowncoinscasino.com/",
     role: "Senior Full-Stack Engineer",
-    period: "Aug 2025 – Jan 2026",
+    period: "2025 – 2026",
     sector: "Social Casino",
     scope: "5.5 months",
-    title: "Roulette admin, missions, and ops tooling.",
+    title: "Roulette mini-game, missions, and ops tooling.",
     stats: [
-      { value: "Zero → prod", label: "roulette admin built from scratch" },
+      { value: "Zero → prod", label: "roulette mini-game built from scratch" },
       { value: "Hours → mins", label: "ops onboarding via bulk import" },
     ],
     headline:
-      "Built production tooling across admin UI, game UI, and Node services.",
+      "Built a roulette mini-game and ops tooling across game UI, admin, and Node services.",
     summary:
-      "I worked across a live dual-currency social-casino product: NestJS services, Prisma migrations, React admin dashboards, and a Rive-driven game surface. The work ranged from a new roulette admin and mission system to bulk imports, jackpot sharing, free-rounds, and i18n.",
+      "I worked across a live dual-currency social-casino product: NestJS services, Prisma migrations, React admin dashboards, and a Rive-driven game surface. The work ranged from a full roulette mini-game and mission system to bulk imports, jackpot sharing, free-rounds, and i18n.",
     problem:
       "Ops and gameplay teams needed better tools while economy and game work kept moving.",
     systemMove:
       "Pulled validation, services, animation identity, and cache invalidation into the same delivery path.",
     artifact:
-      "Admin workflow map",
-    timeline: ["Roulette admin", "Missions system", "Bulk import pipeline", "Free-rounds wallet path"],
+      "Game and ops map",
+    timeline: ["Roulette mini-game", "Missions system", "Bulk import pipeline", "Free-rounds wallet path"],
     proofTheme: "signal",
     featuredMetrics: [
-      { value: "Zero → prod", label: "roulette admin shipped" },
+      { value: "Zero → prod", label: "roulette mini-game shipped" },
       { value: "Hours → mins", label: "ops onboarding after bulk import" },
       { value: "4", label: "product surfaces owned across the stack" },
     ],
     highlights: [
-      "Built a roulette admin from scratch: drag-and-drop chip placement, Rive state-machine animation, and a chip-identity model that stopped merge/split jitter.",
+      "Built a full-featured roulette mini-game from scratch: drag-and-drop chip placement, Rive state-machine animation, and a chip-identity model that stopped merge/split jitter.",
       "Shipped missions across backend CRUD, admin UI, nested rewards, goals, conditions, and post-creation locks on economy-critical identifiers.",
       "Built a spreadsheet import flow for ops with schema checks, business rules, asset-ratio validation, currency validation, and per-row errors mapped back to the source cells.",
       "Added jackpot image generation and social sharing with the Web Share API, clipboard fallback, Redis TTL based on amount, and locale-aware currency formatting.",
@@ -129,8 +129,9 @@ export const cases: CaseStudy[] = [
   {
     slug: "feathershark-fireops",
     company: "FeatherShark",
+    url: "https://www.feathershark.com/codefinal-fire-inspection-software/",
     role: "Senior Frontend Engineer (Primary)",
-    period: "Feb 2023 – Oct 2024",
+    period: "2023 – 2024",
     sector: "Govtech · Multi-tenant SaaS",
     scope: "20 months · 2-person team",
     title: "Live govtech migration, no release gaps.",
@@ -149,7 +150,7 @@ export const cases: CaseStudy[] = [
     artifact:
       "Migration plan",
     timeline: ["CRA to Vite", "JS to TypeScript", "Ad-hoc fetch to RTK Query", "Runtime tenant settings"],
-    proofTheme: "blueprint",
+    proofTheme: "oxide",
     featuredMetrics: [
       { value: "JS → TS", label: "Whole frontend migrated, weekly releases preserved" },
       { value: "7", label: "domain modules shipped on the new stack" },
@@ -194,8 +195,9 @@ export const cases: CaseStudy[] = [
   {
     slug: "mongodb-web-platform",
     company: "MongoDB",
+    url: "https://www.mongodb.com/",
     role: "Senior Frontend Engineer",
-    period: "Apr 2023 – Oct 2024",
+    period: "2023 – 2024",
     sector: "Developer Platform",
     scope: "18 months",
     title: "Design-system fixes on mongodb.com.",
@@ -251,6 +253,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "platform9-console",
     company: "Platform9",
+    url: "https://platform9.com/",
     role: "Senior Frontend Engineer",
     period: "2018 – 2023",
     sector: "Private Cloud · SaaS",
@@ -271,7 +274,7 @@ export const cases: CaseStudy[] = [
     artifact:
       "Component library",
     timeline: ["Grid + dropdown primitives", "Redux + redux-persist cache", "Reselect selectors", "Webpack to Vite"],
-    proofTheme: "oxide",
+    proofTheme: "blueprint",
     featuredMetrics: [
       { value: "4+ years", label: "owning the console's shared frontend" },
       { value: "Vite", label: "build migrated off Webpack for faster HMR" },

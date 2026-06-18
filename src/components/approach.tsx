@@ -1,5 +1,5 @@
 import { SectionHeader } from "@/components/section-header";
-import { approach, profile } from "@/lib/data";
+import { approach } from "@/lib/data";
 
 export function Approach() {
   return (
@@ -9,7 +9,6 @@ export function Approach() {
           index="03"
           eyebrow="How I work"
           title="How I work."
-          aside={`Updated ${profile.lastApproachUpdate}`}
         />
 
         <ol className="grid grid-cols-1 gap-8 md:grid-cols-12">
