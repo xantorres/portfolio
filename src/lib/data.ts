@@ -37,7 +37,7 @@ export function yearsOfExperience(date = new Date()): number {
 }
 
 export function getSubhead(date = new Date()): string {
-  return `${yearsOfExperience(date)}+ years shipping production software, React and TypeScript for most of it. I combine frontend architecture, product judgment, and AI-native workflows to ship high-quality software faster.`;
+  return `${yearsOfExperience(date)}+ years shipping production software, mostly React and TypeScript. I combine architecture, product judgment, and AI-native workflows to ship high-quality software faster.`;
 }
 
 export const profile = {

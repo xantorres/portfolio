@@ -185,17 +185,17 @@
   }
 
   .display-type {
-    @apply font-display leading-[0.98];
+    @apply font-display leading-[1.04];
     font-weight: 800;
-    font-stretch: 125%;
+    font-stretch: 100%;
     letter-spacing: -0.01em;
     font-size: clamp(2.55rem, 4.9vw, 4.55rem);
   }
 
   .headline-type {
-    @apply font-display leading-[1.02];
+    @apply font-display leading-[1.06];
     font-weight: 750;
-    font-stretch: 118%;
+    font-stretch: 100%;
     letter-spacing: -0.008em;
     font-size: clamp(1.9rem, 3.4vw, 3.3rem);
   }
