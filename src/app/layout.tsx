@@ -29,7 +29,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
-  jobTitle: "Senior Product Engineer",
+  jobTitle: "Senior Frontend Engineer",
   url: siteUrl,
   email: `mailto:${profile.email}`,
   sameAs: [profile.links.github, profile.links.linkedin, profile.links.toptal],

@@ -42,7 +42,7 @@ export function getSubhead(date = new Date()): string {
 
 export const profile = {
   name: "Xan Torres",
-  tagline: "Senior Product",
+  tagline: "Senior Frontend",
   accentWord: "Engineer",
   location: "Cyprus (EU) · Remote · CET/EET",
   availability: {
@@ -56,15 +56,15 @@ export const profile = {
     toptal: "https://www.toptal.com/developers/resume/xan-torres#XM6Epk",
   },};
 
-export const socialTitle = "Xan Torres · Senior Product Engineer (React/TypeScript)";
+export const socialTitle = "Xan Torres · Senior Frontend Engineer (React/TypeScript)";
 export const socialDescription =
   "Frontend architecture, product judgment, and AI-native workflows for complex React and TypeScript products.";
 
 type HeroCta = { label: string; href: string };
 
 export const hero = {
-  eyebrow: "React · TypeScript · AI-native delivery",
-  headline: "Senior Product Engineer for complex React and TypeScript products.",
+  eyebrow: "React · TypeScript · AI-native product UI",
+  headline: "Senior Frontend Engineer for complex React, TypeScript, and AI-native products.",
   primaryCta: { label: "View case studies", href: "/#work" } satisfies HeroCta,
   secondaryCta: { label: "Work together", href: "/#contact" } satisfies HeroCta,
   clientsLabel: "Shipped for",
@@ -357,7 +357,7 @@ export type AiNativeCard = ApproachStatement & { proof: string };
 
 export const aiNativeWork: { intro: string; cards: AiNativeCard[] } = {
   intro:
-    "Not a pivot, and not hype. Agent workflows run inside my client delivery today, I shipped in-product AI features back in 2023, and I build the agent tooling I use every day.",
+    "AI work grounded in production delivery, shipped features, and tools I run daily.",
   cards: [
     {
       title: "Agent workflows",
