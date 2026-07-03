@@ -6,7 +6,7 @@ export function Approach() {
     <section id="approach" className="section-band">
       <div className="container-editorial section-pad">
         <SectionHeader
-          index="03"
+          index="05"
           eyebrow="How I work"
           title="How I work."
         />

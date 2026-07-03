@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { getSubhead, profile } from "@/lib/data";
 
 const ledger = [
-  { value: "Own", label: "Architecture, data flow, UI states, and the last mile of polish." },
+  { value: "Own", label: "Architecture, data flow, UI states, agent-assisted workflows, and the last mile of polish." },
   { value: "Ship", label: "Production features while the product is live and changing." },
-  { value: "Untangle", label: "Legacy React, dashboards, forms, maps, and design-system drift." },
+  { value: "Untangle", label: "Legacy React, dashboards, forms, maps, agent workflows, and design-system drift." },
   { value: "Partner", label: "Clear decisions with product, design, backend, and founders." },
 ];
 
@@ -17,9 +17,9 @@ export function Hero() {
       <div className="grid min-h-[calc(78svh-8rem)] min-w-0 grid-cols-1 content-between gap-12 lg:grid-cols-12 lg:gap-8">
         <div className="min-w-0 lg:col-span-8">
           <AvailabilityPill className="mb-8 sm:hidden" />
-          <p className="meta-label mb-4 text-signal">TypeScript · React · Product UI</p>
-          <h1 className="display-type max-w-[15ch] text-balance">
-            Senior Frontend Engineer & Product Architect.
+          <p className="meta-label mb-4 text-signal">TypeScript · React · AI-native Product UI</p>
+          <h1 className="display-type max-w-[24ch] text-balance text-[clamp(2.25rem,4vw,3.75rem)]">
+            Senior Frontend Engineer building AI-native product interfaces and complex React systems.
           </h1>
           <p className="mt-8 body-measure text-base text-muted-foreground sm:text-lg">
             <span className="font-semibold text-foreground">{profile.name}.</span> {getSubhead()}
@@ -41,8 +41,9 @@ export function Hero() {
             ))}
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Best fit: teams that need a senior frontend engineer who can turn messy product work
-            into clean TypeScript, reliable UI, and momentum the rest of the team can feel.
+            Best fit: B2B SaaS, DevTools, AI-product, and internal-tool teams that need senior
+            frontend ownership, clean TypeScript, product judgment, and workflows that move from
+            messy requirements to shipped software.
           </p>
         </aside>
 
@@ -53,10 +54,16 @@ export function Hero() {
             <span className="meta-label" aria-hidden>·</span>
             <span className="meta-label text-signal">Toptal Verified Expert since 2017</span>
           </div>
-          <div className="flex flex-wrap items-center gap-2 lg:col-span-5 lg:col-start-8 lg:justify-end">
+          <div className="flex flex-wrap items-center gap-2 lg:col-span-6 lg:col-start-7 lg:justify-end">
             <Button asChild variant="outline" size="lg">
               <Link href="#work">
-                Selected work
+                View selected work
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="#products">
+                View AI projects
                 <ArrowRight className="size-4" />
               </Link>
             </Button>

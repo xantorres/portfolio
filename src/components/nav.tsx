@@ -23,7 +23,7 @@ export function Nav() {
           {profile.name.toUpperCase()}
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-6" aria-label="Primary">
           {navLinks.map((l) => (
             <Link
               key={l.href}
@@ -41,7 +41,7 @@ export function Nav() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"
@@ -57,8 +57,8 @@ export function Nav() {
         aria-hidden={!open}
         inert={!open}
         className={cn(
-          "overflow-hidden border-t border-border transition-[max-height] duration-300 md:hidden",
-          open ? "max-h-64" : "max-h-0",
+          "overflow-hidden border-t border-border transition-[max-height] duration-300 lg:hidden",
+          open ? "max-h-96" : "max-h-0",
         )}
       >
         <nav className="flex flex-col divide-y divide-border/60" aria-label="Mobile">

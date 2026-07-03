@@ -130,6 +130,13 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               </section>
 
               <section>
+                <h2 className="meta-label text-signal">Why it matters</h2>
+                <p className="mt-4 body-measure text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {c.whyItMatters}
+                </p>
+              </section>
+
+              <section>
                 <h2 className="meta-label text-signal">Measured outcomes</h2>
                 <dl className="mt-5 grid gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-3">
                   {c.featuredMetrics.map((metric) => (

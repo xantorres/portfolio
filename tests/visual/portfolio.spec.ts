@@ -211,6 +211,6 @@ test("mobile menu opens and closes from a nav link", async ({ page }, testInfo) 
   await page.getByRole("button", { name: "Open menu" }).click();
   await expect(page.locator("#mobile-nav")).toHaveAttribute("aria-hidden", "false");
 
-  await page.locator("#mobile-nav").getByRole("link", { name: "Work" }).click();
+  await page.locator("#mobile-nav").getByRole("link", { name: "Work", exact: true }).click();
   await expect(page.getByRole("button", { name: "Open menu" })).toBeVisible();
 });

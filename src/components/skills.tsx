@@ -1,13 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import { SectionHeader } from "@/components/section-header";
 import { skills } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 export function Skills() {
   return (
     <section id="skills" className="section-band">
       <div className="container-editorial section-pad">
         <SectionHeader
-          index="04"
+          index="06"
           eyebrow="Stack"
           title="Tools I use."
           aside={
@@ -20,8 +21,8 @@ export function Skills() {
         />
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {skills.map((g) => (
-            <section key={g.group} className="bg-card p-5">
+          {skills.map((g, i) => (
+            <section key={g.group} className={cn("bg-card p-5", i === 0 && "sm:col-span-2 lg:col-span-4")}>
               <h3 className="meta-label text-signal">{g.group}</h3>
               <ul className="mt-5 flex flex-wrap gap-1.5">
                 {g.items.map((item) => (

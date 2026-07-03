@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { HashScrollController } from "@/components/hash-scroll-controller";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { getSubhead, profile } from "@/lib/data";
+import { getSubhead, profile, socialTitle } from "@/lib/data";
 import "./globals.css";
 
 const geologica = Geologica({
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   description: getSubhead(),
   authors: [{ name: profile.name, url: profile.links.linkedin }],
   openGraph: {
-    title: titleTemplate,
+    title: socialTitle,
     description: getSubhead(),
     type: "website",
     siteName: profile.name,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: titleTemplate,
+    title: socialTitle,
     description: getSubhead(),
   },
 };

@@ -11,6 +11,7 @@ export type CaseStudy = {
   title: string; // short punchy label on the home card (≤7 words)
   headline: string; // long headline shown on the detail page
   summary: string;
+  whyItMatters: string;
   problem: string;
   systemMove: string;
   artifact: string;
@@ -37,13 +38,13 @@ export function yearsOfExperience(date = new Date()): number {
 }
 
 export function getSubhead(date = new Date()): string {
-  return `${yearsOfExperience(date)}+ years building production TypeScript/React apps. I take on messy frontend work: migrations, data-heavy UI, design systems, and features that need to survive real users.`;
+  return `${yearsOfExperience(date)}+ years building production TypeScript/React apps. I help teams ship complex product UI, frontend migrations, design systems, and AI-assisted workflows that survive real users.`;
 }
 
 export const profile = {
   name: "Xan Torres",
-  tagline: "Senior Frontend Engineer & Product",
-  accentWord: "Architect",
+  tagline: "Senior Frontend Engineer for AI-native",
+  accentWord: "Products",
   location: "Cyprus (EU) · Remote · CET/EET",
   availability: {
     short: "Available",
@@ -55,6 +56,10 @@ export const profile = {
     linkedin: "https://linkedin.com/in/xan-torres",
     toptal: "https://www.toptal.com/developers/resume/xan-torres#XM6Epk",
   },};
+
+export const socialTitle = "Xan Torres · AI-native Frontend Engineer";
+export const socialDescription =
+  "React, TypeScript, product UI, agent workflows, DevTools, and frontend architecture for complex products.";
 
 export function stripProtocol(url: string): string {
   return url.replace(/^https?:\/\//, "");
@@ -83,6 +88,8 @@ export const cases: CaseStudy[] = [
       "Built a roulette mini-game and ops tooling across game UI, admin, and Node services.",
     summary:
       "I worked across a live dual-currency social-casino product: NestJS services, Prisma migrations, React admin dashboards, and a Rive-driven game surface. The work ranged from a full roulette mini-game and mission system to bulk imports, jackpot sharing, free-rounds, and i18n.",
+    whyItMatters:
+      "I worked across admin UI, gameplay UI, backend services, validation, cache invalidation, and ops tooling in a live product.",
     problem:
       "Ops and gameplay teams needed better tools while economy and game work kept moving.",
     systemMove:
@@ -143,6 +150,8 @@ export const cases: CaseStudy[] = [
       "Migrated a live govtech SaaS while fire departments kept using it.",
     summary:
       "FeatherShark was a two-person product used by US municipal fire departments and building-inspection offices. I owned the frontend while moving the app from CRA/JavaScript to Vite/TypeScript, replacing ad-hoc fetching with RTK Query, and shipping new modules for maps, tenant config, 2FA, guided inspection drafting, and contractor workflows.",
+    whyItMatters:
+      "I migrated a live product from CRA/JavaScript to Vite/TypeScript while weekly releases continued.",
     problem:
       "The app needed a new frontend foundation, but municipal users still needed releases every week.",
     systemMove:
@@ -164,7 +173,7 @@ export const cases: CaseStudy[] = [
       "Shipped ArcGIS occupancy maps with drag-and-drop safety markers, persistent zoom and pan, and staged marker updates that stopped flicker during edits.",
       "Modeled 2FA as an explicit state machine: credentials submitted, awaiting code, hydrating session, recovery code, and refresh mid-flow all had named transitions.",
       "Moved tenant config from build-time .env to a server-driven settings endpoint for theme tokens, default map coordinates, and admin UI shape. New municipalities no longer required a redeploy.",
-      "Added guided inspection text with backoff, deterministic fallback, and human review before save. Drafted language stayed editable and never blocked the inspection flow.",
+      "Built AI-assisted inspection drafting with backoff, deterministic fallback, editable output, and human review before save.",
       "Built the checklist-template admin: drag-and-drop sections and items, fee-type fields, and cascading deletes for the authoring surface the product depends on.",
       "Built the contractor portal as its own routing tree with role-scoped permit lists, activities, invoices, and document uploads.",
     ],
@@ -174,7 +183,7 @@ export const cases: CaseStudy[] = [
       "New municipalities could be configured by settings instead of redeploying.",
       "The platform was live with US municipal fire departments and building-inspection offices before my engagement ended.",
     ],
-    tags: ["Multi-tenant", "Maps", "State machines", "Inspection drafting"],
+    tags: ["Multi-tenant", "Maps", "State machines", "AI-assisted drafting"],
     stack: [
       "React 18",
       "TypeScript",
@@ -209,6 +218,8 @@ export const cases: CaseStudy[] = [
       "Improved mongodb.com component libraries without breaking downstream teams.",
     summary:
       "At MongoDB I worked on the shared packages behind mongodb.com: design tokens, component library code, and navigation. The work was mostly semver-safe API changes, release sequencing, performance fixes, and debugging style precedence in a Tailwind + theme-ui stack.",
+    whyItMatters:
+      "I changed shared design-system packages used by high-traffic pages without breaking downstream consumers.",
     problem:
       "High-traffic marketing pages needed library improvements, but dozens of consumers depended on those packages.",
     systemMove:
@@ -267,6 +278,8 @@ export const cases: CaseStudy[] = [
       "Built reusable UI components and a cached Redux store for a private-cloud console.",
     summary:
       "Platform9 runs a private-cloud platform for managing Kubernetes and OpenStack. Over four years I built reusable UI for the console, a data grid with sort, filter, and pagination and a multi-select dropdown among them, and added a Redux store that cached server data and persisted it across refreshes. Reselect selectors fed components efficiently, and I moved the build from Webpack to Vite while keeping Storybook and Jest as the baseline for components and utilities.",
+    whyItMatters:
+      "I built reusable frontend foundations for a private-cloud console: shared UI, cached server data, selectors, Storybook, tests, and build migration.",
     problem:
       "The console needed reusable UI building blocks and a predictable way to cache and persist server data, instead of components and fetch logic re-solved case by case.",
     systemMove:
@@ -337,14 +350,73 @@ export const strengths: Strength[] = [
 
 export type ApproachStatement = { title: string; body: string };
 
+export const aiNativeWork: { intro: string; cards: ApproachStatement[] } = {
+  intro:
+    "Where I'm focused now: practical AI workflows, developer tooling, and product interfaces that keep humans in control.",
+  cards: [
+    {
+      title: "Agent workflows",
+      body: "Designing multi-step workflows where AI can read context, suggest actions, call tools, and ask for approval before changing anything important.",
+    },
+    {
+      title: "Context engineering",
+      body: "Structuring project rules, reusable instructions, decisions, and memory so coding agents stop guessing and start following the product and codebase.",
+    },
+    {
+      title: "Human-in-the-loop UX",
+      body: "Building review, approval, fallback, and correction flows so AI output remains useful, traceable, and safe to ship.",
+    },
+    {
+      title: "AI DevTools",
+      body: "Building local-first tools for job search, coding agents, repo memory, review workflows, and engineering automation.",
+    },
+  ],
+};
+
+export type PersonalProduct = {
+  name: string;
+  subtitle: string;
+  body: string;
+  tags: string[];
+  github: string;
+};
+
+export const personalProducts: { intro: string; items: PersonalProduct[] } = {
+  intro:
+    "Small, focused tools I'm building around AI-assisted development, agent memory, and job-search automation.",
+  items: [
+    {
+      name: "RepoKernel",
+      subtitle: "Agent orchestration in isolated Git worktrees.",
+      body: "Runs coding agents in isolated worktrees with scoped sprints, dependency ordering, and review gates before anything merges.",
+      tags: ["TypeScript", "AI agents", "Git worktrees", "DevTools"],
+      github: "https://github.com/xantorres/repokernel",
+    },
+    {
+      name: "Engram",
+      subtitle: "Local-first memory for coding agents.",
+      body: "Capture facts from any coding agent, review them, and reuse them across tools. Agent-agnostic and MCP-native.",
+      tags: ["Python", "MCP", "Local-first", "Agent memory"],
+      github: "https://github.com/xantorres/engram",
+    },
+    {
+      name: "Shrike",
+      subtitle: "Local-first CRM for serious job search.",
+      body: "Ingest, filter, triage, score, and track job opportunities with AI-assisted review and hard rejection rules.",
+      tags: ["TypeScript", "CLI", "AI triage", "Job search"],
+      github: "https://github.com/xantorres/shrike",
+    },
+  ],
+};
+
 export const approach: ApproachStatement[] = [
   {
     title: "Map the system first.",
     body: "Before touching components, I want to know where the data comes from, who owns state, and what can break. That saves time later.",
   },
   {
-    title: "Keep boring things boring.",
-    body: "Routing, forms, tables, and data fetching should be predictable. The polish belongs in the interactions users actually touch.",
+    title: "Design the workflow, not just the screen.",
+    body: "For AI-assisted products, the interface is only one layer. I define the states, approvals, fallbacks, context, and failure paths that make the workflow reliable.",
   },
   {
     title: "Trust one source of truth.",
@@ -357,6 +429,20 @@ export const approach: ApproachStatement[] = [
 ];
 
 export const skills: { group: string; items: string[] }[] = [
+  {
+    group: "AI / Agentic Systems",
+    items: [
+      "LLM APIs",
+      "Structured outputs",
+      "Tool calling patterns",
+      "MCP",
+      "Agent memory",
+      "Context engineering",
+      "Human-in-the-loop flows",
+      "Evaluation workflows",
+      "AI-assisted developer tooling",
+    ],
+  },
   {
     group: "Frontend",
     items: [
@@ -409,7 +495,9 @@ export const skills: { group: string; items: string[] }[] = [
 
 export const navLinks = [
   { href: "/#strengths", label: "Strengths" },
+  { href: "/#ai-work", label: "AI work" },
   { href: "/#work", label: "Work" },
+  { href: "/#products", label: "Products" },
   { href: "/#approach", label: "Approach" },
   { href: "/#skills", label: "Skills" },
   { href: "/#contact", label: "Contact" },
