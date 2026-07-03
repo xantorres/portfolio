@@ -35,6 +35,7 @@ test("source avoids generic generated-design defaults", () => {
     { label: "glass/backdrop treatment", pattern: /\b(?:backdrop-blur|glassmorphism|bg-background\/|bg-white\/|bg-black\/)\b/ },
     { label: "large rounded card radius", pattern: /\brounded-(?:xl|2xl|3xl)\b/ },
     { label: "old amber-first palette", pattern: /#D1863A|#d1863a|oklch\(0\.7[24]\s+0\.14\s+67\)/ },
+    { label: "em dash in copy", pattern: /—/ },
   ];
 
   const failures = bannedPatterns.flatMap(({ label, pattern }) =>

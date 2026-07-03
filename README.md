@@ -1,11 +1,11 @@
 # portfolio
 
-Personal site for Xan Torres — senior frontend engineer working in production TypeScript/React since 2010. Built as a working piece of the portfolio itself: the stack on display is the stack I use day-to-day.
+Personal site for Xan Torres, senior product engineer shipping production software since 2010, React and TypeScript for most of it. Built as a working piece of the portfolio itself: the stack on display is the stack I use day-to-day.
 
 ## Stack
 
 - **Next.js 16** (App Router, Turbopack)
-- **React 19** — ref-as-prop throughout, `useTransition` for mutations
+- **React 19** with ref-as-prop throughout and `useTransition` for mutations
 - **TypeScript** (strict)
 - **Tailwind CSS v4** with OKLCH editorial tokens and CSS-variable theme bridge
 - **shadcn/ui** primitives (new-york, zinc)
@@ -15,15 +15,15 @@ Personal site for Xan Torres — senior frontend engineer working in production 
 - **Playwright + axe** for visual, overflow, and accessibility gates
 - **Google DESIGN.md + Vizzly** for design-system linting and optional visual TDD review
 
-## Contact form — layered anti-spam
+## Contact form: layered anti-spam
 
 The `/contact` form runs five checks in order, all fail-safe and all (except the first) env-gated so the site works locally without any credentials:
 
-1. **Origin check** — Next.js built-in Server Action CSRF protection.
-2. **Honeypot** — an invisible field bots fill; trips silently return success.
-3. **Minimum fill time** — submissions under 2s silently return success.
-4. **Cloudflare Turnstile** — invisible captcha verified server-side. Disabled when the env vars are missing.
-5. **Upstash Redis rate limit** — 5 requests / 10 min sliding window per IP. Disabled when the env vars are missing.
+1. **Origin check.** Next.js built-in Server Action CSRF protection.
+2. **Honeypot.** An invisible field bots fill; trips silently return success.
+3. **Minimum fill time.** Submissions under 2s silently return success.
+4. **Cloudflare Turnstile.** Invisible captcha verified server-side. Disabled when the env vars are missing.
+5. **Upstash Redis rate limit.** 5 requests / 10 min sliding window per IP. Disabled when the env vars are missing.
 
 Delivery uses **Resend**, falling back to a server-side log in development.
 
@@ -35,7 +35,7 @@ cp .env.example .env.local   # fill in what you want to test
 npm run dev
 ```
 
-Opens on http://localhost:3000. Everything in `.env.example` is optional — the site and contact form work with zero config.
+Opens on http://localhost:3000. Everything in `.env.example` is optional; the site and contact form work with zero config.
 
 ## Environment
 
@@ -84,7 +84,7 @@ The implemented system is dark-first and uses:
 src/
   app/
     layout.tsx            Root shell, fonts, theme provider, skip link
-    page.tsx              Home — composes sections
+    page.tsx              Home, composes sections
     work/[slug]/page.tsx  SSG case-study detail (dynamicParams: false)
     error.tsx             Route-level error boundary
     global-error.tsx      Last-resort boundary
@@ -121,4 +121,4 @@ Add env vars in project settings. Custom domain in Domains tab.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

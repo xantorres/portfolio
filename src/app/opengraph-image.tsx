@@ -114,7 +114,7 @@ export default async function OpengraphImage() {
             fontWeight: 500,
           }}
         >
-          <span>{profile.location}</span>
+          <span>Toptal Verified Expert since 2017</span>
           <span>
             {profile.availability.short} · {currentQuarter()}
           </span>

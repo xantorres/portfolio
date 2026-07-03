@@ -34,6 +34,27 @@ const splineMono = Spline_Sans_Mono({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
 const titleTemplate = `${profile.name} · ${profile.tagline} ${profile.accentWord}`;
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: "Senior Product Engineer",
+  url: siteUrl,
+  email: `mailto:${profile.email}`,
+  sameAs: [profile.links.github, profile.links.linkedin, profile.links.toptal],
+  knowsAbout: [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Frontend architecture",
+    "Design systems",
+    "AI agent workflows",
+    "Model Context Protocol",
+  ],
+  knowsLanguage: ["es", "ca", "en"],
+  address: { "@type": "PostalAddress", addressCountry: "CY" },
+} as const;
+
 // Canonical and openGraph.url are set per-page so each route advertises its own URL.
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -71,6 +92,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geologica.variable} ${splineSans.variable} ${splineMono.variable}`}
     >
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          // Escape < so a future string value can't prematurely close the script tag.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
+        />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>

@@ -5,7 +5,7 @@ export function AiNativeWork() {
   return (
     <section id="ai-work" className="section-band">
       <div className="container-editorial section-pad">
-        <SectionHeader index="02" eyebrow="AI-native work" title="AI-native product systems." />
+        <SectionHeader index="02" eyebrow="AI-native work" title="AI-native engineering, with receipts." />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <p className="body-measure text-base text-muted-foreground sm:text-lg lg:col-span-4">
@@ -20,6 +20,7 @@ export function AiNativeWork() {
                   {card.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{card.body}</p>
+                <p className="meta-label text-muted-foreground">{card.proof}</p>
               </li>
             ))}
           </ul>

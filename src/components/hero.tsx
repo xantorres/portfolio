@@ -2,78 +2,51 @@ import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 import { AvailabilityPill } from "@/components/availability-pill";
 import { Button } from "@/components/ui/button";
-import { getSubhead, profile } from "@/lib/data";
-
-const ledger = [
-  { value: "Own", label: "Architecture, data flow, UI states, agent-assisted workflows, and the last mile of polish." },
-  { value: "Ship", label: "Production features while the product is live and changing." },
-  { value: "Untangle", label: "Legacy React, dashboards, forms, maps, agent workflows, and design-system drift." },
-  { value: "Partner", label: "Clear decisions with product, design, backend, and founders." },
-];
+import { getSubhead, hero, heroProofStrip, profile } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section id="top" className="container-editorial min-h-[calc(88svh-4rem)] pb-10 pt-12 sm:pt-16 lg:pt-20">
-      <div className="grid min-h-[calc(78svh-8rem)] min-w-0 grid-cols-1 content-between gap-12 lg:grid-cols-12 lg:gap-8">
-        <div className="min-w-0 lg:col-span-8">
+    <section id="top" className="container-editorial pb-14 pt-14 sm:pt-20 lg:pb-20 lg:pt-28">
+      <div className="grid min-w-0 gap-10">
+        <div className="min-w-0 max-w-4xl">
           <AvailabilityPill className="mb-8 sm:hidden" />
-          <p className="meta-label mb-4 text-signal">TypeScript · React · AI-native Product UI</p>
-          <h1 className="display-type max-w-[24ch] text-balance text-[clamp(2.25rem,4vw,3.75rem)]">
-            Senior Frontend Engineer building AI-native product interfaces and complex React systems.
-          </h1>
+          <p className="meta-label mb-4 text-signal">{hero.eyebrow}</p>
+          <h1 className="display-type max-w-[20ch] text-balance">{hero.headline}</h1>
           <p className="mt-8 body-measure text-base text-muted-foreground sm:text-lg">
             <span className="font-semibold text-foreground">{profile.name}.</span> {getSubhead()}
           </p>
-        </div>
-
-        <aside className="min-w-0 grid content-start gap-5 border-l border-border pl-5 lg:col-span-4 lg:mt-28">
-          <AvailabilityPill className="hidden w-fit sm:inline-flex" />
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border">
-            {ledger.map((item) => (
-              <div key={item.label} className="min-w-0 bg-card p-4">
-                <p className="font-display text-3xl font-medium leading-none tracking-normal text-signal">
-                  {item.value}
-                </p>
-                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                  {item.label}
-                </p>
-              </div>
-            ))}
-          </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Best fit: B2B SaaS, DevTools, AI-product, and internal-tool teams that need senior
-            frontend ownership, clean TypeScript, product judgment, and workflows that move from
-            messy requirements to shipped software.
-          </p>
-        </aside>
-
-        <div className="grid gap-8 border-t border-border pt-6 lg:col-span-12 lg:grid-cols-12 lg:items-end">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 lg:col-span-6">
-            <span className="h-px w-10 bg-border" aria-hidden />
-            <span className="meta-label">{profile.location}</span>
-            <span className="meta-label" aria-hidden>·</span>
-            <span className="meta-label text-signal">Toptal Verified Expert since 2017</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-2 lg:col-span-6 lg:col-start-7 lg:justify-end">
-            <Button asChild variant="outline" size="lg">
-              <Link href="#work">
-                View selected work
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="#products">
-                View AI projects
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button asChild size="lg">
-              <Link href="#contact">
-                Work together
+              <Link href={hero.primaryCta.href}>
+                {hero.primaryCta.label}
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href={hero.secondaryCta.href}>
+                {hero.secondaryCta.label}
                 <Mail className="size-4" />
               </Link>
             </Button>
           </div>
+        </div>
+
+        <div className="grid gap-3 border-t border-border pt-6">
+          <ul className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            {heroProofStrip().map((item, i) => (
+              <li key={item} className="flex items-center gap-x-3">
+                {i > 0 && (
+                  <span className="meta-label" aria-hidden>
+                    ·
+                  </span>
+                )}
+                <span className="meta-label">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="meta-label">
+            <span className="text-signal">{hero.clientsLabel}:</span> {hero.clients.join(" · ")}
+          </p>
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ export function CoreStrengths() {
     <section id="strengths" className="section-band">
       <div className="container-editorial section-pad">
         <SectionHeader
-          index="01"
+          index="04"
           eyebrow="Core strengths"
           title="What I'm good at."
         />

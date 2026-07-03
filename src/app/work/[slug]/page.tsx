@@ -27,7 +27,7 @@ export async function generateMetadata({
   const c = cases.find((x) => x.slug === slug);
   if (!c) return {};
   const path = `/work/${c.slug}`;
-  const title = `${c.company} · ${c.headline}`;
+  const title = `${c.company} · ${c.title}`;
   return {
     title,
     description: c.summary,

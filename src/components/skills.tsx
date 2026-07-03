@@ -10,7 +10,7 @@ export function Skills() {
         <SectionHeader
           index="06"
           eyebrow="Stack"
-          title="Tools I use."
+          title="Stack, grouped by capability."
           aside={
             <>
               Strict TS
@@ -24,7 +24,8 @@ export function Skills() {
           {skills.map((g, i) => (
             <section key={g.group} className={cn("bg-card p-5", i === 0 && "sm:col-span-2 lg:col-span-4")}>
               <h3 className="meta-label text-signal">{g.group}</h3>
-              <ul className="mt-5 flex flex-wrap gap-1.5">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.blurb}</p>
+              <ul className="mt-4 flex flex-wrap gap-1.5">
                 {g.items.map((item) => (
                   <li key={item}>
                     <Badge variant="secondary">{item}</Badge>

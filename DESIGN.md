@@ -1,7 +1,7 @@
 ---
 version: "alpha"
 name: "Xan Torres Editorial Systems"
-description: "A dark-first technical editorial portfolio for a senior frontend architect."
+description: "A dark-first technical editorial portfolio for a senior product engineer."
 colors:
   primary: "#EEE7DB"
   on-primary: "#070B0F"
@@ -119,7 +119,7 @@ components:
 
 ## Overview
 
-The site is an editorial portfolio for a senior frontend engineer and product architect. It should feel authored, structured, and technical: closer to a clear engineering case file than a SaaS landing page. The surface is dark-first, typographic, asymmetrical, and proof-led.
+The site is an editorial portfolio for a senior product engineer. It should feel authored, structured, and technical: closer to a clear engineering case file than a SaaS landing page. The surface is dark-first, typographic, asymmetrical, and proof-led.
 
 The design must communicate three qualities quickly: senior judgment, frontend craft, and end-to-end product ownership. The visual memory is a trusted technical brief: almost-black ink with a blue credibility signal, warm paper type, restrained proof plates, and low-saturation accent notes.
 
@@ -154,11 +154,13 @@ Use asymmetry, offset columns, editorial gutters, and proof-led composition. Sec
 
 Home-page rhythm:
 
-- Hero: left-weighted masthead, proof ledger, availability, and a visible hint of the next section.
+- Hero: left-weighted masthead, compact proof strip, availability, and a visible hint of the next section.
+- Work: case-study index with bespoke proof plates, placed first as the primary evidence.
+- AI-native work: focus areas backed by shipped proof lines, never hype.
+- Products: personal tooling presented as working software.
 - Strengths: evidence-backed capabilities, not decorative icon cards.
-- Work: case-study index with bespoke proof plates.
 - Approach: operating principles with numbered editorial rhythm.
-- Skills: compact systems matrix.
+- Stack: compact systems matrix grouped by capability.
 - Contact: direct engagement console.
 
 Case-study rhythm:

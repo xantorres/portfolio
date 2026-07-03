@@ -22,10 +22,10 @@ export function SelectedWork() {
     <section id="work" className="section-band">
       <div className="container-editorial section-pad">
         <SectionHeader
-          index="03"
+          index="01"
           eyebrow="Selected work"
-          title="Latest projects."
-          aside="2020 / 2026"
+          title="Case studies."
+          aside="2018 / 2026"
         />
 
         <ul className="grid gap-6">
@@ -52,6 +52,7 @@ export function SelectedWork() {
                       {c.company}
                     </span>
                     <span className="meta-label">{c.period}</span>
+                    <span className="meta-label">{c.scope}</span>
                   </div>
                   <span className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground transition-colors group-hover:text-signal">
                     Read case

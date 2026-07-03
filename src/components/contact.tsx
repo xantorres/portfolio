@@ -13,9 +13,10 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="grid content-between gap-10 border-t border-border pt-6 lg:col-span-5">
             <p className="body-measure text-base text-muted-foreground sm:text-lg">
-              If you need a senior frontend owner for a React product, AI-native workflow, internal
-              tool, migration, or design-system push, send me the rough shape. I&apos;m best when
-              there is ambiguity, pressure, and real users waiting.
+              Best fit: B2B SaaS, DevTools, AI-product, and internal-tool teams that need senior
+              ownership of a React codebase. Send me the rough shape: a migration, an AI-native
+              workflow, a design-system push, or a product that outgrew its frontend. I&apos;m best
+              where there is ambiguity, pressure, and real users waiting.
             </p>
 
             <ul className="grid gap-4 font-mono text-sm">

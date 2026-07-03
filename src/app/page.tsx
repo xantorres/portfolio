@@ -25,10 +25,10 @@ export default function Page() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <CoreStrengths />
-        <AiNativeWork />
         <SelectedWork />
+        <AiNativeWork />
         <PersonalProducts />
+        <CoreStrengths />
         <Approach />
         <Skills />
         <Contact />
