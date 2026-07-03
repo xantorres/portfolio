@@ -18,7 +18,7 @@
     "vizzly:run": "vizzly run \"npm run test:visual\" --wait"
   },
   "dependencies": {
-    "@fontsource/geologica": "^5.2.8",
+    "@fontsource/archivo": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",

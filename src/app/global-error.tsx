@@ -25,9 +25,9 @@ export default function GlobalError({
           justifyContent: "center",
           gap: "1rem",
           padding: "2rem",
-          fontFamily: "'Spline Sans', sans-serif",
-          background: "#070B0F",
-          color: "#EEE7DB",
+          fontFamily: "Archivo, sans-serif",
+          background: "#211D18",
+          color: "#F2ECE1",
         }}
       >
         <p style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.72 }}>
@@ -41,9 +41,9 @@ export default function GlobalError({
             marginTop: 8,
             padding: "0.5rem 1rem",
             borderRadius: 4,
-            border: "1px solid #293139",
-            background: "#EEE7DB",
-            color: "#070B0F",
+            border: "1px solid #453E36",
+            background: "#E85E33",
+            color: "#1D1914",
             cursor: "pointer",
           }}
         >

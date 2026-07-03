@@ -1,52 +1,52 @@
 ---
 version: "alpha"
-name: "Xan Torres Editorial Systems"
-description: "A dark-first technical editorial portfolio for a senior product engineer."
+name: "Xan Torres Instrument Systems"
+description: "A lit-bench instrument portfolio for a senior product engineer."
 colors:
-  primary: "#EEE7DB"
-  on-primary: "#070B0F"
-  secondary: "#191F24"
-  on-secondary: "#EEE7DB"
-  tertiary: "#61AFDA"
-  on-tertiary: "#070B0F"
-  neutral: "#0F141A"
-  background: "#070B0F"
-  foreground: "#EEE7DB"
-  muted: "#939CA6"
-  border: "#293139"
-  blueprint: "#5AA9CE"
-  on-blueprint: "#070B0F"
-  oxide: "#D08C63"
-  on-oxide: "#070B0F"
-  circuit: "#65B6A4"
-  on-circuit: "#070B0F"
-  paper: "#F9F5EC"
-  ink: "#0C1218"
+  primary: "#E85E33"
+  on-primary: "#1D1914"
+  secondary: "#332E28"
+  on-secondary: "#F2ECE1"
+  tertiary: "#F2ECE1"
+  on-tertiary: "#211D18"
+  neutral: "#2A2621"
+  background: "#211D18"
+  foreground: "#F2ECE1"
+  muted: "#A89F92"
+  border: "#453E36"
+  blueprint: "#7FC4DE"
+  on-blueprint: "#211D18"
+  oxide: "#E0B368"
+  on-oxide: "#211D18"
+  circuit: "#7ECFA2"
+  on-circuit: "#211D18"
+  paper: "#F4EEE2"
+  ink: "#1D1914"
 typography:
   display-xl:
-    fontFamily: "Geologica"
-    fontSize: "4.45rem"
-    fontWeight: "700"
-    lineHeight: "1"
-    letterSpacing: "0px"
+    fontFamily: "Archivo"
+    fontSize: "4.55rem"
+    fontWeight: "800"
+    lineHeight: "0.98"
+    letterSpacing: "-0.01em"
   display-lg:
-    fontFamily: "Geologica"
-    fontSize: "3.4rem"
-    fontWeight: "700"
-    lineHeight: "1.03"
-    letterSpacing: "0px"
+    fontFamily: "Archivo"
+    fontSize: "3.3rem"
+    fontWeight: "750"
+    lineHeight: "1.02"
+    letterSpacing: "-0.008em"
   body-md:
-    fontFamily: "Spline Sans"
+    fontFamily: "Archivo"
     fontSize: "1rem"
     fontWeight: "400"
     lineHeight: "1.65"
     letterSpacing: "0px"
   label-caps:
-    fontFamily: "Spline Sans Mono"
-    fontSize: "0.75rem"
+    fontFamily: "Martian Mono"
+    fontSize: "0.62rem"
     fontWeight: "500"
-    lineHeight: "1.35"
-    letterSpacing: "0.08em"
+    lineHeight: "1.4"
+    letterSpacing: "0.1em"
 rounded:
   xs: "2px"
   sm: "4px"
@@ -119,47 +119,46 @@ components:
 
 ## Overview
 
-The site is an editorial portfolio for a senior product engineer. It should feel authored, structured, and technical: closer to a clear engineering case file than a SaaS landing page. The surface is dark-first, typographic, asymmetrical, and proof-led.
+The site is a calibrated instrument built by its owner: a senior product engineer whose portfolio demonstrates the engineering it claims. The surface is a lit workbench, not a magazine spread: warm milled charcoal, bone type, one vermilion signal, and schematic traces drawn from real delivery practice.
 
-The design must communicate three qualities quickly: senior judgment, frontend craft, and end-to-end product ownership. The visual memory is a trusted technical brief: almost-black ink with a blue credibility signal, warm paper type, restrained proof plates, and low-saturation accent notes.
+The design must communicate three qualities quickly: senior judgment, frontend craft, and end-to-end product ownership. The visual memory is a precision instrument at night: an engraved bezel headline, calibration ticks, channel-colored traces, and one red index dot that means "this one is live."
 
 ## Colors
 
-Implementation uses OKLCH in `src/app/globals.css`; these hex tokens exist for the current DESIGN.md alpha linter and agent portability.
+Implementation uses OKLCH in `src/app/globals.css`; these hex tokens exist for the DESIGN.md alpha linter and agent portability.
 
-- **Ink / background:** near-black foundation with a slight institutional-blue undertone, not a saturated blue theme.
-- **Paper / foreground:** warm off-white for editorial contrast.
-- **Graphite / muted / border:** restrained structure for grids, rules, and metadata.
-- **Signal blue:** primary interaction and credibility signal, tuned for competence and trust.
-- **Blueprint:** technical emphasis for diagrams and selected work details.
-- **Oxide:** migration, risk, and operational change, used sparingly.
-- **Circuit teal:** systems, state machines, data flow, and correctness, used sparingly.
+- **Ink / background:** warm milled charcoal (hue near 70), never blue-black. The dev-portfolio blue-on-black reflex is banned.
+- **Paper / foreground:** bone, a warm off-white tuned for long reading on the dark ground.
+- **Graphite / muted / border:** quiet structure for grids, rules, and metadata.
+- **Signal vermilion:** the one committed color. Primary actions, availability, calibration ticks, and the credibility accents. Reference: the red index dot on a precision instrument.
+- **Blueprint cyan, circuit green, oxide amber:** the remaining scope-channel inks. Each case study renders on one channel; channels never mix inside a surface.
 
-Never let one hue dominate. Blue is the recruiter-trust signal, but it must remain an annotation inside a mostly ink-and-paper composition. Avoid high saturation because it can reduce trust and make the page feel less serious.
+Vermilion is load-bearing: it appears on every fold, always meaning "act here" or "this is live." Channel inks stay inside their case surfaces. No hue soup, no gradients-as-decoration.
 
 ## Typography
 
-Use `Geologica` for display, `Spline Sans` for body/UI, and `Spline Sans Mono` for metadata. The pairing is fully sans, technical, and more idiosyncratic than the default Inter/Geist/Roboto agent stack.
+Single committed family plus one readout mono. `Archivo` variable (width axis) carries everything from engraved display to body prose; `Martian Mono` carries metadata and readouts.
 
 Rules:
 
-- Headlines should feel editorial, never billboard-sized. Home display type caps below 86px on desktop, and case-study titles cap below 64px.
-- Letter spacing is `0` for prose and display.
-- Metadata may use modest positive tracking.
-- Do not use Inter, Geist, Roboto, Space Grotesk, Arial, or system fonts as brand defaults.
+- Display type is expanded (width 125%) and heavy (800): instrument-bezel engraving, not billboard marketing. Home display caps below 86px on desktop; case-study titles below 64px.
+- Section headlines use width 118% at weight 750.
+- Body is normal width at 400. Letter spacing is slightly negative for display, `0` for prose.
+- Metadata uses Martian Mono, small caps-style tracking (0.1em), 0.62rem.
+- Do not use Inter, Geist, Roboto, Space Grotesk, Geologica, Spline Sans, or system fonts as brand defaults.
 
 ## Layout
 
-Use asymmetry, offset columns, editorial gutters, and proof-led composition. Sections should feel like distinct bands in one publication, not repeated centered cards.
+Strict engineered structure over decorative asymmetry: a visible fine grid on the body ground, panel modules with calibration corner ticks, bezel-notched chips for section indices, and schematic figures where decoration would otherwise go.
 
 Home-page rhythm:
 
-- Hero: left-weighted masthead, compact proof strip, availability, and a visible hint of the next section.
-- Work: case-study index with bespoke proof plates, placed first as the primary evidence.
+- Hero: boot choreography (staggered one-shot reveal), left-weighted masthead, delivery-loop schematic as Figure 01, calibration proof strip.
+- Work: case-study index as instrument modules, one channel ink per case, placed first as the primary evidence.
 - AI-native work: focus areas backed by shipped proof lines, never hype.
 - Products: personal tooling presented as working software.
 - Strengths: evidence-backed capabilities, not decorative icon cards.
-- Approach: operating principles with numbered editorial rhythm.
+- Approach: operating principles with numbered rhythm.
 - Stack: compact systems matrix grouped by capability.
 - Contact: direct engagement console.
 
@@ -170,26 +169,36 @@ Case-study rhythm:
 - Long-form narrative with evidence-led proof plates.
 - Compact stack footer.
 
+## Motion
+
+Motion is the instrument coming to life, and it must read as calibrated:
+
+- Hero boot sequence: staggered `boot-rise` entrances and `trace-draw` schematic strokes, one-shot on load.
+- Scroll entrances: sections reveal once via IntersectionObserver (`.reveal` / `.is-visible`), transform and opacity only.
+- Hover systems on work cards: scan sweep, index rail, proof-plate lift.
+- Easing is exponential out (`--ease-editorial`, cubic-bezier(0.16, 1, 0.3, 1)). No bounce, no elastic, no layout-property animation.
+- `prefers-reduced-motion` gets the complete static page: traces pre-drawn, reveals visible, no sweeps.
+
 ## Elevation & Depth
 
-Depth comes from rules, overlays, ink density, and annotated surfaces rather than floating cards. Shadows should be rare. Avoid generic glassmorphism, blurred panels, bokeh, gradient orbs, and layered purple/blue hero gradients.
+Depth comes from rules, corner ticks, ink density, and drawn traces rather than floating cards. Shadows are rare and only appear inside interaction states. Avoid glassmorphism, blurred panels, bokeh, gradient orbs, and layered purple/blue hero gradients.
 
 ## Shapes
 
-Radius scale is intentionally tight: 2px, 4px, 8px. Use true circles only for status dots or data points. Do not use large rounded cards or pill-shaped marketing CTAs.
+Radius scale stays tight: 2px, 4px, 8px. Bezel-notched chips (clip-path corner cuts) mark indices and labels. True circles only for status dots and data points. No pill CTAs, no large rounded cards.
 
 ## Components
 
-Buttons are compact editorial controls. Badges are labels, not colorful capsules. Forms should feel precise and calm, with clear focus states and no decorative chrome.
+Buttons are compact instrument controls; the primary action is always vermilion. Badges are labels, not colorful capsules. Forms feel precise and calm, with clear focus states and no decorative chrome.
 
-Icons are allowed for utility controls, but Lucide-style decorative grids should not carry the design. Prefer custom proof plates, typographic marks, rules, metrics, and small data glyphs.
+Icons are allowed for utility controls, but decorative icon grids must not carry the design. Prefer schematic figures, proof plates, typographic marks, calibration ticks, and small data glyphs.
 
 ## Do's and Don'ts
 
 Do:
 
-- Use real portfolio facts as visual material.
-- Make each case study feel structurally related but visually distinct.
+- Use real portfolio facts and real delivery practice as visual material (Figure 01 is the actual loop).
+- Make each case study feel structurally related but visually distinct through its channel ink.
 - Preserve accessibility, contrast, keyboard flow, and responsive fit.
 - Keep contact behavior unchanged.
 
@@ -198,4 +207,5 @@ Don't:
 - Invent client screenshots or confidential product UI.
 - Use generic centered SaaS hero composition.
 - Use purple gradients, glass panels, or decorative orbs.
+- Drift back to the editorial-magazine lane: mono-labels-plus-ruled-columns restraint is the saturated AI default this system replaced.
 - Let future pages drift from this contract.

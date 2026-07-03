@@ -72,11 +72,11 @@ The visual contract lives in [DESIGN.md](DESIGN.md). It defines the editorial di
 
 The implemented system is dark-first and uses:
 
-- `Geologica` for display type
-- `Spline Sans` for body/UI
-- `Spline Sans Mono` for metadata
-- OKLCH CSS variables in `src/app/globals.css`, with muted trust-blue as the primary signal
-- evidence plates generated from real case-study data
+- `Archivo` (variable width axis) for display and body
+- `Martian Mono` for metadata and readouts
+- OKLCH CSS variables in `src/app/globals.css`: warm charcoal ground, bone type, one vermilion signal, channel inks per case study
+- schematic figures and evidence plates generated from real case-study data
+- boot choreography on load and one-shot scroll reveals, fully static under `prefers-reduced-motion`
 
 ## Structure
 

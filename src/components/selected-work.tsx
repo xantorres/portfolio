@@ -35,7 +35,7 @@ export function SelectedWork() {
                 href={`/work/${c.slug}`}
                 aria-label={`${c.company} · ${c.title}`}
                 style={workCardStyle(c.proofTheme)}
-                className="work-card group grid grid-cols-1 gap-6 overflow-hidden rounded-[var(--radius-md)] border-t border-border px-3 py-8 md:grid-cols-12 md:items-stretch md:px-5 md:py-10 md:pl-16"
+                className="work-card tick-corners group grid grid-cols-1 gap-6 rounded-[var(--radius-xs)] border border-border bg-card/35 px-3 py-8 md:grid-cols-12 md:items-stretch md:px-5 md:py-10 md:pl-16"
               >
                 <span className="work-card__ruler work-card__ruler--top" aria-hidden />
                 <span className="work-card__ruler work-card__ruler--bottom" aria-hidden />

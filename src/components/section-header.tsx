@@ -16,16 +16,14 @@ export function SectionHeader({ index, eyebrow, title, aside, className }: Props
         className,
       )}
     >
-      <div className="flex flex-col gap-2 md:col-span-3">
-        <span className="meta-label">
-          [ {index} ]
-        </span>
-        <span className="meta-label text-foreground">
+      <div className="flex flex-col items-start gap-2 md:col-span-3">
+        <span className="instrument-chip meta-label text-foreground">
+          <span className="font-semibold text-signal">{index}</span>
           {eyebrow}
         </span>
       </div>
 
-      <h2 className="max-w-[18ch] text-balance font-display text-3xl font-medium leading-[1.05] tracking-normal sm:text-4xl md:col-span-7 lg:text-5xl">
+      <h2 className="headline-type max-w-[18ch] text-balance md:col-span-7">
         {title}
       </h2>
 

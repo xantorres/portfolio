@@ -7,32 +7,32 @@ export const alt = `${profile.name} · ${profile.tagline} ${profile.accentWord}`
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Server-side font loading from @fontsource/geologica.
+// Server-side font loading from @fontsource/archivo.
 // vercel/og accepts ttf/otf/woff; we ship the WOFF static weights.
-async function loadGeologica(weight: 400 | 500 | 700): Promise<ArrayBuffer> {
+async function loadArchivo(weight: 400 | 500 | 800): Promise<ArrayBuffer> {
   const file = path.join(
     process.cwd(),
     "node_modules",
     "@fontsource",
-    "geologica",
+    "archivo",
     "files",
-    `geologica-latin-${weight}-normal.woff`,
+    `archivo-latin-${weight}-normal.woff`,
   );
   const buf = await readFile(file);
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
 }
 
-const INK = "#070B0F";
-const PAPER = "#EEE7DB";
-const SIGNAL = "#61AFDA";
-const MUTED = "#939CA6";
-const RULE = "#293139";
+const INK = "#211D18";
+const PAPER = "#F2ECE1";
+const SIGNAL = "#E85E33";
+const MUTED = "#A89F92";
+const RULE = "#453E36";
 
 export default async function OpengraphImage() {
   const [regular, medium, bold] = await Promise.all([
-    loadGeologica(400),
-    loadGeologica(500),
-    loadGeologica(700),
+    loadArchivo(400),
+    loadArchivo(500),
+    loadArchivo(800),
   ]);
 
   return new ImageResponse(
@@ -48,7 +48,7 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          fontFamily: "Geologica",
+          fontFamily: "Archivo",
         }}
       >
         <div
@@ -78,7 +78,7 @@ export default async function OpengraphImage() {
           <div
             style={{
               fontSize: 108,
-              fontWeight: 700,
+              fontWeight: 800,
               lineHeight: 1.02,
               letterSpacing: "-0.005em",
               maxWidth: 1050,
@@ -124,9 +124,9 @@ export default async function OpengraphImage() {
     {
       ...size,
       fonts: [
-        { name: "Geologica", data: regular, weight: 400, style: "normal" },
-        { name: "Geologica", data: medium, weight: 500, style: "normal" },
-        { name: "Geologica", data: bold, weight: 700, style: "normal" },
+        { name: "Archivo", data: regular, weight: 400, style: "normal" },
+        { name: "Archivo", data: medium, weight: 500, style: "normal" },
+        { name: "Archivo", data: bold, weight: 800, style: "normal" },
       ],
     },
   );

@@ -3,9 +3,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-spline-sans);
-  --font-mono: var(--font-spline-mono);
-  --font-display: var(--font-geologica);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-martian-mono);
+  --font-display: var(--font-archivo);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -44,74 +44,76 @@
   --radius-lg: 8px;
   --radius-xl: 8px;
 
-  --ease-editorial: cubic-bezier(0.21, 0.72, 0.18, 1);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Drafting-daylight theme: warm paper bench under office light. */
 :root {
   --radius: 4px;
-  --background: oklch(0.97 0.012 83);
-  --foreground: oklch(0.18 0.016 248);
-  --card: oklch(0.94 0.014 84);
-  --card-foreground: oklch(0.18 0.016 248);
-  --popover: oklch(0.97 0.012 83);
-  --popover-foreground: oklch(0.18 0.016 248);
-  --primary: oklch(0.18 0.016 248);
-  --primary-foreground: oklch(0.97 0.012 83);
-  --secondary: oklch(0.88 0.014 82);
-  --secondary-foreground: oklch(0.18 0.016 248);
-  --muted: oklch(0.88 0.014 82);
-  --muted-foreground: oklch(0.43 0.02 250);
-  --accent: oklch(0.47 0.12 238);
-  --accent-foreground: oklch(0.97 0.012 83);
-  --destructive: oklch(0.55 0.18 32);
-  --destructive-foreground: oklch(0.97 0.012 78);
-  --border: oklch(0.78 0.018 250);
-  --input: oklch(0.78 0.018 250);
-  --ring: oklch(0.47 0.12 238);
-  --paper: oklch(0.97 0.012 83);
-  --ink: oklch(0.18 0.016 248);
-  --graphite: oklch(0.43 0.02 250);
-  --blueprint: oklch(0.51 0.1 230);
-  --blueprint-foreground: oklch(0.97 0.012 83);
-  --signal: oklch(0.47 0.12 238);
-  --signal-foreground: oklch(0.97 0.012 83);
-  --oxide: oklch(0.5 0.11 50);
-  --oxide-foreground: oklch(0.97 0.012 83);
-  --circuit: oklch(0.48 0.085 178);
-  --circuit-foreground: oklch(0.97 0.012 83);
+  --background: oklch(0.958 0.009 84);
+  --foreground: oklch(0.235 0.014 65);
+  --card: oklch(0.935 0.011 83);
+  --card-foreground: oklch(0.235 0.014 65);
+  --popover: oklch(0.958 0.009 84);
+  --popover-foreground: oklch(0.235 0.014 65);
+  --primary: oklch(0.48 0.185 33);
+  --primary-foreground: oklch(0.97 0.008 84);
+  --secondary: oklch(0.885 0.012 82);
+  --secondary-foreground: oklch(0.235 0.014 65);
+  --muted: oklch(0.885 0.012 82);
+  --muted-foreground: oklch(0.46 0.016 65);
+  --accent: oklch(0.48 0.185 33);
+  --accent-foreground: oklch(0.97 0.008 84);
+  --destructive: oklch(0.54 0.19 27);
+  --destructive-foreground: oklch(0.97 0.008 84);
+  --border: oklch(0.815 0.013 80);
+  --input: oklch(0.815 0.013 80);
+  --ring: oklch(0.48 0.185 33);
+  --paper: oklch(0.97 0.008 84);
+  --ink: oklch(0.21 0.012 65);
+  --graphite: oklch(0.46 0.016 65);
+  --blueprint: oklch(0.44 0.085 220);
+  --blueprint-foreground: oklch(0.97 0.008 84);
+  --signal: oklch(0.48 0.185 33);
+  --signal-foreground: oklch(0.97 0.008 84);
+  --oxide: oklch(0.5 0.11 70);
+  --oxide-foreground: oklch(0.97 0.008 84);
+  --circuit: oklch(0.45 0.1 155);
+  --circuit-foreground: oklch(0.97 0.008 84);
 }
 
+/* Lit-bench theme: warm milled charcoal, bone type, one vermilion signal. */
 .dark {
-  --background: oklch(0.145 0.012 248);
-  --foreground: oklch(0.93 0.018 83);
-  --card: oklch(0.19 0.014 248);
-  --card-foreground: oklch(0.93 0.018 83);
-  --popover: oklch(0.19 0.014 248);
-  --popover-foreground: oklch(0.93 0.018 83);
-  --primary: oklch(0.93 0.018 83);
-  --primary-foreground: oklch(0.145 0.012 248);
-  --secondary: oklch(0.235 0.014 248);
-  --secondary-foreground: oklch(0.93 0.018 83);
-  --muted: oklch(0.235 0.014 248);
-  --muted-foreground: oklch(0.69 0.018 250);
-  --accent: oklch(0.72 0.1 235);
-  --accent-foreground: oklch(0.145 0.012 248);
-  --destructive: oklch(0.57 0.17 32);
-  --destructive-foreground: oklch(0.94 0.014 78);
-  --border: oklch(0.31 0.018 248);
-  --input: oklch(0.31 0.018 248);
-  --ring: oklch(0.72 0.1 235);
-  --paper: oklch(0.93 0.018 83);
-  --ink: oklch(0.145 0.012 248);
-  --graphite: oklch(0.69 0.018 250);
-  --blueprint: oklch(0.7 0.095 230);
-  --blueprint-foreground: oklch(0.145 0.012 248);
-  --signal: oklch(0.72 0.1 235);
-  --signal-foreground: oklch(0.145 0.012 248);
-  --oxide: oklch(0.7 0.1 52);
-  --oxide-foreground: oklch(0.145 0.012 248);
-  --circuit: oklch(0.72 0.085 178);
-  --circuit-foreground: oklch(0.145 0.012 248);
+  --background: oklch(0.175 0.008 70);
+  --foreground: oklch(0.945 0.011 82);
+  --card: oklch(0.215 0.01 72);
+  --card-foreground: oklch(0.945 0.011 82);
+  --popover: oklch(0.215 0.01 72);
+  --popover-foreground: oklch(0.945 0.011 82);
+  --primary: oklch(0.675 0.175 34);
+  --primary-foreground: oklch(0.155 0.008 70);
+  --secondary: oklch(0.265 0.011 72);
+  --secondary-foreground: oklch(0.945 0.011 82);
+  --muted: oklch(0.265 0.011 72);
+  --muted-foreground: oklch(0.705 0.013 75);
+  --accent: oklch(0.675 0.175 34);
+  --accent-foreground: oklch(0.155 0.008 70);
+  --destructive: oklch(0.6 0.19 27);
+  --destructive-foreground: oklch(0.945 0.011 82);
+  --border: oklch(0.335 0.011 72);
+  --input: oklch(0.335 0.011 72);
+  --ring: oklch(0.675 0.175 34);
+  --paper: oklch(0.945 0.011 82);
+  --ink: oklch(0.155 0.008 70);
+  --graphite: oklch(0.705 0.013 75);
+  --blueprint: oklch(0.75 0.085 215);
+  --blueprint-foreground: oklch(0.155 0.008 70);
+  --signal: oklch(0.675 0.175 34);
+  --signal-foreground: oklch(0.155 0.008 70);
+  --oxide: oklch(0.78 0.11 82);
+  --oxide-foreground: oklch(0.155 0.008 70);
+  --circuit: oklch(0.76 0.11 155);
+  --circuit-foreground: oklch(0.155 0.008 70);
 }
 
 @layer base {
@@ -127,15 +129,26 @@
     @apply bg-background text-foreground antialiased;
     min-width: 0;
     overflow-x: clip;
-    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    font-feature-settings: "rlig" 1, "calt" 1;
     background-image:
-      linear-gradient(to bottom, color-mix(in oklch, var(--background), var(--paper) 3%), var(--background) 38rem),
+      radial-gradient(
+        120rem 60rem at 18% -8%,
+        color-mix(in oklch, var(--signal), transparent 96%),
+        transparent 60%
+      ),
+      repeating-linear-gradient(
+        0deg,
+        color-mix(in oklch, var(--border), transparent 78%) 0,
+        color-mix(in oklch, var(--border), transparent 78%) 1px,
+        transparent 1px,
+        transparent 72px
+      ),
       repeating-linear-gradient(
         90deg,
-        color-mix(in oklch, var(--border), transparent 70%) 0,
-        color-mix(in oklch, var(--border), transparent 70%) 1px,
+        color-mix(in oklch, var(--border), transparent 78%) 0,
+        color-mix(in oklch, var(--border), transparent 78%) 1px,
         transparent 1px,
-        transparent 96px
+        transparent 72px
       );
     background-attachment: fixed;
   }
@@ -148,7 +161,7 @@
   }
 
   ::selection {
-    background: color-mix(in oklch, var(--signal), transparent 65%);
+    background: color-mix(in oklch, var(--signal), transparent 60%);
     color: var(--foreground);
   }
 }
@@ -167,20 +180,24 @@
   }
 
   .meta-label {
-    @apply font-mono text-[0.68rem] font-medium uppercase leading-snug tracking-[0.08em] text-muted-foreground;
+    @apply font-mono text-[0.62rem] font-medium uppercase leading-normal tracking-[0.1em] text-muted-foreground;
     overflow-wrap: anywhere;
   }
 
   .display-type {
-    @apply font-display font-bold leading-[1] tracking-normal;
-    font-size: clamp(2.5rem, 4.85vw, 4.45rem);
-    font-variation-settings: "SHRP" 72;
+    @apply font-display leading-[0.98];
+    font-weight: 800;
+    font-stretch: 125%;
+    letter-spacing: -0.01em;
+    font-size: clamp(2.55rem, 4.9vw, 4.55rem);
   }
 
   .headline-type {
-    @apply font-display font-bold leading-[1.03] tracking-normal;
-    font-size: clamp(1.95rem, 3.45vw, 3.4rem);
-    font-variation-settings: "SHRP" 64;
+    @apply font-display leading-[1.02];
+    font-weight: 750;
+    font-stretch: 118%;
+    letter-spacing: -0.008em;
+    font-size: clamp(1.9rem, 3.4vw, 3.3rem);
   }
 
   .body-measure {
@@ -194,6 +211,96 @@
       color-mix(in oklch, var(--foreground), transparent 50%),
       transparent
     );
+  }
+
+  /* Bezel plate: notched instrument chip for labels and case markers. */
+  .instrument-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 0.32rem 0.62rem;
+    border: 1px solid var(--border);
+    background: color-mix(in oklch, var(--card), transparent 30%);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% 100%,
+      8px 100%,
+      0 calc(100% - 8px)
+    );
+  }
+
+  /* Calibration corner ticks for panel surfaces. */
+  .tick-corners {
+    position: relative;
+  }
+
+  .tick-corners::before,
+  .tick-corners::after {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    pointer-events: none;
+    border-color: color-mix(in oklch, var(--foreground), transparent 55%);
+  }
+
+  .tick-corners::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .tick-corners::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
+  /* Scroll-entrance system. JS toggles .is-visible; reduced motion shows instantly. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 700ms var(--ease-editorial),
+      transform 700ms var(--ease-editorial);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hero boot choreography: staggered one-shot entrance on load. */
+  @media (prefers-reduced-motion: no-preference) {
+    .boot [data-boot] {
+      animation: boot-rise 700ms var(--ease-editorial) both;
+    }
+
+    .boot [data-boot="0"] { animation-delay: 60ms; }
+    .boot [data-boot="1"] { animation-delay: 150ms; }
+    .boot [data-boot="2"] { animation-delay: 260ms; }
+    .boot [data-boot="3"] { animation-delay: 380ms; }
+    .boot [data-boot="4"] { animation-delay: 520ms; }
+    .boot [data-boot="5"] { animation-delay: 660ms; }
+
+    .boot .trace-path {
+      stroke-dasharray: var(--trace-len, 640);
+      stroke-dashoffset: var(--trace-len, 640);
+      animation: trace-draw 1300ms var(--ease-editorial) forwards;
+      animation-delay: var(--trace-delay, 480ms);
+    }
+
+    .boot .trace-node {
+      opacity: 0;
+      animation: boot-fade 420ms var(--ease-editorial) both;
+      animation-delay: var(--trace-delay, 480ms);
+    }
   }
 
   .work-card {
@@ -306,7 +413,7 @@
     width: fit-content;
     margin-left: -0.35rem;
     padding: 0.18rem 0.35rem;
-    border: 1px solid transparent;
+    border: 1px solid color-mix(in oklch, var(--work-accent), transparent 55%);
     border-radius: var(--radius-xs);
     color: var(--work-accent);
     transition:
@@ -459,8 +566,8 @@
       display: block;
       width: 1.5rem;
       border-left: 1px solid color-mix(in oklch, var(--work-accent), transparent 44%);
-      opacity: 0;
-      transform: translateX(-0.35rem);
+      opacity: 0.55;
+      transform: translateX(0);
       transition:
         opacity 260ms var(--ease-editorial),
         transform 320ms var(--ease-editorial);
@@ -502,7 +609,7 @@
 
     .work-card:where(:hover, :focus-visible) .work-card__index-rail {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(0.15rem);
     }
 
     .work-card:where(:hover, :focus-visible) .proof-plate {
@@ -536,6 +643,32 @@
   }
 }
 
+@keyframes boot-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes boot-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes trace-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .pulse-ring::after {
   content: "";
   position: absolute;
@@ -562,6 +695,23 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .trace-path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  .trace-node {
+    opacity: 1 !important;
+    animation: none !important;
   }
 
   .work-card:where(:hover, :focus-visible)::after {

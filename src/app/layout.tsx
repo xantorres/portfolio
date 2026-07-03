@@ -1,9 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Geologica,
-  Spline_Sans,
-  Spline_Sans_Mono,
-} from "next/font/google";
+import { Archivo, Martian_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { HashScrollController } from "@/components/hash-scroll-controller";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -11,24 +7,19 @@ import { Toaster } from "@/components/ui/sonner";
 import { getSubhead, profile, socialTitle } from "@/lib/data";
 import "./globals.css";
 
-const geologica = Geologica({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-geologica",
+  variable: "--font-archivo",
   display: "swap",
   weight: "variable",
-  axes: ["SHRP"],
+  axes: ["wdth"],
 });
-const splineSans = Spline_Sans({
+const martianMono = Martian_Mono({
   subsets: ["latin"],
-  variable: "--font-spline-sans",
+  variable: "--font-martian-mono",
   display: "swap",
   weight: "variable",
-});
-const splineMono = Spline_Sans_Mono({
-  subsets: ["latin"],
-  variable: "--font-spline-mono",
-  display: "swap",
-  weight: "variable",
+  axes: ["wdth"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
@@ -79,8 +70,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F9F5EC" },
-    { media: "(prefers-color-scheme: dark)", color: "#070B0F" },
+    { media: "(prefers-color-scheme: light)", color: "#F4EEE2" },
+    { media: "(prefers-color-scheme: dark)", color: "#211D18" },
   ],
 };
 
@@ -89,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geologica.variable} ${splineSans.variable} ${splineMono.variable}`}
+      className={`${archivo.variable} ${martianMono.variable}`}
     >
       <body className="font-sans antialiased">
         <script
@@ -97,6 +88,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // Escape < so a future string value can't prematurely close the script tag.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
         />
+        <noscript>
+          <style>{`.reveal{opacity:1;transform:none}`}</style>
+        </noscript>
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
