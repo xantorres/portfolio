@@ -142,7 +142,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
                   {c.featuredMetrics.map((metric) => (
                     <div key={metric.label} className="bg-card p-5">
                       <dt className="meta-label">{metric.label}</dt>
-                      <dd className="mt-4 font-display text-3xl font-medium leading-none tracking-normal text-signal">
+                      <dd className="mt-4 break-words font-display text-3xl font-medium leading-none tracking-normal text-signal">
                         {metric.value}
                       </dd>
                     </div>

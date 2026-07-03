@@ -74,7 +74,7 @@ export function ProofPlate({ caseStudy, compact = false, className }: Props) {
           {caseStudy.featuredMetrics.map((metric) => (
             <div key={metric.label} className="proof-plate__metric min-w-0 border-l border-border pl-2">
               <dt className="meta-label">{metric.label}</dt>
-              <dd className={cn("proof-plate__metric-value mt-1 font-display text-xl font-medium leading-none", theme.ink)}>
+              <dd className={cn("proof-plate__metric-value mt-1 break-words font-display text-xl font-medium leading-none", theme.ink)}>
                 {metric.value}
               </dd>
             </div>
