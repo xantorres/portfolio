@@ -58,7 +58,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
         <article className="container-editorial py-12 sm:py-16 lg:py-20">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground underline-offset-4 transition-colors hover:text-signal hover:underline"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
           >
             <ArrowLeft className="size-3.5" />
             Back to work
@@ -75,7 +75,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
                     href={c.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="meta-label inline-flex items-center gap-1 text-signal underline-offset-4 hover:underline"
+                    className="meta-label inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
                   >
                     {new URL(c.url).hostname.replace(/^www\./, "")}
                     <ArrowUpRight aria-hidden className="size-3" />
@@ -109,15 +109,15 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
             <aside className="lg:col-span-4">
               <div className="grid gap-8 lg:sticky lg:top-24">
                 <div>
-                  <h2 className="meta-label text-signal">Role</h2>
+                  <h2 className="meta-label">Role</h2>
                   <p className="mt-2 text-sm">{c.role}</p>
                 </div>
                 <div>
-                  <h2 className="meta-label text-signal">Scope</h2>
+                  <h2 className="meta-label">Scope</h2>
                   <p className="mt-2 text-sm">{c.scope}</p>
                 </div>
                 <div>
-                  <h2 className="meta-label text-signal">Problem</h2>
+                  <h2 className="meta-label">Problem</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.problem}</p>
                 </div>
               </div>
@@ -125,26 +125,26 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
 
             <div className="grid gap-14 lg:col-span-8">
               <section>
-                <h2 className="meta-label text-signal">What changed</h2>
-                <p className="mt-4 max-w-[62ch] font-display text-xl font-medium leading-snug tracking-normal sm:text-2xl">
+                <h2 className="meta-label">What changed</h2>
+                <p className="mt-4 max-w-[62ch] text-xl font-medium leading-snug sm:text-2xl">
                   {c.systemMove}
                 </p>
               </section>
 
               <section>
-                <h2 className="meta-label text-signal">Why it matters</h2>
+                <h2 className="meta-label">Why it matters</h2>
                 <p className="mt-4 body-measure text-sm leading-relaxed text-muted-foreground sm:text-base">
                   {c.whyItMatters}
                 </p>
               </section>
 
               <section>
-                <h2 className="meta-label text-signal">Readouts</h2>
-                <dl className="mt-5 grid gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-3">
+                <h2 className="meta-label">Readouts</h2>
+                <dl className="mt-5 grid gap-8 sm:grid-cols-3">
                   {c.featuredMetrics.map((metric) => (
-                    <div key={metric.label} className="bg-card p-5">
+                    <div key={metric.label} className="min-w-0">
                       <dt className="meta-label">{metric.label}</dt>
-                      <dd className="mt-4 break-words font-display text-3xl font-medium leading-none tracking-normal text-signal">
+                      <dd className="mt-3 break-words text-3xl font-medium leading-none tracking-[-0.018em]">
                         {metric.value}
                       </dd>
                     </div>
@@ -153,11 +153,11 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               </section>
 
               <section>
-                <h2 className="meta-label text-signal">Highlights</h2>
+                <h2 className="meta-label">Highlights</h2>
                 <ul className="mt-5 grid gap-4">
                   {c.highlights.map((h) => (
                     <li key={h} className="grid grid-cols-[1.25rem_1fr] gap-4 text-sm leading-relaxed sm:text-base">
-                      <span className="mt-2 h-px bg-signal" aria-hidden />
+                      <span className="mt-3 h-px bg-border-strong" aria-hidden />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -165,10 +165,10 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               </section>
 
               <section>
-                <h2 className="meta-label text-signal">Outcomes</h2>
+                <h2 className="meta-label">Outcomes</h2>
                 <ul className="mt-5 grid gap-4">
                   {c.outcomes.map((o) => (
-                    <li key={o} className="border-l-2 border-signal pl-4 text-base leading-relaxed sm:text-lg">
+                    <li key={o} className="border-l border-border-strong pl-4 text-base leading-relaxed sm:text-lg">
                       {o}
                     </li>
                   ))}
@@ -176,7 +176,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               </section>
 
               <section>
-                <h2 className="meta-label text-signal">Stack</h2>
+                <h2 className="meta-label">Stack</h2>
                 <ul className="mt-5 flex flex-wrap gap-1.5">
                   {c.stack.map((s) => (
                     <li key={s}>
@@ -191,14 +191,14 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
           <div className="mt-16 flex items-center justify-between border-t border-border pt-8">
             <Link
               href="/#work"
-              className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted-foreground hover:text-signal"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="size-3.5" />
               All work
             </Link>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-foreground underline-offset-4 transition-colors hover:text-signal hover:underline"
+              className="inline-flex items-center gap-2 text-sm text-foreground underline-offset-4 transition-colors hover:underline"
             >
               Get in touch
               <ArrowUpRight className="size-3.5" />

@@ -3,9 +3,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-archivo);
-  --font-mono: var(--font-martian-mono);
-  --font-display: var(--font-archivo);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -15,6 +14,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-hover-fill: var(--hover-fill);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -24,96 +25,82 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-paper: var(--paper);
-  --color-ink: var(--ink);
-  --color-graphite: var(--graphite);
-  --color-blueprint: var(--blueprint);
-  --color-blueprint-foreground: var(--blueprint-foreground);
-  --color-signal: var(--signal);
-  --color-signal-foreground: var(--signal-foreground);
-  --color-oxide: var(--oxide);
-  --color-oxide-foreground: var(--oxide-foreground);
-  --color-circuit: var(--circuit);
-  --color-circuit-foreground: var(--circuit-foreground);
+  --color-tertiary: var(--ink-tertiary);
+  --color-wash: var(--surface-wash);
 
-  --radius-xs: 2px;
-  --radius-sm: 4px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 8px;
   --radius-xl: 8px;
 
-  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quiet: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Drafting-daylight theme: warm paper bench under office light. */
+/* Light canvas: white ground, alpha-black ink ladder, no tinted neutrals. */
 :root {
-  --radius: 4px;
-  --background: oklch(0.958 0.009 84);
-  --foreground: oklch(0.235 0.014 65);
-  --card: oklch(0.935 0.011 83);
-  --card-foreground: oklch(0.235 0.014 65);
-  --popover: oklch(0.958 0.009 84);
-  --popover-foreground: oklch(0.235 0.014 65);
-  --primary: oklch(0.48 0.185 33);
-  --primary-foreground: oklch(0.97 0.008 84);
-  --secondary: oklch(0.885 0.012 82);
-  --secondary-foreground: oklch(0.235 0.014 65);
-  --muted: oklch(0.885 0.012 82);
-  --muted-foreground: oklch(0.46 0.016 65);
-  --accent: oklch(0.48 0.185 33);
-  --accent-foreground: oklch(0.97 0.008 84);
-  --destructive: oklch(0.54 0.19 27);
-  --destructive-foreground: oklch(0.97 0.008 84);
-  --border: oklch(0.815 0.013 80);
-  --input: oklch(0.815 0.013 80);
-  --ring: oklch(0.48 0.185 33);
-  --paper: oklch(0.97 0.008 84);
-  --ink: oklch(0.21 0.012 65);
-  --graphite: oklch(0.46 0.016 65);
-  --blueprint: oklch(0.44 0.085 220);
-  --blueprint-foreground: oklch(0.97 0.008 84);
-  --signal: oklch(0.48 0.185 33);
-  --signal-foreground: oklch(0.97 0.008 84);
-  --oxide: oklch(0.5 0.11 70);
-  --oxide-foreground: oklch(0.97 0.008 84);
-  --circuit: oklch(0.45 0.1 155);
-  --circuit-foreground: oklch(0.97 0.008 84);
+  --radius: 8px;
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --primary-hover: rgb(0 0 0 / 84%);
+  --secondary: rgb(0 0 0 / 5%);
+  --secondary-foreground: #000000;
+  --muted: rgb(0 0 0 / 4%);
+  --muted-foreground: rgb(0 0 0 / 64%);
+  --accent: rgb(0 0 0 / 5%);
+  --accent-foreground: #000000;
+  --destructive: oklch(0.54 0.2 27);
+  --destructive-foreground: #ffffff;
+  --border: rgb(0 0 0 / 10%);
+  --border-strong: rgb(0 0 0 / 18%);
+  --input: rgb(0 0 0 / 18%);
+  --ring: rgb(0 0 0 / 88%);
+
+  /* Metadata carries real reading here, and it also lands on the 4% washes,
+     so the rung is lifted until it clears 4.5:1 on the tint as well. */
+  --ink-tertiary: rgb(0 0 0 / 58%);
+  --surface-wash: rgb(0 0 0 / 4%);
+  --hover-fill: rgb(0 0 0 / 5%);
+  --pressed-fill: rgb(0 0 0 / 9%);
 }
 
-/* Lit-bench theme: warm milled charcoal, bone type, one vermilion signal. */
+/* Dark canvas: the same ladder re-derived, since equal alpha buys more contrast here. */
 .dark {
-  --background: oklch(0.175 0.008 70);
-  --foreground: oklch(0.945 0.011 82);
-  --card: oklch(0.215 0.01 72);
-  --card-foreground: oklch(0.945 0.011 82);
-  --popover: oklch(0.215 0.01 72);
-  --popover-foreground: oklch(0.945 0.011 82);
-  --primary: oklch(0.675 0.175 34);
-  --primary-foreground: oklch(0.155 0.008 70);
-  --secondary: oklch(0.265 0.011 72);
-  --secondary-foreground: oklch(0.945 0.011 82);
-  --muted: oklch(0.265 0.011 72);
-  --muted-foreground: oklch(0.705 0.013 75);
-  --accent: oklch(0.675 0.175 34);
-  --accent-foreground: oklch(0.155 0.008 70);
-  --destructive: oklch(0.6 0.19 27);
-  --destructive-foreground: oklch(0.945 0.011 82);
-  --border: oklch(0.335 0.011 72);
-  --input: oklch(0.335 0.011 72);
-  --ring: oklch(0.675 0.175 34);
-  --paper: oklch(0.945 0.011 82);
-  --ink: oklch(0.155 0.008 70);
-  --graphite: oklch(0.705 0.013 75);
-  --blueprint: oklch(0.75 0.085 215);
-  --blueprint-foreground: oklch(0.155 0.008 70);
-  --signal: oklch(0.675 0.175 34);
-  --signal-foreground: oklch(0.155 0.008 70);
-  --oxide: oklch(0.78 0.11 82);
-  --oxide-foreground: oklch(0.155 0.008 70);
-  --circuit: oklch(0.76 0.11 155);
-  --circuit-foreground: oklch(0.155 0.008 70);
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #0a0a0a;
+  --primary-hover: rgb(255 255 255 / 86%);
+  --secondary: rgb(255 255 255 / 9%);
+  --secondary-foreground: #ffffff;
+  --muted: rgb(255 255 255 / 5%);
+  --muted-foreground: rgb(255 255 255 / 56%);
+  --accent: rgb(255 255 255 / 9%);
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.7 0.19 25);
+  --destructive-foreground: #0a0a0a;
+  --border: rgb(255 255 255 / 11%);
+  --border-strong: rgb(255 255 255 / 20%);
+  --input: rgb(255 255 255 / 20%);
+  --ring: rgb(255 255 255 / 92%);
+
+  --ink-tertiary: rgb(255 255 255 / 48%);
+  --surface-wash: rgb(255 255 255 / 4%);
+  --hover-fill: rgb(255 255 255 / 9%);
+  --pressed-fill: rgb(255 255 255 / 14%);
 }
 
 @layer base {
@@ -130,27 +117,6 @@
     min-width: 0;
     overflow-x: clip;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background-image:
-      radial-gradient(
-        120rem 60rem at 18% -8%,
-        color-mix(in oklch, var(--signal), transparent 96%),
-        transparent 60%
-      ),
-      repeating-linear-gradient(
-        0deg,
-        color-mix(in oklch, var(--border), transparent 78%) 0,
-        color-mix(in oklch, var(--border), transparent 78%) 1px,
-        transparent 1px,
-        transparent 72px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        color-mix(in oklch, var(--border), transparent 78%) 0,
-        color-mix(in oklch, var(--border), transparent 78%) 1px,
-        transparent 1px,
-        transparent 72px
-      );
-    background-attachment: fixed;
   }
 
   a,
@@ -161,525 +127,84 @@
   }
 
   ::selection {
-    background: color-mix(in oklch, var(--signal), transparent 60%);
+    background: var(--pressed-fill);
     color: var(--foreground);
   }
 }
 
 @layer components {
   .container-editorial {
-    @apply mx-auto w-full max-w-[88rem] px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[80rem] px-6 sm:px-10 lg:px-16;
   }
 
-  .section-band {
-    @apply border-t border-border;
-  }
-
+  /* Chapter transitions carry the structure; rules are added only where a gap is ambiguous. */
   .section-pad {
-    @apply py-20 sm:py-28 lg:py-32;
+    @apply py-12 sm:py-16 lg:py-18;
+  }
+
+  .section-wash {
+    background: var(--surface-wash);
   }
 
   .meta-label {
-    @apply font-mono text-[0.62rem] font-medium uppercase leading-normal tracking-[0.1em] text-muted-foreground;
+    @apply text-[0.8125rem] font-medium leading-normal;
+    color: var(--ink-tertiary);
     overflow-wrap: anywhere;
   }
 
   .display-type {
-    @apply font-display leading-[1.04];
-    font-weight: 800;
-    font-stretch: 100%;
-    letter-spacing: -0.01em;
-    font-size: clamp(2.55rem, 4.9vw, 4.55rem);
+    @apply font-display;
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.022em;
+    font-size: clamp(2.4rem, 4.6vw, 4rem);
   }
 
   .headline-type {
-    @apply font-display leading-[1.06];
-    font-weight: 750;
-    font-stretch: 100%;
-    letter-spacing: -0.008em;
-    font-size: clamp(1.9rem, 3.4vw, 3.3rem);
+    @apply font-display;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.018em;
+    font-size: clamp(1.75rem, 2.9vw, 2.5rem);
+  }
+
+  .title-type {
+    @apply font-display;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
   }
 
   .body-measure {
-    @apply min-w-0 max-w-[68ch] leading-relaxed;
+    @apply min-w-0 max-w-[64ch];
+    line-height: 1.6;
   }
 
-  .proof-rule {
-    background: linear-gradient(
-      to right,
-      transparent,
-      color-mix(in oklch, var(--foreground), transparent 50%),
-      transparent
-    );
+  /* Full-row targets get a quiet wash instead of a card border. */
+  .row-link {
+    transition: background-color 200ms ease;
   }
 
-  /* Bezel plate: notched instrument chip for labels and case markers. */
-  .instrument-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: fit-content;
-    padding: 0.32rem 0.62rem;
-    border: 1px solid var(--border);
-    background: color-mix(in oklch, var(--card), transparent 30%);
-    clip-path: polygon(
-      0 0,
-      calc(100% - 8px) 0,
-      100% 8px,
-      100% 100%,
-      8px 100%,
-      0 calc(100% - 8px)
-    );
+  @media (hover: hover) and (pointer: fine) {
+    .row-link:hover {
+      background: var(--hover-fill);
+    }
   }
 
-  /* Calibration corner ticks for panel surfaces. */
-  .tick-corners {
-    position: relative;
+  .row-link:focus-visible {
+    background: var(--hover-fill);
   }
 
-  .tick-corners::before,
-  .tick-corners::after {
-    content: "";
-    position: absolute;
-    width: 11px;
-    height: 11px;
-    pointer-events: none;
-    border-color: color-mix(in oklch, var(--foreground), transparent 55%);
-  }
-
-  .tick-corners::before {
-    top: -1px;
-    left: -1px;
-    border-top: 1px solid;
-    border-left: 1px solid;
-  }
-
-  .tick-corners::after {
-    bottom: -1px;
-    right: -1px;
-    border-bottom: 1px solid;
-    border-right: 1px solid;
-  }
-
-  /* Scroll-entrance system. JS toggles .is-visible; reduced motion shows instantly. */
+  /* Scroll entrance: opacity only, short, and skipped entirely under reduced motion. */
   .reveal {
     opacity: 0;
-    transform: translateY(22px);
-    transition:
-      opacity 700ms var(--ease-editorial),
-      transform 700ms var(--ease-editorial);
+    transition: opacity 260ms var(--ease-out-quiet);
     transition-delay: var(--reveal-delay, 0ms);
   }
 
   .reveal.is-visible {
     opacity: 1;
-    transform: none;
-  }
-
-  /* Hero boot choreography: staggered one-shot entrance on load. */
-  @media (prefers-reduced-motion: no-preference) {
-    .boot [data-boot] {
-      animation: boot-rise 700ms var(--ease-editorial) both;
-    }
-
-    .boot [data-boot="0"] { animation-delay: 60ms; }
-    .boot [data-boot="1"] { animation-delay: 150ms; }
-    .boot [data-boot="2"] { animation-delay: 260ms; }
-    .boot [data-boot="3"] { animation-delay: 380ms; }
-    .boot [data-boot="4"] { animation-delay: 520ms; }
-    .boot [data-boot="5"] { animation-delay: 660ms; }
-
-    .boot .trace-path {
-      stroke-dasharray: var(--trace-len, 640);
-      stroke-dashoffset: var(--trace-len, 640);
-      animation: trace-draw 1300ms var(--ease-editorial) forwards;
-      animation-delay: var(--trace-delay, 480ms);
-    }
-
-    .boot .trace-node {
-      opacity: 0;
-      animation: boot-fade 420ms var(--ease-editorial) both;
-      animation-delay: var(--trace-delay, 480ms);
-    }
-  }
-
-  .work-card {
-    position: relative;
-    isolation: isolate;
-    transition:
-      background-color 280ms var(--ease-editorial),
-      border-color 280ms var(--ease-editorial),
-      box-shadow 280ms var(--ease-editorial);
-  }
-
-  .work-card::before,
-  .work-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .work-card::before {
-    opacity: 0;
-    transform: scaleX(0.97);
-    transform-origin: left;
-    transition:
-      opacity 280ms var(--ease-editorial),
-      transform 280ms var(--ease-editorial);
-    background:
-      linear-gradient(
-        90deg,
-        color-mix(in oklch, var(--work-accent), transparent 72%) 0 1px,
-        transparent 1px 100%
-      ),
-      linear-gradient(
-        to bottom,
-        color-mix(in oklch, var(--work-accent), transparent 94%),
-        transparent 10rem
-      );
-  }
-
-  .work-card::after {
-    opacity: 0;
-    transform: translateX(-58%);
-    background: linear-gradient(
-      105deg,
-      transparent 0 35%,
-      color-mix(in oklch, var(--work-accent), transparent 76%) 45%,
-      transparent 55% 100%
-    );
-  }
-
-  .work-card > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .work-card:where(:hover, :focus-visible) {
-    border-color: var(--work-accent);
-    background: color-mix(in oklch, var(--work-accent), transparent 96%);
-    box-shadow:
-      inset 0 0 0 1px color-mix(in oklch, var(--work-accent), transparent 62%),
-      0 22px 70px -54px color-mix(in oklch, var(--work-accent), transparent 16%);
-  }
-
-  .work-card:where(:hover, :focus-visible)::before {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  .work-card:where(:hover, :focus-visible)::after {
-    animation: work-card-scan 900ms var(--ease-editorial) both;
-  }
-
-  .work-card__ruler {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    opacity: 0;
-    transform: scaleX(0.68);
-    transform-origin: left;
-    transition:
-      opacity 260ms var(--ease-editorial),
-      transform 320ms var(--ease-editorial);
-    background: repeating-linear-gradient(
-      90deg,
-      color-mix(in oklch, var(--work-accent), transparent 36%) 0 1px,
-      transparent 1px 18px
-    );
-  }
-
-  .work-card__ruler--top {
-    top: 0;
-  }
-
-  .work-card__ruler--bottom {
-    bottom: 0;
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__ruler {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  .work-card__index-rail {
-    display: none;
-  }
-
-  .work-card__case-chip {
-    width: fit-content;
-    margin-left: -0.35rem;
-    padding: 0.18rem 0.35rem;
-    border: 1px solid color-mix(in oklch, var(--work-accent), transparent 55%);
-    border-radius: var(--radius-xs);
-    color: var(--work-accent);
-    transition:
-      background-color 220ms var(--ease-editorial),
-      border-color 220ms var(--ease-editorial),
-      color 220ms var(--ease-editorial),
-      transform 220ms var(--ease-editorial);
-  }
-
-  .work-card__meta,
-  .work-card__title,
-  .work-card__problem,
-  .work-card__arrow {
-    transition:
-      color 260ms var(--ease-editorial),
-      opacity 260ms var(--ease-editorial),
-      transform 300ms var(--ease-editorial);
-  }
-
-  .work-card__title::after {
-    content: "";
-    display: block;
-    width: 4.5rem;
-    height: 2px;
-    margin-top: 0.7rem;
-    transform: scaleX(0.28);
-    transform-origin: left;
-    opacity: 0.42;
-    background: var(--work-accent);
-    transition:
-      opacity 260ms var(--ease-editorial),
-      transform 320ms var(--ease-editorial);
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__case-chip {
-    color: var(--work-accent-foreground);
-    background: var(--work-accent);
-    border-color: var(--work-accent);
-    transform: translateX(0.25rem);
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__meta {
-    transform: translateX(0.25rem);
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__title {
-    transform: translateX(0.35rem);
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__title::after {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__problem {
-    color: color-mix(in oklch, var(--foreground), var(--muted-foreground) 35%);
-    transform: translateX(0.35rem);
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__arrow {
-    color: var(--work-accent);
-    transform: translate(0.18rem, -0.18rem) rotate(12deg);
-  }
-
-  .proof-plate,
-  .proof-plate::after,
-  .proof-plate__grid,
-  .proof-plate__dot,
-  .proof-plate__rule,
-  .proof-plate__metric,
-  .proof-plate__metric-value {
-    transition:
-      background-color 280ms var(--ease-editorial),
-      border-color 280ms var(--ease-editorial),
-      box-shadow 280ms var(--ease-editorial),
-      color 280ms var(--ease-editorial),
-      opacity 280ms var(--ease-editorial),
-      transform 320ms var(--ease-editorial),
-      width 320ms var(--ease-editorial);
-  }
-
-  .proof-plate::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(0.75rem);
-    background: linear-gradient(
-      135deg,
-      transparent 0 44%,
-      color-mix(in oklch, var(--work-accent), transparent 40%) 44% 45%,
-      transparent 45% 100%
-    );
-  }
-
-  .proof-plate__metric:nth-child(2) {
-    transition-delay: 45ms;
-  }
-
-  .proof-plate__metric:nth-child(3) {
-    transition-delay: 90ms;
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate {
-    border-color: color-mix(in oklch, var(--work-accent), var(--border) 35%);
-    background: color-mix(in oklch, var(--card), var(--work-accent) 5%);
-    box-shadow:
-      0 22px 65px -48px color-mix(in oklch, var(--work-accent), transparent 5%),
-      inset 0 0 0 1px color-mix(in oklch, var(--work-accent), transparent 72%);
-    transform: translate3d(0, -0.25rem, 0);
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate::after {
-    opacity: 0.55;
-    transform: translateY(0);
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate__grid {
-    opacity: 0.42;
-    transform: translate3d(0.35rem, -0.25rem, 0);
-    background-size: 21px 21px;
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate__dot {
-    transform: scale(1.45);
-    box-shadow: 0 0 0 0.45rem color-mix(in oklch, var(--work-accent), transparent 78%);
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate__rule {
-    width: 7rem;
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate__metric {
-    border-color: color-mix(in oklch, var(--work-accent), transparent 35%);
-    transform: translateY(-0.18rem);
-  }
-
-  .work-card:where(:hover, :focus-visible) .proof-plate__metric-value {
-    color: var(--work-accent);
-    transform: translateY(-0.08rem);
-  }
-
-  @media (min-width: 768px) {
-    .work-card__index-rail {
-      position: absolute;
-      top: 1.2rem;
-      bottom: 1.2rem;
-      left: 1.35rem;
-      display: block;
-      width: 1.5rem;
-      border-left: 1px solid color-mix(in oklch, var(--work-accent), transparent 44%);
-      opacity: 0.55;
-      transform: translateX(0);
-      transition:
-        opacity 260ms var(--ease-editorial),
-        transform 320ms var(--ease-editorial);
-    }
-
-    .work-card__index-rail::before,
-    .work-card__index-rail::after {
-      content: "";
-      position: absolute;
-      left: -1px;
-      width: 0.85rem;
-      height: 1px;
-      background: color-mix(in oklch, var(--work-accent), transparent 28%);
-    }
-
-    .work-card__index-rail::before {
-      top: 0;
-    }
-
-    .work-card__index-rail::after {
-      bottom: 0;
-    }
-
-    .work-card__index-rail span {
-      position: absolute;
-      top: 0.45rem;
-      left: 0.35rem;
-      padding: 0.12rem 0.3rem;
-      border: 1px solid color-mix(in oklch, var(--work-accent), transparent 42%);
-      border-radius: var(--radius-xs);
-      background: var(--background);
-      color: var(--work-accent);
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: 0.08em;
-    }
-
-    .work-card:where(:hover, :focus-visible) .work-card__index-rail {
-      opacity: 1;
-      transform: translateX(0.15rem);
-    }
-
-    .work-card:where(:hover, :focus-visible) .proof-plate {
-      transform: translate3d(-0.45rem, -0.28rem, 0) rotate(-0.35deg);
-    }
-  }
-}
-
-@keyframes work-card-scan {
-  0% {
-    opacity: 0;
-    transform: translateX(-58%);
-  }
-  18% {
-    opacity: 0.85;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(72%);
-  }
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.75;
-  }
-  100% {
-    transform: scale(1.9);
-    opacity: 0;
-  }
-}
-
-@keyframes boot-rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes boot-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes trace-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.pulse-ring::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 9999px;
-  background: color-mix(in oklch, var(--signal), transparent 62%);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .pulse-ring::after {
-    animation: pulse-ring 2.4s ease-out infinite;
   }
 }
 
@@ -699,36 +224,7 @@
 
   .reveal {
     opacity: 1;
-    transform: none;
     transition: none;
-  }
-
-  .trace-path {
-    stroke-dasharray: none !important;
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
-
-  .trace-node {
-    opacity: 1 !important;
-    animation: none !important;
-  }
-
-  .work-card:where(:hover, :focus-visible)::after {
-    animation: none !important;
-    opacity: 0;
-  }
-
-  .work-card:where(:hover, :focus-visible) .work-card__meta,
-  .work-card:where(:hover, :focus-visible) .work-card__title,
-  .work-card:where(:hover, :focus-visible) .work-card__problem,
-  .work-card:where(:hover, :focus-visible) .work-card__arrow,
-  .work-card:where(:hover, :focus-visible) .proof-plate,
-  .work-card:where(:hover, :focus-visible) .proof-plate__grid,
-  .work-card:where(:hover, :focus-visible) .proof-plate__dot,
-  .work-card:where(:hover, :focus-visible) .proof-plate__metric,
-  .work-card:where(:hover, :focus-visible) .proof-plate__metric-value {
-    transform: none;
   }
 }
 
@@ -741,10 +237,10 @@
   border-radius: var(--radius-sm);
   background: var(--background);
   color: var(--foreground);
-  border: 1px solid var(--border);
-  font-size: 0.75rem;
+  border: 1px solid var(--border-strong);
+  font-size: 0.875rem;
   transform: translateY(-200%);
-  transition: transform 0.2s var(--ease-editorial);
+  transition: transform 0.2s var(--ease-out-quiet);
 }
 
 .skip-link:focus {

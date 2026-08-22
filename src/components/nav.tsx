@@ -14,33 +14,29 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background">
-      <div className="container-editorial flex h-16 items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-mono text-xs font-semibold tracking-[0.08em]"
-        >
-          <span className="inline-block h-5 w-px bg-signal" aria-hidden />
-          {profile.name.toUpperCase()}
+      <div className="container-editorial flex h-16 items-center justify-between gap-6">
+        <Link href="/" className="text-[0.9375rem] font-semibold tracking-[-0.01em]">
+          {profile.name}
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6" aria-label="Primary">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {navLinks
             .filter((l) => l.href !== "/#contact")
             .map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-signal"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </Link>
             ))}
-          <Button asChild size="sm" variant="outline" className="font-mono text-xs uppercase tracking-[0.08em]">
+          <Button asChild size="sm" variant="outline">
             <Link href="/#contact">Contact</Link>
           </Button>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <AvailabilityPill className="hidden sm:inline-flex" />
           <ThemeToggle />
           <Button
@@ -66,13 +62,13 @@ export function Nav() {
           open ? "max-h-96" : "max-h-0",
         )}
       >
-        <nav className="flex flex-col divide-y divide-border/60" aria-label="Mobile">
+        <nav className="container-editorial flex flex-col py-2" aria-label="Mobile">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="px-4 py-3 font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground hover:text-signal"
+              className="-mx-2 rounded-[var(--radius-sm)] px-2 py-3 text-base text-muted-foreground hover:text-foreground"
             >
               {l.label}
             </Link>

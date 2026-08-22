@@ -20,12 +20,8 @@ export default function Error({
       id="main-content"
       className="container-editorial flex min-h-[70vh] max-w-3xl flex-col items-start justify-center gap-4"
     >
-      <p className="meta-label text-signal">
-        Fault
-      </p>
-      <h1 className="font-display text-3xl font-medium leading-tight tracking-normal sm:text-4xl">
-        This page failed to render.
-      </h1>
+      <p className="meta-label">Fault</p>
+      <h1 className="headline-type">This page failed to render.</h1>
       <p className="max-w-prose text-muted-foreground">
         Retry first. If it happens again, the work index and the contact form both still work.
       </p>

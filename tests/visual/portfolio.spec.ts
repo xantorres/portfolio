@@ -136,34 +136,28 @@ test("work and contact sections have local visual baselines", async ({ page }, t
   await expect(page.locator("#contact")).toHaveScreenshot(`contact-section-${testInfo.project.name}.png`);
 });
 
-test("work cards expose an active proof hover state", async ({ page }, testInfo) => {
+test("work rows expose an active hover state", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "chromium-desktop", "desktop hover interaction");
 
   await page.goto("/");
   await page.waitForLoadState("networkidle");
-  const card = page.locator(".work-card").first();
-  await card.scrollIntoViewIfNeeded();
-  await card.hover();
+  const row = page.locator("#work ul li a").first();
+  await row.scrollIntoViewIfNeeded();
+
+  const restBackground = await row.evaluate((element) => getComputedStyle(element).backgroundColor);
+
+  await row.hover();
   await page.waitForTimeout(450);
 
-  const hoverState = await card.evaluate((element) => {
-    const proof = element.querySelector(".proof-plate");
-    const chip = element.querySelector(".work-card__case-chip");
-    const title = element.querySelector(".work-card__title");
-
-    return {
-      hovered: element.matches(":hover"),
-      proofTransform: proof ? getComputedStyle(proof).transform : "none",
-      chipBackground: chip ? getComputedStyle(chip).backgroundColor : "rgba(0, 0, 0, 0)",
-      titleTransform: title ? getComputedStyle(title).transform : "none",
-    };
-  });
+  const hoverState = await row.evaluate((element) => ({
+    hovered: element.matches(":hover"),
+    background: getComputedStyle(element).backgroundColor,
+  }));
 
   expect(hoverState.hovered).toBe(true);
-  expect(hoverState.proofTransform).not.toBe("none");
-  expect(hoverState.chipBackground).not.toBe("rgba(0, 0, 0, 0)");
-  expect(hoverState.titleTransform).not.toBe("none");
-  await expect(card).toHaveScreenshot(`work-card-hover-${testInfo.project.name}.png`);
+  expect(restBackground).toBe("rgba(0, 0, 0, 0)");
+  expect(hoverState.background).not.toBe(restBackground);
+  await expect(row).toHaveScreenshot(`work-card-hover-${testInfo.project.name}.png`);
 });
 
 test("work card route navigation starts detail pages at the top", async ({ page }) => {
@@ -177,7 +171,7 @@ test("work card route navigation starts detail pages at the top", async ({ page 
   expect(rootScrollBehavior).toBe("auto");
 
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
-  await page.locator(".work-card").first().click();
+  await page.locator("#work ul li a").first().click();
   await page.waitForURL("**/work/repokernel");
 
   const scrollSamples: number[] = [];

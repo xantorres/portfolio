@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Martian_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { HashScrollController } from "@/components/hash-scroll-controller";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,19 +8,11 @@ import { profile, socialDescription, socialTitle } from "@/lib/data";
 import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const archivo = Archivo({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-inter",
   display: "swap",
   weight: "variable",
-  axes: ["wdth"],
-});
-const martianMono = Martian_Mono({
-  subsets: ["latin"],
-  variable: "--font-martian-mono",
-  display: "swap",
-  weight: "variable",
-  axes: ["wdth"],
 });
 
 const titleTemplate = `${profile.name} · ${profile.tagline} ${profile.accentWord}`;
@@ -71,8 +63,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F4EEE2" },
-    { media: "(prefers-color-scheme: dark)", color: "#211D18" },
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
   ],
 };
 
@@ -81,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${archivo.variable} ${martianMono.variable}`}
+      className={inter.variable}
     >
       <body className="font-sans antialiased">
         <script
@@ -90,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
         />
         <noscript>
-          <style>{`.reveal{opacity:1;transform:none}`}</style>
+          <style>{`.reveal{opacity:1}`}</style>
         </noscript>
         <a href="#main-content" className="skip-link">
           Skip to content

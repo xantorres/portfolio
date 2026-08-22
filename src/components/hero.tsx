@@ -1,26 +1,38 @@
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AvailabilityPill } from "@/components/availability-pill";
 import { InstrumentSchematic } from "@/components/instrument-schematic";
 import { Button } from "@/components/ui/button";
 import { getSubhead, hero, heroProofStrip, profile } from "@/lib/data";
 
+// Two-tone headline: the claim at full ink, its continuation quieter on the same
+// size and baseline, so the hero gets hierarchy without a second weight or size.
+function splitHeadline(headline: string): [string, string] {
+  const end = headline.indexOf(". ");
+  if (end === -1) return [headline, ""];
+  return [headline.slice(0, end + 1), headline.slice(end + 2)];
+}
+
 export function Hero() {
+  const [lead, rest] = splitHeadline(hero.headline);
+
   return (
-    <section id="top" className="boot container-editorial pb-14 pt-12 sm:pt-16 lg:pb-20 lg:pt-24">
-      <div className="grid min-w-0 gap-12 lg:grid-cols-12 lg:gap-10">
+    <section id="top" className="container-editorial pb-12 pt-14 sm:pt-20 lg:pb-18 lg:pt-24">
+      <div className="grid min-w-0 gap-14 lg:grid-cols-12 lg:gap-16">
         <div className="min-w-0 lg:col-span-7">
-          <div data-boot="0">
-            <AvailabilityPill className="mb-8 sm:hidden" />
-            <p className="meta-label mb-5 text-signal">{hero.eyebrow}</p>
-          </div>
-          <h1 data-boot="1" className="display-type max-w-[20ch] text-balance">
-            {hero.headline}
+          <AvailabilityPill className="mb-8 sm:hidden" />
+          <p className="meta-label mb-6">{hero.eyebrow}</p>
+
+          <h1 className="display-type max-w-[18ch] text-balance">
+            {lead}
+            {rest && <span className="text-muted-foreground"> {rest}</span>}
           </h1>
-          <p data-boot="2" className="mt-8 body-measure text-base text-muted-foreground sm:text-lg">
-            <span className="font-semibold text-foreground">{profile.name}.</span> {getSubhead()}
+
+          <p className="body-measure mt-8 text-base text-muted-foreground sm:text-lg">
+            <span className="font-medium text-foreground">{profile.name}.</span> {getSubhead()}
           </p>
-          <div data-boot="3" className="mt-10 flex flex-wrap items-center gap-3">
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button asChild size="lg">
               <Link href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
@@ -28,29 +40,25 @@ export function Hero() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href={hero.secondaryCta.href}>
-                {hero.secondaryCta.label}
-                <Mail className="size-4" />
-              </Link>
+              <Link href={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link>
             </Button>
           </div>
         </div>
 
-        <div data-boot="2" className="min-w-0 self-center lg:col-span-5">
-          <InstrumentSchematic className="mx-auto h-auto w-full max-w-[32rem] text-foreground" />
-        </div>
+        <figure className="min-w-0 self-center rounded-[var(--radius-md)] bg-wash p-8 lg:col-span-5">
+          <InstrumentSchematic className="h-auto w-full" />
+        </figure>
 
-        <div data-boot="4" className="grid gap-3 border-t border-border pt-6 lg:col-span-12">
-          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <div className="grid gap-4 border-t border-border pt-8 lg:col-span-12">
+          <ul className="flex flex-wrap gap-x-10 gap-y-2">
             {heroProofStrip().map((item) => (
-              <li key={item} className="flex items-center gap-2.5">
-                <span aria-hidden className="h-3.5 w-px bg-signal/70" />
-                <span className="meta-label text-foreground/85">{item}</span>
+              <li key={item} className="text-sm text-muted-foreground">
+                {item}
               </li>
             ))}
           </ul>
-          <p data-boot="5" className="meta-label">
-            <span className="text-signal">{hero.clientsLabel}:</span> {hero.clients.join(" · ")}
+          <p className="meta-label">
+            {hero.clientsLabel}: {hero.clients.join(" · ")}
           </p>
         </div>
       </div>

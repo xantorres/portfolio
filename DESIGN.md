@@ -1,62 +1,68 @@
 ---
 version: "alpha"
-name: "Xan Torres Instrument Systems"
-description: "A lit-bench instrument portfolio for a senior product engineer."
+name: "Xan Torres Scandinavian System"
+description: "A calm, monochrome portfolio for a senior product engineer."
 colors:
-  primary: "#E85E33"
-  on-primary: "#1D1914"
-  secondary: "#332E28"
-  on-secondary: "#F2ECE1"
-  tertiary: "#F2ECE1"
-  on-tertiary: "#211D18"
-  neutral: "#2A2621"
-  background: "#211D18"
-  foreground: "#F2ECE1"
-  muted: "#A89F92"
-  border: "#453E36"
-  blueprint: "#7FC4DE"
-  on-blueprint: "#211D18"
-  oxide: "#E0B368"
-  on-oxide: "#211D18"
-  circuit: "#7ECFA2"
-  on-circuit: "#211D18"
-  paper: "#F4EEE2"
-  ink: "#1D1914"
+  primary: "#000000"
+  on-primary: "#FFFFFF"
+  secondary: "#F2F2F2"
+  on-secondary: "#000000"
+  tertiary: "#F5F5F5"
+  on-tertiary: "#000000"
+  neutral: "#F5F5F5"
+  background: "#FFFFFF"
+  foreground: "#000000"
+  muted: "#5C5C5C"
+  border: "#E6E6E6"
+  border-strong: "#D1D1D1"
+  paper: "#FFFFFF"
+  ink: "#000000"
+  ink-tertiary: "#707070"
+  canvas-dark: "#0A0A0A"
+  on-canvas-dark: "#FFFFFF"
+  destructive: "#C4281B"
+  on-destructive: "#FFFFFF"
 typography:
   display-xl:
-    fontFamily: "Archivo"
-    fontSize: "4.55rem"
-    fontWeight: "800"
-    lineHeight: "0.98"
-    letterSpacing: "-0.01em"
+    fontFamily: "Inter"
+    fontSize: "4rem"
+    fontWeight: "600"
+    lineHeight: "1.06"
+    letterSpacing: "-0.022em"
   display-lg:
-    fontFamily: "Archivo"
-    fontSize: "3.3rem"
-    fontWeight: "750"
-    lineHeight: "1.02"
-    letterSpacing: "-0.008em"
+    fontFamily: "Inter"
+    fontSize: "2.5rem"
+    fontWeight: "600"
+    lineHeight: "1.12"
+    letterSpacing: "-0.018em"
+  title-md:
+    fontFamily: "Inter"
+    fontSize: "1.375rem"
+    fontWeight: "500"
+    lineHeight: "1.2"
+    letterSpacing: "-0.012em"
   body-md:
-    fontFamily: "Archivo"
+    fontFamily: "Inter"
     fontSize: "1rem"
     fontWeight: "400"
-    lineHeight: "1.65"
+    lineHeight: "1.6"
     letterSpacing: "0px"
-  label-caps:
-    fontFamily: "Martian Mono"
-    fontSize: "0.62rem"
+  label-sm:
+    fontFamily: "Inter"
+    fontSize: "0.8125rem"
     fontWeight: "500"
-    lineHeight: "1.4"
-    letterSpacing: "0.1em"
+    lineHeight: "1.5"
+    letterSpacing: "0px"
 rounded:
-  xs: "2px"
-  sm: "4px"
+  xs: "4px"
+  sm: "6px"
   md: "8px"
 spacing:
   xs: "4px"
   sm: "8px"
   md: "16px"
   lg: "24px"
-  xl: "40px"
+  xl: "48px"
   xxl: "72px"
 components:
   page:
@@ -67,23 +73,23 @@ components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    rounded: "{rounded.sm}"
-    padding: "12px"
+    rounded: "{rounded.md}"
+    padding: "16px"
   button-secondary:
     backgroundColor: "{colors.secondary}"
     textColor: "{colors.on-secondary}"
-    rounded: "{rounded.sm}"
-    padding: "12px"
-  button-accent:
-    backgroundColor: "{colors.tertiary}"
-    textColor: "{colors.on-tertiary}"
-    rounded: "{rounded.sm}"
-    padding: "12px"
+    rounded: "{rounded.md}"
+    padding: "16px"
+  button-outline:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.md}"
+    padding: "16px"
   badge:
-    backgroundColor: "{colors.border}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.xs}"
-    padding: "6px"
+    backgroundColor: "{colors.tertiary}"
+    textColor: "{colors.muted}"
+    rounded: "{rounded.sm}"
+    padding: "8px"
   panel:
     backgroundColor: "{colors.neutral}"
     textColor: "{colors.foreground}"
@@ -91,121 +97,132 @@ components:
     padding: "24px"
   meta-label:
     backgroundColor: "{colors.background}"
-    textColor: "{colors.muted}"
-    typography: "{typography.label-caps}"
+    textColor: "{colors.ink-tertiary}"
+    typography: "{typography.label-sm}"
     rounded: "{rounded.xs}"
     padding: "4px"
-  blueprint-proof:
-    backgroundColor: "{colors.blueprint}"
-    textColor: "{colors.on-blueprint}"
-    rounded: "{rounded.sm}"
-    padding: "16px"
-  oxide-proof:
-    backgroundColor: "{colors.oxide}"
-    textColor: "{colors.on-oxide}"
-    rounded: "{rounded.sm}"
-    padding: "16px"
-  circuit-proof:
-    backgroundColor: "{colors.circuit}"
-    textColor: "{colors.on-circuit}"
-    rounded: "{rounded.sm}"
-    padding: "16px"
-  paper-proof:
+  figure-panel:
+    backgroundColor: "{colors.tertiary}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.md}"
+    padding: "32px"
+  form-field:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    padding: "12px"
+  chip-outline:
+    backgroundColor: "{colors.tertiary}"
+    textColor: "{colors.on-tertiary}"
     rounded: "{rounded.sm}"
+    padding: "8px"
+  divider:
+    backgroundColor: "{colors.border}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.xs}"
+    padding: "0px"
+  control-outline:
+    backgroundColor: "{colors.border-strong}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    padding: "0px"
+  page-dark:
+    backgroundColor: "{colors.canvas-dark}"
+    textColor: "{colors.on-canvas-dark}"
+    rounded: "{rounded.xs}"
+    padding: "0px"
+  button-destructive:
+    backgroundColor: "{colors.destructive}"
+    textColor: "{colors.on-destructive}"
+    rounded: "{rounded.md}"
     padding: "16px"
 ---
 
 ## Overview
 
-The site is a calibrated instrument built by its owner: a senior product engineer whose portfolio demonstrates the engineering it claims. The surface is a lit workbench, not a magazine spread: warm milled charcoal, bone type, one vermilion signal, and schematic traces drawn from real delivery practice.
+The site is a quiet instrument for judging one engineer's work. Nothing decorates: a white canvas, an alpha-black ink ladder, one sans family, and chapters separated by space rather than boxes. The reader should be able to scan six case studies, three products, and a contact form without the interface asking for attention anywhere.
 
-The design must communicate three qualities quickly: senior judgment, frontend craft, and end-to-end product ownership. The visual memory is a precision instrument at night: an engraved bezel headline, calibration ticks, channel-colored traces, and one red index dot that means "this one is live."
+The design must communicate three qualities quickly: senior judgment, frontend craft, and end-to-end product ownership. It does that with evidence and hierarchy, not with color.
 
 ## Colors
 
-Implementation uses OKLCH in `src/app/globals.css`; these hex tokens exist for the DESIGN.md alpha linter and agent portability.
+Implementation uses alpha-black over white in `src/app/globals.css`; the hex tokens above are the flattened equivalents for the DESIGN.md linter and agent portability.
 
-- **Ink / background:** warm milled charcoal (hue near 70), never blue-black. The dev-portfolio blue-on-black reflex is banned.
-- **Paper / foreground:** bone, a warm off-white tuned for long reading on the dark ground.
-- **Graphite / muted / border:** quiet structure for grids, rules, and metadata.
-- **Signal vermilion:** the one committed color. Primary actions, availability, calibration ticks, and the credibility accents. Reference: the red index dot on a precision instrument.
-- **Blueprint cyan, circuit green, oxide amber:** the remaining scope-channel inks. Each case study renders on one channel (signal vermilion may also serve as a case channel); channels never mix inside a surface, and adjacent cases in the index never share one.
+- **Canvas:** pure white in light, `#0A0A0A` in dark. No warm or cool cast in either.
+- **Ink ladder:** primary at full ink, secondary at 64% (light) / 56% (dark), tertiary at 56% (light) / 46% (dark). Metadata on this site carries real reading, so the tertiary rung sits above the 44% editorial default.
+- **Structure:** borders at 10-11%, strong borders and control outlines at 18-20%.
+- **Interaction:** hover fill 5% light / 9% dark, pressed 9% light / 14% dark. The dark values are not the light values reused; equal alpha buys more contrast on a dark canvas.
+- **Semantic:** destructive keeps a real red in both themes. Focus rings stay high contrast at 2px with an offset.
 
-Vermilion is load-bearing: it appears on every fold, always meaning "act here" or "this is live." Channel inks stay inside their case surfaces. No hue soup, no gradients-as-decoration.
+There is no brand accent. The single decision of this system is that hierarchy comes from size, weight, and the ink ladder, never from hue. Channel inks, signal vermilion, and per-case color are gone.
 
 ## Typography
 
-Single committed family plus one readout mono. `Archivo` variable (width axis) carries everything from engraved display to body prose; `Martian Mono` carries metadata and readouts.
+One family: `Inter` variable, loaded through `next/font`. No second family, no mono, no serif display.
 
 Rules:
 
-- Display type is expanded (width 125%) and heavy (800): instrument-bezel engraving, not billboard marketing. Home display caps below 86px on desktop; case-study titles below 64px.
-- Section headlines use width 118% at weight 750.
-- Body is normal width at 400. Letter spacing is slightly negative for display, `0` for prose.
-- Metadata uses Martian Mono, small caps-style tracking (0.1em), 0.62rem.
-- Do not use Inter, Geist, Roboto, Space Grotesk, Geologica, Spline Sans, or system fonts as brand defaults.
+- Display type is 600 weight with negative tracking, capped near 64px on desktop.
+- Section headlines share the display treatment one step down.
+- Item titles are 500 weight at 20-22px.
+- Body is 400 at 16-18px with 1.6 line height, measure held near 64 characters.
+- Metadata is 500 at 13px on the tertiary rung. Sentence case, neutral tracking.
+- Never use all-caps, forced uppercase, or all-lowercase chrome. Labels read as sentences.
 
 ## Layout
 
-Strict engineered structure over decorative asymmetry: a visible fine grid on the body ground, panel modules with calibration corner ticks, bezel-notched chips for section indices, and schematic figures where decoration would otherwise go.
+Chapters, not cards. The page is a sequence of full-width chapters separated by 144px on desktop and 96px on mobile, with tighter spacing inside each group.
 
 Home-page rhythm:
 
-- Hero: boot choreography (staggered one-shot reveal), left-weighted masthead, delivery-loop schematic as Figure 01, calibration proof strip.
-- Work: case-study index as instrument modules, one channel ink per case, placed first as the primary evidence.
-- AI-native work: focus areas backed by shipped proof lines, never hype.
-- Products: personal tooling presented as working software.
-- Strengths: evidence-backed capabilities, not decorative icon cards.
-- Stack: compact systems matrix grouped by capability.
-- Approach: operating principles with numbered rhythm, closing into the contact ask.
-- Contact: direct engagement console.
+- Hero: left-weighted masthead with a two-tone headline, primary and secondary action, one figure panel carrying the delivery loop, then a proof strip.
+- Work: case index as divider-separated rows, three columns of company, claim, and readouts. No boxes, no per-case color.
+- AI-native work: lead paragraph, then three feature summaries in one row.
+- Products: three columns of real tooling with quiet tag chips.
+- Strengths and Approach: four numbered columns each, grouped by proximity alone.
+- Stack: capability groups with quiet chips.
+- Contact: prose and direct links on the left, the form on the right with no container around it.
 
-Case-study rhythm:
-
-- Sticky context rail on desktop.
-- Outcome-led metrics near the top.
-- Long-form narrative with evidence-led proof plates.
-- Compact stack footer.
+Alternating 4% washes mark the Products and Approach chapters so a long page has rhythm without borders.
 
 ## Motion
 
-Motion is the instrument coming to life, and it must read as calibrated:
+Motion is feedback, not atmosphere:
 
-- Hero boot sequence: staggered `boot-rise` entrances and `trace-draw` schematic strokes, one-shot on load.
-- Scroll entrances: sections reveal once via IntersectionObserver (`.reveal` / `.is-visible`), transform and opacity only.
-- Hover systems on work cards: scan sweep, index rail, proof-plate lift.
-- Easing is exponential out (`--ease-editorial`, cubic-bezier(0.16, 1, 0.3, 1)). No bounce, no elastic, no layout-property animation.
-- `prefers-reduced-motion` gets the complete static page: traces pre-drawn, reveals visible, no sweeps.
+- Scroll entrance is opacity only, 260ms, ease-out, one shot per section.
+- Buttons press to `scale(0.97)` for 150ms. Rows and links transition their fill or color under 200ms.
+- Hover-only motion is gated behind `(hover: hover) and (pointer: fine)`.
+- No boot choreography, no trace drawing, no scan sweeps, no pulsing indicators.
+- `prefers-reduced-motion` removes transitions entirely and shows every section at rest.
 
 ## Elevation & Depth
 
-Depth comes from rules, corner ticks, ink density, and drawn traces rather than floating cards. Shadows are rare and only appear inside interaction states. Avoid glassmorphism, blurred panels, bokeh, gradient orbs, and layered purple/blue hero gradients.
+There is no elevation. Depth comes from the ink ladder and from space. Shadows are not used. Quiet washes stand in for panels where a surface genuinely needs to separate from the page, such as the hero figure.
 
 ## Shapes
 
-Radius scale stays tight: 2px, 4px, 8px. Bezel-notched chips (clip-path corner cuts) mark indices and labels. True circles only for status dots and data points. No pill CTAs, no large rounded cards.
+Radius scale: 4px, 6px, 8px. Controls and panels use 8px, chips use 6px. No pills for ordinary controls, no clip-path notches, no corner ticks, no large rounded cards.
 
 ## Components
 
-Buttons are compact instrument controls; the primary action is always vermilion. Badges are labels, not colorful capsules. Forms feel precise and calm, with clear focus states and no decorative chrome.
+Buttons share one radius, height, and weight across the page; the primary action is filled ink and appears at most once per chapter. Badges are quiet label chips, not colored capsules. Form controls carry the only visible boundaries in the contact chapter, and the form itself has none.
 
-Icons are allowed for utility controls, but decorative icon grids must not carry the design. Prefer schematic figures, proof plates, typographic marks, calibration ticks, and small data glyphs.
+Icons are a single family at one stroke weight, monochrome on the ink ladder, and only where they replace a label rather than repeat it.
 
 ## Do's and Don'ts
 
 Do:
 
-- Use real portfolio facts and real delivery practice as visual material (Figure 01 is the actual loop).
-- Make each case study feel structurally related but visually distinct through its channel ink.
+- Use real portfolio facts as the visual material; the figure is the actual delivery loop.
+- Let space, not rules, carry grouping. Add a hairline only when its absence would be ambiguous.
+- Keep roughly one structural rule per viewport.
 - Preserve accessibility, contrast, keyboard flow, and responsive fit.
 - Keep contact behavior unchanged.
 
 Don't:
 
-- Invent client screenshots or confidential product UI.
-- Use generic centered SaaS hero composition.
-- Use purple gradients, glass panels, or decorative orbs.
-- Drift back to the editorial-magazine lane: mono-labels-plus-ruled-columns restraint is the saturated AI default this system replaced.
-- Let future pages drift from this contract.
+- Introduce a brand accent, channel inks, or per-item color.
+- Introduce tinted neutrals; judge by channel spread, not by eye.
+- Use all-caps, mono metadata, or a second typeface.
+- Add gradients, textures, glows, shadows, or grid backgrounds.
+- Box things that were quiet before.
