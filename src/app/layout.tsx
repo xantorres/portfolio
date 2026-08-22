@@ -4,7 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { HashScrollController } from "@/components/hash-scroll-controller";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { getSubhead, profile, socialTitle } from "@/lib/data";
+import { profile, socialDescription, socialTitle } from "@/lib/data";
+import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -22,14 +23,13 @@ const martianMono = Martian_Mono({
   axes: ["wdth"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
 const titleTemplate = `${profile.name} · ${profile.tagline} ${profile.accentWord}`;
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
-  jobTitle: "Senior Frontend Engineer",
+  jobTitle: `${profile.tagline} ${profile.accentWord}`,
   url: siteUrl,
   email: `mailto:${profile.email}`,
   sameAs: [profile.links.github, profile.links.linkedin, profile.links.toptal],
@@ -37,7 +37,8 @@ const personJsonLd = {
     "React",
     "TypeScript",
     "Next.js",
-    "Frontend architecture",
+    "Node.js",
+    "Product engineering",
     "Design systems",
     "AI agent workflows",
     "Model Context Protocol",
@@ -50,11 +51,11 @@ const personJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: titleTemplate, template: `%s · ${profile.name}` },
-  description: getSubhead(),
+  description: socialDescription,
   authors: [{ name: profile.name, url: profile.links.linkedin }],
   openGraph: {
     title: socialTitle,
-    description: getSubhead(),
+    description: socialDescription,
     type: "website",
     siteName: profile.name,
     locale: "en_US",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: socialTitle,
-    description: getSubhead(),
+    description: socialDescription,
   },
 };
 

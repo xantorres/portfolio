@@ -69,7 +69,7 @@ export function ContactForm() {
         turnstileToken: turnstileToken ?? undefined,
       });
       if (res.ok) {
-        toast.success("Message sent", { description: "I'll reply within a day or two." });
+        toast.success("Message sent", { description: "Reply within 48 hours." });
         reset();
         setHoneypot("");
         setTurnstileToken(null);
@@ -146,7 +146,7 @@ export function ContactForm() {
         <Textarea
           id="message"
           rows={6}
-          placeholder="What are you building, and how can I help?"
+          placeholder="What are you building, what is stuck, and by when?"
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
           className="min-h-[140px]"
@@ -171,7 +171,7 @@ export function ContactForm() {
 
       <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="meta-label">
-          Typically replies within 48h · EU/EMEA time zones
+          I read every message · Reply within 48h · CET/EET
         </p>
         <Button
           type="submit"

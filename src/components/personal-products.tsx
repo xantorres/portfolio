@@ -7,7 +7,7 @@ export function PersonalProducts() {
   return (
     <section id="products" className="section-band">
       <div className="container-editorial section-pad">
-        <SectionHeader index="03" eyebrow="Personal products" title="Tools I run daily." aside="Open source" />
+        <SectionHeader index="03" eyebrow="Personal products" title="Three tools, published and in use." aside="Open source" />
 
         <p className="body-measure mb-10 text-base text-muted-foreground sm:mb-12 sm:text-lg">
           {personalProducts.intro}

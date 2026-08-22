@@ -131,7 +131,7 @@ Implementation uses OKLCH in `src/app/globals.css`; these hex tokens exist for t
 - **Paper / foreground:** bone, a warm off-white tuned for long reading on the dark ground.
 - **Graphite / muted / border:** quiet structure for grids, rules, and metadata.
 - **Signal vermilion:** the one committed color. Primary actions, availability, calibration ticks, and the credibility accents. Reference: the red index dot on a precision instrument.
-- **Blueprint cyan, circuit green, oxide amber:** the remaining scope-channel inks. Each case study renders on one channel; channels never mix inside a surface.
+- **Blueprint cyan, circuit green, oxide amber:** the remaining scope-channel inks. Each case study renders on one channel (signal vermilion may also serve as a case channel); channels never mix inside a surface, and adjacent cases in the index never share one.
 
 Vermilion is load-bearing: it appears on every fold, always meaning "act here" or "this is live." Channel inks stay inside their case surfaces. No hue soup, no gradients-as-decoration.
 
@@ -158,8 +158,8 @@ Home-page rhythm:
 - AI-native work: focus areas backed by shipped proof lines, never hype.
 - Products: personal tooling presented as working software.
 - Strengths: evidence-backed capabilities, not decorative icon cards.
-- Approach: operating principles with numbered rhythm.
 - Stack: compact systems matrix grouped by capability.
+- Approach: operating principles with numbered rhythm, closing into the contact ask.
 - Contact: direct engagement console.
 
 Case-study rhythm:

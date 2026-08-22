@@ -24,15 +24,20 @@ export function Nav() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6" aria-label="Primary">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-signal"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navLinks
+            .filter((l) => l.href !== "/#contact")
+            .map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="font-mono text-xs uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-signal"
+              >
+                {l.label}
+              </Link>
+            ))}
+          <Button asChild size="sm" variant="outline" className="font-mono text-xs uppercase tracking-[0.08em]">
+            <Link href="/#contact">Contact</Link>
+          </Button>
         </nav>
 
         <div className="flex items-center gap-2">

@@ -24,7 +24,9 @@ export function SiteFooter() {
           </a>
           <div className="flex flex-col gap-1 sm:items-end">
             <span>© {year} Xan Torres</span>
-            <span>Hand-built · Instrument system</span>
+            <span>
+              {profile.business.legalName} ({profile.business.country})
+            </span>
           </div>
         </div>
       </div>

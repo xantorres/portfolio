@@ -39,10 +39,10 @@ export default function Page() {
           <CoreStrengths />
         </Reveal>
         <Reveal>
-          <Approach />
+          <Skills />
         </Reveal>
         <Reveal>
-          <Skills />
+          <Approach />
         </Reveal>
         <Reveal>
           <Contact />

@@ -6,9 +6,9 @@ export function Approach() {
     <section id="approach" className="section-band">
       <div className="container-editorial section-pad">
         <SectionHeader
-          index="05"
-          eyebrow="How I work"
-          title="How I work."
+          index="06"
+          eyebrow="Approach"
+          title="Decisions I make the same way every time."
         />
 
         <ol className="grid grid-cols-1 gap-8 md:grid-cols-12">

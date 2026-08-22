@@ -6,6 +6,8 @@ import { currentQuarter, getSubhead, profile } from "@/lib/data";
 export const alt = `${profile.name} · ${profile.tagline} ${profile.accentWord}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+// Daily ISR so the availability quarter baked into the image stays current, matching page.tsx.
+export const revalidate = 86_400;
 
 // Server-side font loading from @fontsource/archivo.
 // vercel/og accepts ttf/otf/woff; we ship the WOFF static weights.

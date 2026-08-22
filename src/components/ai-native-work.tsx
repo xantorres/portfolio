@@ -5,7 +5,7 @@ export function AiNativeWork() {
   return (
     <section id="ai-work" className="section-band">
       <div className="container-editorial section-pad">
-        <SectionHeader index="02" eyebrow="AI-native work" title="AI-native engineering, with receipts." />
+        <SectionHeader index="02" eyebrow="AI-native work" title="AI in the path that ships." />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <p className="body-measure text-base text-muted-foreground sm:text-lg lg:col-span-4">

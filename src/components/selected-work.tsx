@@ -24,8 +24,8 @@ export function SelectedWork() {
         <SectionHeader
           index="01"
           eyebrow="Selected work"
-          title="Case studies."
-          aside="2018 / 2026"
+          title="What I shipped, and what it took."
+          aside={`2018 / ${new Date().getUTCFullYear()}`}
         />
 
         <ul className="grid gap-6">

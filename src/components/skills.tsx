@@ -8,9 +8,9 @@ export function Skills() {
     <section id="skills" className="section-band">
       <div className="container-editorial section-pad">
         <SectionHeader
-          index="06"
+          index="05"
           eyebrow="Stack"
-          title="Stack, grouped by capability."
+          title="Depth first, breadth where the product needs it."
           aside={
             <>
               Strict TS
@@ -20,9 +20,9 @@ export function Skills() {
           }
         />
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((g, i) => (
-            <section key={g.group} className={cn("bg-card p-5", i === 0 && "sm:col-span-2 lg:col-span-4")}>
+            <section key={g.group} className={cn("bg-card p-5", i === 0 && "sm:col-span-2 lg:col-span-3")}>
               <h3 className="meta-label text-signal">{g.group}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.blurb}</p>
               <ul className="mt-4 flex flex-wrap gap-1.5">

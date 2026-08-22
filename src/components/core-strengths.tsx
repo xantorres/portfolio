@@ -8,7 +8,7 @@ export function CoreStrengths() {
         <SectionHeader
           index="04"
           eyebrow="Core strengths"
-          title="What I'm good at."
+          title="What you get in the first month."
         />
 
         <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">

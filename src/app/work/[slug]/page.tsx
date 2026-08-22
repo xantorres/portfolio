@@ -70,15 +70,17 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
                 <span className="meta-label text-foreground">{c.company}</span>
                 <span className="meta-label">{c.sector}</span>
                 <span className="meta-label">{c.period}</span>
-                <a
-                  href={c.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="meta-label inline-flex items-center gap-1 text-signal underline-offset-4 hover:underline"
-                >
-                  {new URL(c.url).hostname.replace(/^www\./, "")}
-                  <ArrowUpRight aria-hidden className="size-3" />
-                </a>
+                {c.url && (
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="meta-label inline-flex items-center gap-1 text-signal underline-offset-4 hover:underline"
+                  >
+                    {new URL(c.url).hostname.replace(/^www\./, "")}
+                    <ArrowUpRight aria-hidden className="size-3" />
+                  </a>
+                )}
               </div>
 
               <h1 className="headline-type mt-6 max-w-[20ch] text-balance">
@@ -137,7 +139,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               </section>
 
               <section>
-                <h2 className="meta-label text-signal">Measured outcomes</h2>
+                <h2 className="meta-label text-signal">Readouts</h2>
                 <dl className="mt-5 grid gap-px overflow-hidden rounded-[var(--radius-md)] border border-border bg-border sm:grid-cols-3">
                   {c.featuredMetrics.map((metric) => (
                     <div key={metric.label} className="bg-card p-5">
@@ -198,7 +200,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               href="/#contact"
               className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-foreground underline-offset-4 transition-colors hover:text-signal hover:underline"
             >
-              Work together
+              Get in touch
               <ArrowUpRight className="size-3.5" />
             </Link>
           </div>

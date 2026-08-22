@@ -178,7 +178,7 @@ test("work card route navigation starts detail pages at the top", async ({ page 
 
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
   await page.locator(".work-card").first().click();
-  await page.waitForURL("**/work/sunflower-games");
+  await page.waitForURL("**/work/repokernel");
 
   const scrollSamples: number[] = [];
   for (let index = 0; index < 4; index += 1) {

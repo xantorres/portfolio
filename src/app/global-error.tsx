@@ -33,7 +33,7 @@ export default function GlobalError({
         <p style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.72 }}>
           Unrecoverable error
         </p>
-        <h1 style={{ fontSize: 44, fontWeight: 700, lineHeight: 1, margin: 0 }}>Something went sideways.</h1>
+        <h1 style={{ fontSize: 44, fontWeight: 700, lineHeight: 1, margin: 0 }}>The app failed to boot.</h1>
         <button
           type="button"
           onClick={reset}
