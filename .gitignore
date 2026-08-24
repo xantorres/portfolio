@@ -29,3 +29,6 @@ next-env.d.ts
 .vizzly/
 playwright-report/
 test-results/
+
+# vendored third-party skills — reinstall from skills-lock.json
+.agents/
