@@ -11,7 +11,7 @@ export function Contact() {
         <SectionHeader
           index="07"
           eyebrow="Contact"
-          title="The first message can be rough."
+          title="Tell me what you are building."
           aside="Booking now"
         />
 
