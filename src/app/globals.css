@@ -3,8 +3,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-inter);
+  --font-sans: var(--font-archivo);
+  --font-display: var(--font-archivo);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -14,8 +14,10 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary-hover: var(--primary-hover);
   --color-hover-fill: var(--hover-fill);
+  --color-signal: var(--signal);
+  --color-signal-foreground: var(--signal-foreground);
+  --color-signal-hover: var(--signal-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -63,7 +65,12 @@
   --border: rgb(0 0 0 / 10%);
   --border-strong: rgb(0 0 0 / 18%);
   --input: rgb(0 0 0 / 18%);
-  --ring: rgb(0 0 0 / 88%);
+
+  /* The one brand accent: primary action, live indicator, focus. Nothing else. */
+  --signal: oklch(0.48 0.185 33);
+  --signal-foreground: #ffffff;
+  --signal-hover: oklch(0.43 0.18 33);
+  --ring: var(--signal);
 
   /* Metadata carries real reading here, and it also lands on the 4% washes,
      so the rung is lifted until it clears 4.5:1 on the tint as well. */
@@ -83,7 +90,6 @@
   --popover-foreground: #ffffff;
   --primary: #ffffff;
   --primary-foreground: #0a0a0a;
-  --primary-hover: rgb(255 255 255 / 86%);
   --secondary: rgb(255 255 255 / 9%);
   --secondary-foreground: #ffffff;
   --muted: rgb(255 255 255 / 5%);
@@ -95,7 +101,11 @@
   --border: rgb(255 255 255 / 11%);
   --border-strong: rgb(255 255 255 / 20%);
   --input: rgb(255 255 255 / 20%);
-  --ring: rgb(255 255 255 / 92%);
+
+  --signal: oklch(0.675 0.175 34);
+  --signal-foreground: #0a0a0a;
+  --signal-hover: oklch(0.73 0.165 34);
+  --ring: var(--signal);
 
   --ink-tertiary: rgb(255 255 255 / 48%);
   --surface-wash: rgb(255 255 255 / 4%);

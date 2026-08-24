@@ -8,15 +8,15 @@ export default function Icon() {
     (
       <div
         style={{
-          background: "#211D18",
-          color: "#E85E33",
+          background: "#0A0A0A",
+          color: "#FFFFFF",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 18,
-          fontWeight: 700,
+          fontSize: 17,
+          fontWeight: 600,
           letterSpacing: "0",
           fontFamily: "sans-serif",
         }}

@@ -100,7 +100,7 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
               </div>
             </div>
 
-            <div className="lg:col-span-4 lg:pt-20">
+            <div className="lg:col-span-4">
               <ProofPlate caseStudy={c} />
             </div>
           </header>

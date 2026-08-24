@@ -26,24 +26,29 @@ export default function GlobalError({
           gap: "1rem",
           padding: "2rem",
           fontFamily: "Archivo, sans-serif",
-          background: "#211D18",
-          color: "#F2ECE1",
+          background: "#0A0A0A",
+          color: "#FFFFFF",
         }}
       >
-        <p style={{ fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.72 }}>
+        <p style={{ fontSize: 13, fontWeight: 500, color: "rgb(255 255 255 / 48%)" }}>
           Unrecoverable error
         </p>
-        <h1 style={{ fontSize: 44, fontWeight: 700, lineHeight: 1, margin: 0 }}>The app failed to boot.</h1>
+        <h1 style={{ fontSize: 40, fontWeight: 600, lineHeight: 1.12, letterSpacing: "-0.018em", margin: 0 }}>
+          The app failed to boot.
+        </h1>
         <button
           type="button"
           onClick={reset}
           style={{
             marginTop: 8,
-            padding: "0.5rem 1rem",
-            borderRadius: 4,
-            border: "1px solid #453E36",
-            background: "#E85E33",
-            color: "#1D1914",
+            height: 44,
+            padding: "0 1.25rem",
+            borderRadius: 8,
+            border: "1px solid transparent",
+            background: "#F2703F",
+            color: "#0A0A0A",
+            fontSize: 14,
+            fontWeight: 500,
             cursor: "pointer",
           }}
         >

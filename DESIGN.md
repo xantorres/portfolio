@@ -22,33 +22,35 @@ colors:
   on-canvas-dark: "#FFFFFF"
   destructive: "#C4281B"
   on-destructive: "#FFFFFF"
+  signal: "#B0391C"
+  on-signal: "#FFFFFF"
 typography:
   display-xl:
-    fontFamily: "Inter"
+    fontFamily: "Archivo"
     fontSize: "4rem"
     fontWeight: "600"
     lineHeight: "1.06"
     letterSpacing: "-0.022em"
   display-lg:
-    fontFamily: "Inter"
+    fontFamily: "Archivo"
     fontSize: "2.5rem"
     fontWeight: "600"
     lineHeight: "1.12"
     letterSpacing: "-0.018em"
   title-md:
-    fontFamily: "Inter"
+    fontFamily: "Archivo"
     fontSize: "1.375rem"
     fontWeight: "500"
     lineHeight: "1.2"
     letterSpacing: "-0.012em"
   body-md:
-    fontFamily: "Inter"
+    fontFamily: "Archivo"
     fontSize: "1rem"
     fontWeight: "400"
     lineHeight: "1.6"
     letterSpacing: "0px"
   label-sm:
-    fontFamily: "Inter"
+    fontFamily: "Archivo"
     fontSize: "0.8125rem"
     fontWeight: "500"
     lineHeight: "1.5"
@@ -71,10 +73,15 @@ components:
     rounded: "{rounded.xs}"
     padding: "0px"
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.signal}"
+    textColor: "{colors.on-signal}"
     rounded: "{rounded.md}"
     padding: "16px"
+  badge-solid:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    rounded: "{rounded.sm}"
+    padding: "8px"
   button-secondary:
     backgroundColor: "{colors.secondary}"
     textColor: "{colors.on-secondary}"
@@ -149,16 +156,16 @@ The design must communicate three qualities quickly: senior judgment, frontend c
 Implementation uses alpha-black over white in `src/app/globals.css`; the hex tokens above are the flattened equivalents for the DESIGN.md linter and agent portability.
 
 - **Canvas:** pure white in light, `#0A0A0A` in dark. No warm or cool cast in either.
-- **Ink ladder:** primary at full ink, secondary at 64% (light) / 56% (dark), tertiary at 56% (light) / 46% (dark). Metadata on this site carries real reading, so the tertiary rung sits above the 44% editorial default.
+- **Ink ladder:** primary at full ink, secondary at 64% (light) / 56% (dark), tertiary at 58% (light) / 48% (dark). Metadata on this site carries real reading and also lands on the section washes, so the tertiary rung sits above the 44% editorial default and clears 4.5:1 on the tint as well.
 - **Structure:** borders at 10-11%, strong borders and control outlines at 18-20%.
 - **Interaction:** hover fill 5% light / 9% dark, pressed 9% light / 14% dark. The dark values are not the light values reused; equal alpha buys more contrast on a dark canvas.
-- **Semantic:** destructive keeps a real red in both themes. Focus rings stay high contrast at 2px with an offset.
+- **Semantic:** destructive keeps a real red in both themes.
 
-There is no brand accent. The single decision of this system is that hierarchy comes from size, weight, and the ink ladder, never from hue. Channel inks, signal vermilion, and per-case color are gone.
+Hierarchy comes from size, weight, and the ink ladder, never from hue. There is exactly one accent, signal vermilion, and it has three jobs: the primary action, the availability indicator, and the focus ring. It never appears as decoration, never tints a surface, and never distinguishes one case study from another. Channel inks and per-case color are gone.
 
 ## Typography
 
-One family: `Inter` variable, loaded through `next/font`. No second family, no mono, no serif display.
+One family: `Archivo` variable, loaded through `next/font`. No second family, no mono, no serif display. Archivo is kept at normal width throughout; the expanded display axis is not used.
 
 Rules:
 
@@ -221,7 +228,8 @@ Do:
 
 Don't:
 
-- Introduce a brand accent, channel inks, or per-item color.
+- Spend the accent on anything beyond the primary action, the availability dot, and focus.
+- Introduce a second accent, channel inks, or per-item color.
 - Introduce tinted neutrals; judge by channel spread, not by eye.
 - Use all-caps, mono metadata, or a second typeface.
 - Add gradients, textures, glows, shadows, or grid backgrounds.

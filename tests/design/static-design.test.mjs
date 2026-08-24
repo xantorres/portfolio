@@ -29,7 +29,7 @@ function grep(pattern) {
 
 test("source avoids generic generated-design defaults", () => {
   const bannedPatterns = [
-    { label: "banned font", pattern: /\b(Newsreader|Geist|JetBrains_Mono|Roboto|Space Grotesk)\b/ },
+    { label: "banned font", pattern: /\b(Newsreader|Geist|JetBrains_Mono|Inter|Roboto|Space Grotesk)\b/ },
     { label: "raw Tailwind blue accent", pattern: /\b(?:bg|text|border|ring|from|via|to)-blue-\d{2,3}\b/ },
     { label: "purple/violet/indigo gradient family", pattern: /\b(?:purple|violet|indigo)-\d{2,3}\b/ },
     { label: "glass/backdrop treatment", pattern: /\b(?:backdrop-blur|glassmorphism|bg-background\/|bg-white\/|bg-black\/)\b/ },

@@ -11,7 +11,7 @@ export const revalidate = 86_400;
 
 // Server-side font loading from @fontsource/archivo.
 // vercel/og accepts ttf/otf/woff; we ship the WOFF static weights.
-async function loadArchivo(weight: 400 | 500 | 800): Promise<ArrayBuffer> {
+async function loadArchivo(weight: 400 | 500 | 600): Promise<ArrayBuffer> {
   const file = path.join(
     process.cwd(),
     "node_modules",
@@ -24,17 +24,17 @@ async function loadArchivo(weight: 400 | 500 | 800): Promise<ArrayBuffer> {
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
 }
 
-const INK = "#211D18";
-const PAPER = "#F2ECE1";
-const SIGNAL = "#E85E33";
-const MUTED = "#A89F92";
-const RULE = "#453E36";
+const CANVAS = "#0A0A0A";
+const INK = "#FFFFFF";
+const SIGNAL = "#F2703F";
+const INK_SECONDARY = "rgb(255 255 255 / 56%)";
+const INK_TERTIARY = "rgb(255 255 255 / 48%)";
 
 export default async function OpengraphImage() {
-  const [regular, medium, bold] = await Promise.all([
+  const [regular, medium, semibold] = await Promise.all([
     loadArchivo(400),
     loadArchivo(500),
-    loadArchivo(800),
+    loadArchivo(600),
   ]);
 
   return new ImageResponse(
@@ -43,47 +43,27 @@ export default async function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          position: "relative",
-          background: INK,
-          color: PAPER,
+          background: CANVAS,
+          color: INK,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px",
+          padding: "80px",
           fontFamily: "Archivo",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `linear-gradient(${RULE} 1px, transparent 1px), linear-gradient(90deg, ${RULE} 1px, transparent 1px)`,
-            backgroundSize: "96px 96px",
-            opacity: 0.22,
-          }}
-        />
-
-        <div
-          style={{
-            fontSize: 20,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: SIGNAL,
-            display: "flex",
-            fontWeight: 500,
-          }}
-        >
-          {profile.name.toUpperCase()}
+        <div style={{ fontSize: 22, color: INK_TERTIARY, display: "flex", fontWeight: 500 }}>
+          {profile.name}
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
           <div
             style={{
-              fontSize: 108,
-              fontWeight: 800,
-              lineHeight: 1.02,
-              letterSpacing: "-0.005em",
-              maxWidth: 1050,
+              fontSize: 96,
+              fontWeight: 600,
+              lineHeight: 1.06,
+              letterSpacing: "-0.022em",
+              maxWidth: 1000,
               display: "flex",
               flexWrap: "wrap",
             }}
@@ -93,12 +73,12 @@ export default async function OpengraphImage() {
           </div>
           <div
             style={{
-              fontSize: 26,
-              color: MUTED,
-              maxWidth: 960,
+              fontSize: 27,
+              color: INK_SECONDARY,
+              maxWidth: 940,
               display: "flex",
               fontWeight: 400,
-              lineHeight: 1.35,
+              lineHeight: 1.5,
             }}
           >
             {getSubhead()}
@@ -107,10 +87,8 @@ export default async function OpengraphImage() {
 
         <div
           style={{
-            fontSize: 18,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: MUTED,
+            fontSize: 20,
+            color: INK_TERTIARY,
             display: "flex",
             justifyContent: "space-between",
             fontWeight: 500,
@@ -128,7 +106,7 @@ export default async function OpengraphImage() {
       fonts: [
         { name: "Archivo", data: regular, weight: 400, style: "normal" },
         { name: "Archivo", data: medium, weight: 500, style: "normal" },
-        { name: "Archivo", data: bold, weight: 800, style: "normal" },
+        { name: "Archivo", data: semibold, weight: 600, style: "normal" },
       ],
     },
   );
