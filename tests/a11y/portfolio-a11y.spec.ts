@@ -1,7 +1,13 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const pages = ["/", "/work/feathershark-fireops", "/definitely-not-here"];
+const pages = [
+  "/",
+  "/work/feathershark-fireops",
+  "/writing",
+  "/writing/state-for-parallel-coding-agents",
+  "/definitely-not-here",
+];
 
 for (const path of pages) {
   test(`${path} has no serious accessibility violations`, async ({ page }) => {

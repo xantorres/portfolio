@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 const pages = [
   { name: "home", path: "/" },
   { name: "case-study", path: "/work/feathershark-fireops" },
+  { name: "writing-post", path: "/writing/state-for-parallel-coding-agents" },
   { name: "not-found", path: "/definitely-not-here" },
 ];
 
@@ -106,6 +107,7 @@ test("major display type stays below billboard scale", async ({ page }, testInfo
 const visualBaselines = [
   { name: "home", path: "/" },
   { name: "case-study", path: "/work/feathershark-fireops" },
+  { name: "writing-post", path: "/writing/state-for-parallel-coding-agents" },
   { name: "not-found", path: "/definitely-not-here" },
 ];
 

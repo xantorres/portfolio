@@ -1,9 +1,12 @@
 export type CaseStat = { value: string; label: string };
 
+export type CaseLink = { label: string; href: string };
+
 export type CaseStudy = {
   slug: string;
   company: string;
   url?: string; // live product or company site; omitted for anonymized engagements
+  links?: CaseLink[]; // explicit artifact links; when present they replace the single url in the detail header
   role: string;
   period: string;
   sector: string;
@@ -95,78 +98,87 @@ export function currentQuarter(date = new Date()): string {
 export const cases: CaseStudy[] = [
   {
     slug: "repokernel",
-    company: "RepoKernel",
+    company: "RepoKernel + engram",
     url: "https://www.npmjs.com/package/repokernel",
+    links: [
+      { label: "repokernel on npm", href: "https://www.npmjs.com/package/repokernel" },
+      { label: "xantorres/repokernel", href: "https://github.com/xantorres/repokernel" },
+      { label: "xantorres/engram", href: "https://github.com/xantorres/engram" },
+    ],
     role: "Creator & Maintainer",
     period: "2026 – Present",
-    sector: "Developer Tools · AI Agent Orchestration",
+    sector: "Developer Tools · Agent Orchestration & Memory",
     scope: "Solo, open source, in daily use",
-    title: "State layer that keeps agents honest.",
+    title: "Agent tooling that keeps agents honest.",
     headline:
-      "Built the state layer that stops coding agents from losing repo state and double-claiming work.",
+      "Built the execution layer and the memory layer that keep my coding agents honest.",
     summary:
-      "I built RepoKernel after watching coding agents lose track of what they were doing mid-task: forgetting state between runs, asking me what to do next instead of reading it off the repo, and occasionally claiming the same unit of work twice when I ran more than one in parallel. It runs every agent task in its own Git worktree, locks it to a declared file scope, sequences work by dependency, and blocks the merge until a review verdict and a configured check command both pass. No daemon, no database, no cloud service: the repo is the source of truth.",
+      "RepoKernel and engram are the two halves of how I run coding agents: execution and memory. RepoKernel runs each agent task in its own Git worktree, with the paths it owns declared up front, dependency sequencing between tasks, and a review gate before merge. No daemon, no database, no cloud service: the repo is the source of truth. engram is the memory those agents share, a local-first, MCP-native layer that stores facts as plain Markdown: low-risk fact kinds save automatically, and sensitive kinds wait in a review queue until explicitly approved. Both are built for my own daily use and published publicly.",
     whyItMatters:
-      "It's a real state machine (task, sprint, epic; queue, lane; review, gate), a Git merge driver that resolves concurrent state edits deterministically instead of leaving conflict markers, and atomic per-sprint claims that stop two dispatch loops from grabbing the same work. I run my own multi-agent sprints through it, and every failure mode it handles is one I hit first.",
+      "Together they cover the failure modes that actually bite when agents do real work. RepoKernel is a real state machine (task, sprint, epic; queue, lane; review, gate), with a Git merge driver that resolves concurrent state edits deterministically and atomic per-sprint claims that stop two dispatch loops from grabbing the same work. engram draws the trust boundary through memory itself: ten fact kinds, four that auto-save, six that never write without my approval. I run my own multi-agent sprints on this stack, and every failure mode it handles is one I hit first.",
     problem:
-      "Coding agents share a repo but not a memory. Left alone they lose track of state between tasks, ask what to do next instead of reading it off the repo, edit outside their intended scope, and can double-claim the same unit of work when more than one runs in parallel.",
+      "Coding agents share a repo but not a memory. Run more than one and they lose track of state between tasks, edit outside their intended scope, and can double-claim the same unit of work. And every agent forgets everything between sessions, unless you let a tool auto-write whatever it likes about you, sensitive details included.",
     systemMove:
-      "Pulled worktree isolation, atomic sprint claims, and a merge-safe state registry into one CLI that gates every merge on a recorded review and a passing check command.",
-    artifact: "State layer + CLI",
+      "Split the job into two tools: RepoKernel gives every task an isolated worktree, an atomic claim, and a gated merge; engram gives every agent one local memory with consent built into the write path.",
+    artifact: "Orchestration + memory",
     timeline: [
       "Worktree isolation per task",
       "Atomic sprint claims",
       "Merge-safe state registry",
-      "Tracker and PR bridges",
+      "Consent-gated shared memory",
     ],
     proofTheme: "blueprint",
     featuredMetrics: [
-      { value: "v1.33.x", label: "current release, published on npm" },
+      { value: "v1.33.x", label: "RepoKernel current release, published on npm" },
       { value: "7 verbs", label: "the whole task lifecycle, CLI-only state writes" },
-      { value: "4 bridges", label: "Linear, Jira, GitHub Issues, GitHub PRs" },
+      { value: "6 kinds", label: "of sensitive memory that never auto-write in engram" },
     ],
     highlights: [
       "Defined a small vocabulary (task to sprint to epic, queue to lane, review to gate) and a seven-verb lifecycle so an agent reads and writes state through the CLI instead of inferring it from markdown tables. A bundled hook intercepts any tool call that targets state files directly and denies it, routing the agent back through the CLI verbs.",
-      "Every task runs in its own Git worktree, locked to the file paths declared in its sprint. Parallel agents never collide on files, branches, or commits, and main stays clean until something actually merges.",
+      "Every task runs in its own Git worktree, with the file paths it owns declared in its sprint and anything committed outside them held at the review gate. Parallel agents never collide on files, branches, or commits, and main stays clean until something actually merges.",
       "Wrote a custom Git merge driver that unions the state registry by id instead of leaving JSON conflict markers: merging a then b produces the same result as merging b then a, and the more-progressed status wins. The guarantee only holds for merges run locally on a clone with the driver installed; GitHub's and GitLab's web merge buttons don't execute it, so I still run validation in CI to catch anything a hosted merge might let drift.",
       "Gated concurrent dispatch with an atomic per-sprint claim, a lock file per sprint id, so two dispatch loops can never both pick up the same sprint. That, plus the merge driver, are the two fixes for the failure modes I actually hit running agents in parallel.",
       "Nothing reaches main without a recorded human review verdict and a passing check command. A failed check leaves the sprint active, not merged, so I retry it or discard it on purpose instead of it landing half-done.",
-      "Modeled stopped runs as a structured halt reason instead of a stack trace, so resuming a crashed or paused run means reading a specific, well-known state rather than guessing from logs.",
       "Added tracker and PR bridges (Linear, Jira, GitHub Issues, GitHub PRs) as explicit, adapter-gated writes, not silent auto-sync: pulling a ticket into an epic never writes back, and every comment or transition is a command I run on purpose.",
-      "Built a local, user-owned trust file so a repo's own config can declare it wants to run a check command or an agent, but nothing executes on my machine until I grant it there myself. Default is closed.",
+      "Built engram as the memory half: plain Markdown facts in one local folder I can read, diff, and delete, served over MCP so Claude Code, Codex, opencode, or any MCP client reads and writes the same store.",
+      "Split memory into ten fact kinds and put consent in the write path: preference, tooling, project, and infra facts save automatically, while identity, fiscal, people, constraint, location, and health facts wait in a review queue until I explicitly approve them.",
+      "Added transcript harvesting that mines past agent sessions for facts through a local model endpoint (LM Studio, Ollama, or any OpenAI-compatible server), so transcript content never leaves the machine.",
     ],
     outcomes: [
-      "Open source under MIT, published on npm as repokernel, currently at v1.33.x.",
+      "RepoKernel is open source under MIT, published on npm as repokernel, currently at v1.33.x. engram is MIT on GitHub, a Python MCP server.",
       "The state model holds up under real parallel dispatch: worktrees, atomic claims, and a merge-safe registry that survives concurrent branches without me hand-editing JSON.",
-      "It's deliberately narrow. For a one-off script, a throwaway prototype, a non-Git workflow, or a team that already gates on CI and branch protection, RepoKernel is overhead you don't need, and the README says so.",
-      "Schema and CLI are still evolving between releases, so anyone embedding it in CI should pin a version instead of tracking latest.",
+      "Every agent I use starts warm: preferences, project context, and infrastructure facts are known once and recalled everywhere, and I know exactly what is written down about me, because I approved it.",
+      "Both are personal tools in daily use. I do not claim a user base for either.",
+      "RepoKernel is deliberately narrow. For a one-off script, a throwaway prototype, a non-Git workflow, or a team that already gates on CI and branch protection, it is overhead you don't need, and the README says so.",
+      "Schema and CLI are still evolving between releases, so anyone embedding RepoKernel in CI should pin a version instead of tracking latest.",
     ],
-    tags: ["AI agent orchestration", "Git worktrees", "State machines", "Developer tools"],
+    tags: ["AI agent orchestration", "Agent memory", "Git worktrees", "MCP", "Developer tools"],
     stack: [
       "TypeScript",
       "Node.js",
       "Git worktrees",
       "Commander.js",
       "Zod",
-      "execa",
-      "pnpm workspaces",
-      "GitHub Actions",
       "Vitest",
+      "GitHub Actions",
       "npm",
+      "Python",
+      "FastMCP",
+      "MCP",
     ],
   },
   {
-    slug: "diagnostics-platform",
-    company: "Diagnostics platform",
+    slug: "confidential-client",
+    company: "Confidential client",
     role: "Senior Product Engineer",
     period: "2025 – Present",
-    sector: "Animal-health diagnostics · Enterprise SaaS",
+    sector: "Listed multinational · Multi-team web platform",
     scope: "Ongoing · Shared platform libraries",
     title: "Cross-microfrontend style leaks, eliminated.",
     headline:
       "Removed cross-microfrontend style leaks and made one schema the contract between services.",
     summary:
-      "A global animal-health diagnostics platform runs its web surface as independently deployed microfrontends composed at runtime. I work on the shared layer: the React component library those teams build on, a two-layer CSS isolation system that stops one microfrontend's styles from reaching another, and a templating monorepo I scaffolded from zero where Zod schemas emit JSON Schema as the contract between services.",
+      "React product engineering on the web platform of a listed multinational, built as a multi-team micro-frontend architecture across multiple regions and languages. I work on the shared layer: the React component library those teams build on, a two-layer CSS isolation system that stops one microfrontend's styles from reaching another, and a templating monorepo I scaffolded from zero where Zod schemas emit JSON Schema as the contract between services. Client identity available on request.",
     whyItMatters:
       "Platform work at enterprise scale, where one change to a shared package reaches every team at once. The isolation system removed a recurring failure mode instead of patching instances of it, and the schema layer replaced hand-kept API assumptions with a generated contract both sides validate against.",
     problem:
@@ -456,7 +468,7 @@ export const strengths: Strength[] = [
   {
     icon: "network",
     title: "Architecture before components",
-    body: "I map data flow, state ownership, and failure paths before the first component lands. On a global animal-health diagnostics platform that meant a two-layer CSS isolation system, prefixed selectors plus design-token variables, which removed cross-microfrontend style leaks as a class of bug.",
+    body: "I map data flow, state ownership, and failure paths before the first component lands. On the multi-team web platform of a listed multinational that meant a two-layer CSS isolation system, prefixed selectors plus design-token variables, which removed cross-microfrontend style leaks as a class of bug.",
   },
   {
     icon: "layers",
@@ -611,6 +623,7 @@ export const navLinks = [
   { href: "/#work", label: "Work" },
   { href: "/#ai-work", label: "AI work" },
   { href: "/#products", label: "Products" },
+  { href: "/writing", label: "Writing" },
   { href: "/#skills", label: "Stack" },
   { href: "/#contact", label: "Contact" },
 ];

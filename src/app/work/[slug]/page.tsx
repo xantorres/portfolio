@@ -70,17 +70,23 @@ export default async function WorkDetail({ params }: { params: Promise<Params> }
                 <span className="meta-label text-foreground">{c.company}</span>
                 <span className="meta-label">{c.sector}</span>
                 <span className="meta-label">{c.period}</span>
-                {c.url && (
+                {(
+                  c.links ??
+                  (c.url
+                    ? [{ label: new URL(c.url).hostname.replace(/^www\./, ""), href: c.url }]
+                    : [])
+                ).map((link) => (
                   <a
-                    href={c.url}
+                    key={link.href}
+                    href={link.href}
                     target="_blank"
                     rel="noreferrer"
                     className="meta-label inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
                   >
-                    {new URL(c.url).hostname.replace(/^www\./, "")}
+                    {link.label}
                     <ArrowUpRight aria-hidden className="size-3" />
                   </a>
-                )}
+                ))}
               </div>
 
               <h1 className="headline-type mt-6 max-w-[20ch] text-balance">
