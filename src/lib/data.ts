@@ -523,7 +523,7 @@ export type PersonalProduct = {
 
 export const personalProducts: { intro: string; items: PersonalProduct[] } = {
   intro:
-    "Three tools for agent orchestration, agent memory, and job-search automation. Each exists because I hit the problem in my own work and no existing tool solved it.",
+    "Three tools for agent orchestration, agent memory, and measuring whether agent changes actually work. Each exists because I hit the problem in my own work and no existing tool solved it.",
   items: [
     {
       name: "RepoKernel",
@@ -540,11 +540,11 @@ export const personalProducts: { intro: string; items: PersonalProduct[] } = {
       github: "https://github.com/xantorres/engram",
     },
     {
-      name: "Shrike",
-      subtitle: "Local-first CRM for serious job search.",
-      body: "Ingests, filters, scores, and tracks job opportunities with AI-assisted triage and hard rejection rules. I ran my own search on it.",
-      tags: ["TypeScript", "CLI", "AI triage", "Job search"],
-      github: "https://github.com/xantorres/shrike",
+      name: "rigops",
+      subtitle: "Did that agent change actually work?",
+      body: "A weekly ledger of tokens, cache hit rate and cost that diffs every prompt or hook change against its baseline, plus a config gate that runs as a pre-commit hook.",
+      tags: ["Python", "Coding agents", "Observability", "DevTools"],
+      github: "https://github.com/xantorres/rigops",
     },
   ],
 };
