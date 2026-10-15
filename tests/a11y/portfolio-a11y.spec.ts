@@ -6,6 +6,8 @@ const pages = [
   "/work/feathershark-fireops",
   "/writing",
   "/writing/state-for-parallel-coding-agents",
+  "/writing/three-silent-failures",
+  "/modernize",
   "/definitely-not-here",
 ];
 

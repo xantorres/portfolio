@@ -1,1 +1,2 @@
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://xtorres.vercel.app";
+export const studioUrl = "https://redfirst.dev";

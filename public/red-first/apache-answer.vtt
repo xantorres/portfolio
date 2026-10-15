@@ -1,0 +1,49 @@
+WEBVTT
+
+00:00:00.450 --> 00:00:05.167
+The first number was 1.94 seconds. Flattering, and wrong.
+
+00:00:05.517 --> 00:00:09.433
+This was apache/answer moving
+from Create React App to Vite.
+
+00:00:09.783 --> 00:00:16.600
+The type check had been silently dropped.
+Restored, the cold build takes 4.77 seconds.
+
+00:00:16.950 --> 00:00:22.333
+Still a 76 percent improvement over 19.87 seconds.
+
+00:00:22.683 --> 00:00:27.700
+The bundle looked smaller too,
+partly because two icon fonts never shipped.
+
+00:00:28.050 --> 00:00:31.133
+Three more failures hid behind a green build.
+
+00:00:31.483 --> 00:00:38.000
+One: the server could not find its own assets,
+so every page went out without scripts or styles.
+
+00:00:38.350 --> 00:00:46.067
+Two: a blank page with a perfect console. Translations
+registered too early, and the app never mounted.
+
+00:00:46.417 --> 00:00:52.933
+Three: the warning nobody reads.
+Exit code zero, and every lazy page would 404.
+
+00:00:53.283 --> 00:01:00.900
+Comparing build outputs caught it:
+297 JavaScript files had become 114.
+
+00:01:01.250 --> 00:01:08.667
+Coding agents did the mechanical work. Every check had
+to fail, on purpose, before it was trusted. Red first.
+
+00:01:09.017 --> 00:01:11.692
+A green build is not a working app.
+
+00:01:12.150 --> 00:01:19.833
+Red First starts with a $2,500 audit that maps where
+your frontend could pass the build and still break.
