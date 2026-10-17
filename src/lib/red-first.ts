@@ -40,6 +40,23 @@ export const problem = {
   ],
 };
 
+export const method = {
+  eyebrow: "Why Red First",
+  headline: "Agent speed. Engineer accountability. Verified results.",
+  lead: "Most migrations aim for a green build. We go further.",
+  body: "Coding agents accelerate the repetitive work. An engineer reviews the changes. Automated checks catch regressions, and a review built to find faults looks for the failures a successful build can hide.",
+  closing: "You get a migration backed by evidence, not just a passing build.",
+  pillars: [
+    { title: "Agent-powered execution", body: "Agents handle repetitive work. Engineers make the decisions." },
+    {
+      title: "Red-first verification",
+      body: "Every fix starts with a check that fails before the fix and passes after it.",
+    },
+    { title: "We look for hidden failures", body: "We test what a successful build cannot prove." },
+    { title: "Proof you can inspect", body: "See the changes, the checks, and the before-and-after results." },
+  ],
+};
+
 export const proof = {
   headline: "Proof: a real migration on a public open-source project",
   body: [

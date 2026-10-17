@@ -8,6 +8,7 @@ import { RedFirstFooter } from "@/components/red-first/footer";
 import { RedFirstHeader } from "@/components/red-first/header";
 import { HeroSection } from "@/components/red-first/hero-section";
 import { MeasuredSection } from "@/components/red-first/measured-section";
+import { MethodSection } from "@/components/red-first/method-section";
 import { ProblemSection } from "@/components/red-first/problem-section";
 import { ProcessSection } from "@/components/red-first/process-section";
 import { ProofSection } from "@/components/red-first/proof-section";
@@ -44,6 +45,7 @@ export default function ModernizePage() {
         <HeroSection />
         <StepsSection />
         <ProblemSection />
+        <MethodSection />
         <ProofSection />
         <AuditSection />
         <SprintSection />
