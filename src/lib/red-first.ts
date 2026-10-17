@@ -1,5 +1,5 @@
-// Empty until the booking page exists; every CTA falls back to email.
-const bookingUrl: string = "";
+// An empty string sends every CTA to email instead.
+const bookingUrl: string = "https://cal.com/xan-torres-1koupw/intro-call";
 export const contactEmail = "hello@redfirst.dev";
 export const ctaHref = bookingUrl || `mailto:${contactEmail}`;
 
