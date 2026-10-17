@@ -7,6 +7,11 @@ const pages = [
   { name: "not-found", path: "/definitely-not-here" },
 ];
 
+// The nav availability pill renders the current quarter client-side; pin it so baselines survive quarter rollovers.
+test.beforeEach(async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-10-15T12:00:00Z"));
+});
+
 for (const pageInfo of pages) {
   test(`${pageInfo.name} has no horizontal overflow`, async ({ page }) => {
     await page.goto(pageInfo.path);
