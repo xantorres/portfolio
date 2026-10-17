@@ -15,14 +15,17 @@ export function SprintSection() {
             const Icon = doorIcons[index % doorIcons.length];
             return (
               <li
-                key={door}
+                key={door.name}
                 className="flex flex-col justify-between gap-8 rounded-[var(--radius-md)] border border-border p-6"
               >
                 <div className="flex items-center justify-between">
                   <span aria-hidden className="meta-label tabular-nums">{String(index + 1).padStart(2, "0")}</span>
                   <Icon aria-hidden className="size-5 text-muted-foreground" />
                 </div>
-                <p className="title-type [overflow-wrap:anywhere]">{door}</p>
+                <div>
+                  <p className="title-type [overflow-wrap:anywhere]">{door.name}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{door.body}</p>
+                </div>
               </li>
             );
           })}

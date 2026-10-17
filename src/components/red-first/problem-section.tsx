@@ -7,7 +7,8 @@ export function ProblemSection() {
   return (
     <section id="problem" className="section-pad">
       <div className="container-editorial">
-        <h2 className="headline-type max-w-[40ch] text-balance">{problem.intro}</h2>
+        <h2 className="headline-type max-w-[24ch] text-balance">{problem.headline}</h2>
+        <p className="body-measure mt-4 text-base text-muted-foreground sm:text-lg">{problem.intro}</p>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2">
           {problem.bullets.map((bullet, index) => {
             const Icon = icons[index % icons.length];

@@ -12,11 +12,11 @@ import { ProblemSection } from "@/components/red-first/problem-section";
 import { ProcessSection } from "@/components/red-first/process-section";
 import { ProofSection } from "@/components/red-first/proof-section";
 import { SprintSection } from "@/components/red-first/sprint-section";
-import { hero } from "@/lib/red-first";
+import { StepsSection } from "@/components/red-first/steps-section";
+import { meta } from "@/lib/red-first";
 import { studioUrl } from "@/lib/site-url";
 
-const title = "Red First · A green build is not a working app";
-const description = hero.subhead;
+const { title, description } = meta;
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -42,6 +42,7 @@ export default function ModernizePage() {
       <RedFirstHeader />
       <main id="main-content">
         <HeroSection />
+        <StepsSection />
         <ProblemSection />
         <ProofSection />
         <AuditSection />

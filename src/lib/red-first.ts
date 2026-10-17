@@ -13,29 +13,39 @@ export type TableData = {
 };
 
 export const hero = {
-  eyebrow: "Red First",
-  headline: "A green build is not a working app",
+  eyebrow: "Frontend modernization studio",
+  headline: "We upgrade old React apps without breaking them.",
   subhead:
-    "The costliest migration failures pass the build and ship broken. A $2,500 audit finds where yours could, then a fixed-scope sprint fixes it, every fix behind a check proven to fail first.",
+    "Stuck on Create React App, an old Webpack setup or an aging React codebase? Red First moves it to Vite and modern tooling in a fixed 10-day sprint, and checks that every change works before it ships. It starts with a $2,500 audit.",
   cta: "Book a call (20 minutes)",
 };
 
+export const steps = {
+  headline: "How it works",
+  items: [
+    { title: "Audit", body: "We find what could break." },
+    { title: "Sprint", body: "We fix it in 10 days, at a fixed price." },
+    { title: "Handover", body: "You get the code, the checks and the numbers." },
+  ],
+};
+
 export const problem = {
-  intro: "Migrating a legacy Webpack or CRA setup is where things quietly break.",
+  headline: "A green build is not a working app",
+  intro: "Upgrading an old Webpack or Create React App setup is where things quietly break.",
   bullets: [
-    "Green builds that ship a blank page.",
-    "Security findings nobody wants to touch.",
-    "Thousands of dependencies, mostly unexplained.",
-    "Slow cold builds and dev server restarts.",
+    "Builds that pass, then ship a blank page.",
+    "Security warnings nobody wants to touch.",
+    "Thousands of dependencies nobody can explain.",
+    "Slow builds and a slow dev server.",
   ],
 };
 
 export const proof = {
-  headline: "The proof: a live migration on a public repository",
+  headline: "Proof: a real migration on a public open-source project",
   body: [
     {
       kind: "text",
-      text: "We migrated the frontend of apache/answer, an Apache Software Foundation project, from Create React App to Vite; an adversarial review found three silent failures behind a green build. The Vite cutover is merged upstream and ships in the v2.0.3-RC1 pre-release: ",
+      text: "We moved the frontend of apache/answer, an Apache Software Foundation project, from Create React App to Vite. The build passed, yet a review built to find faults caught three hidden bugs. The switch to Vite is merged into the project and ships in the v2.0.3-RC1 pre-release: ",
     },
     {
       kind: "link",
@@ -45,7 +55,7 @@ export const proof = {
     },
     {
       kind: "text",
-      text: ". Coding agents did the mechanical work and every change was reviewed by hand. Full method and findings: ",
+      text: ". Coding agents did the repetitive work and every change was reviewed by hand. Full write-up: ",
     },
     {
       kind: "link",
@@ -74,110 +84,129 @@ export const proof = {
     ],
   } satisfies TableData,
   footnote:
-    "Measured on the original single-PR branch before the upstream split; HMR latency is carried forward from an earlier commit.",
+    "Measured on the original single pull request, before it was split into smaller ones upstream; HMR latency comes from an earlier commit.",
   callout:
-    "Two of these numbers are worse on purpose. We restored the production type check the first migration pass dropped, and put back the icon fonts it silently left out, then published the slower, heavier numbers. We would rather ship honest numbers than flattering, broken ones.",
+    "Two of these numbers are worse on purpose. The first pass quietly dropped the production type check and left out the icon fonts. We put both back and published the slower, heavier numbers. Honest numbers beat flattering, broken ones.",
 };
 
 const heroProofMetrics = ["Cold production build", "Dev server time-to-ready", "Dependency count, total"];
 
 export const heroProof = {
-  label: "apache/answer",
+  label: "Real result: apache/answer, Create React App to Vite",
   rows: proof.table.rows.filter(([metric]) => heroProofMetrics.includes(metric)),
 };
 
 export const audit = {
   headline: "Start with the audit",
   body: "The Modernization Audit is $2,500, capped at 8 hours, delivered inside 3 calendar days. It shows where your frontend could pass the build and still break.",
-  deliverablesLabel: "Deliverables",
+  deliverablesLabel: "What you get",
   deliverables: ["diagnosis", "baseline metrics", "risk map", "prioritized roadmap", "sprint estimate"],
-  credit: "100% of the audit fee credits against a sprint booked within 30 days.",
+  credit: "Book a sprint within 30 days and the full audit fee comes off its price.",
   cta: "Book the audit",
-  note: "Booking starts with a 20-minute call to check stack fit.",
+  note: "Booking starts with a 20-minute call to check your stack is a fit.",
 };
 
 export const sprint = {
-  headline: "After the audit: pick one door. Ten days. Fixed scope.",
-  doors: ["Webpack/CRA to Vite migration", "React architecture rescue", "Agent-ready repository setup"],
+  headline: "After the audit, pick one fixed-scope sprint",
+  doors: [
+    {
+      name: "Webpack/CRA to Vite migration",
+      body: "Move off Create React App or an old Webpack setup to Vite.",
+    },
+    {
+      name: "React architecture rescue",
+      body: "Untangle a React codebase that has become hard to change.",
+    },
+    {
+      name: "Agent-ready repository setup",
+      body: "Set up your repository so coding agents can work in it safely.",
+    },
+  ],
   price: "Founding engagement: $7,500. Standard engagement value: $12,500.",
   terms: ["50% upfront.", "Scope cap of 24 to 30 hours.", "10 working days."],
   cta: "Book a call",
   provide:
-    "As a founding client you provide repository access, one named person from day 0, rights to an anonymized case study, and a testimonial if satisfied. Founding pricing is capped to the first two engagements booked; every engagement after that runs at the standard $12,500.",
+    "As a founding client you provide repository access, one named contact from day 0, rights to an anonymized case study, and a testimonial if satisfied. Founding pricing covers only the first two engagements booked; after that, every engagement is the standard $12,500.",
 };
 
 export const sprintPlan = {
   headline: "The 10-day sprint",
   tableLabel: "Day-by-day plan for the 10-day sprint",
   days: [
-    ["0", "Kickoff: access, CI baseline, metric capture"],
-    ["1-2", "Audit and risk map. Plan review call, scope locked."],
-    ["3-6", "Execution: agent fleet in worktrees"],
-    ["7", "Tests and CI green"],
-    ["8", "Benchmarks and docs"],
-    ["9", "PR walkthrough call"],
-    ["10", "Report, 90-day roadmap, retro call"],
+    ["0", "Kickoff: access, plus current build and CI numbers"],
+    ["1-2", "Map the risks. Plan review call, scope locked."],
+    ["3-6", "The work: coding agents make the changes, we review each one"],
+    ["7", "Tests and CI pass"],
+    ["8", "Before and after numbers, and docs"],
+    ["9", "Call to walk you through the pull requests"],
+    ["10", "Report, 90-day roadmap, wrap-up call"],
   ] satisfies [day: string, work: string][],
-  note: "Pull requests land daily from day 3. No big-bang merge at the end.",
+  note: "From day 3, pull requests land in your repository every day. No big merge at the end.",
 };
 
 export const measured = {
   headline: "Measured before and after, every sprint",
   measureTitle: "What we measure",
   measure:
-    "cold build, warm build, dev server time-to-ready, HMR latency, bundle size, CI wall time, dependencies and audit findings, test suite time and pass rate.",
+    "cold build, warm build, dev server start time, HMR latency, bundle size, CI run time, dependencies and audit findings, test time and pass rate.",
   measureNote:
-    "The proof table shows five of the eight; warm build equals cold within noise, and the repository had no tests or CI.",
+    "The proof table shows five of the eight: warm builds matched cold ones, and the project had no tests or CI.",
   reportTitle: "What we report",
   report:
-    "human review hours, what the agents did, and every mistake caught before it reached you, the agents' own included.",
+    "hours of human review, what the agents did, and every mistake caught before it reached you, including the agents' own.",
   closing: "You see the mistakes, not just the wins.",
 };
 
 export const afterSprint = {
   headline: "After the sprint",
-  body: "Ask about the ongoing modernization retainer once your sprint report is in hand.",
+  body: "Want help after the sprint? Ask about the monthly modernization retainer once you have your sprint report.",
 };
 
 export const about = {
   headline: "About",
   name: "Xan Torres",
-  body: "I'm a senior frontend and product engineer with 15+ years of frontend work, mostly React and TypeScript. I move frontends from CRA and Webpack to Vite, using coding agents through RepoKernel and its review gate, and I review every change myself. I'm based in Cyprus and work remotely.",
+  body: "I'm a senior frontend and product engineer with 15+ years of frontend work, mostly React and TypeScript. I move frontends from Create React App and Webpack to Vite. Coding agents do the repetitive work, run through RepoKernel, a tool I built for it, and I review every change myself. I'm based in Cyprus and work remotely.",
 };
 
 export const faq = {
   headline: "FAQ",
   items: [
     {
-      question: "What happens if the work exceeds the scope cap?",
+      question: "What if the work is bigger than the scope cap?",
       answer:
-        "The 24 to 30 hour cap is set at the day 1 to 2 plan review call; anything larger becomes a separately scoped follow-on, never a silent overrun.",
+        "The 24 to 30 hour cap is locked at the plan review call on day 1 or 2. Anything bigger becomes a separately scoped follow-on, never a surprise overrun.",
     },
     {
-      question: "How are agents used, and who checks their work?",
+      question: "How do you use coding agents, and who checks their work?",
       answer:
-        "Agents do the mechanical work. Every change is human-reviewed, and every fix lands behind a check proven to fail first.",
+        "Agents do the repetitive work and a person reviews every change. Every fix comes with an automated check that failed before the fix and passes after it.",
     },
     {
       question: "What access do you need?",
       answer: "Repository read and write access, CI visibility, and one named contact.",
     },
     {
-      question: "What happens if you are unavailable mid-sprint?",
+      question: "What if you become unavailable mid-sprint?",
       answer:
-        "Nothing sits only on my machine: you see pull requests in your repository from day 3 and keep every merged change if the sprint halts.",
+        "Nothing lives only on my machine: pull requests land in your repository from day 3, and you keep every merged change if the sprint stops.",
     },
     {
       question: "Is my stack a fit?",
       answer:
-        "Best fit is React and TypeScript on Webpack or CRA, at a company running 5 to 50 engineers. Not sure? Start with the audit.",
+        "Best fit is React and TypeScript on Webpack or Create React App, at a company with 5 to 50 engineers. Not sure? Start with the audit.",
     },
   ],
 };
 
 export const finalCta = {
-  headline: "Want to know what your build is hiding?",
+  headline: "Find out what could break before you upgrade",
   cta: "Book a call",
   secondaryLead: "Or email",
   footer: "Red First | redfirst.dev",
+};
+
+export const meta = {
+  title: "Red First · React and frontend modernization studio",
+  description:
+    "Red First upgrades old React apps to Vite and modern tooling without breaking them. It starts with a $2,500 audit, then a fixed-price 10-day sprint.",
 };

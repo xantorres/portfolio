@@ -3,7 +3,9 @@ import path from "node:path";
 import { ImageResponse } from "next/og";
 import { hero } from "@/lib/red-first";
 
-export const alt = `${hero.eyebrow}: ${hero.headline}`;
+const brand = `Red First · ${hero.eyebrow}`;
+
+export const alt = `${brand}. ${hero.headline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -47,16 +49,16 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ fontSize: 22, color: INK_TERTIARY, display: "flex", fontWeight: 500 }}>
-          {hero.eyebrow}
+          {brand}
         </div>
 
         <div
           style={{
-            fontSize: 96,
+            fontSize: 84,
             fontWeight: 600,
             lineHeight: 1.06,
             letterSpacing: "-0.022em",
-            maxWidth: 1000,
+            maxWidth: 1040,
             display: "flex",
           }}
         >
