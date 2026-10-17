@@ -115,12 +115,12 @@ export const heroProof = {
 
 export const audit = {
   headline: "Start with the audit",
-  body: "The Modernization Audit is $2,500, capped at 8 hours, delivered inside 3 calendar days. It shows where your frontend could pass the build and still break.",
+  body: "The Modernization Audit is $2,500, delivered inside 3 calendar days. It shows where your frontend could pass the build and still break. The report is yours to keep, whether you migrate with us, with your own team or not at all.",
   deliverablesLabel: "What you get",
   deliverables: ["diagnosis", "baseline metrics", "risk map", "prioritized roadmap", "sprint estimate"],
   credit: "Book a sprint within 30 days and the full audit fee comes off its price.",
   cta: "Book the audit",
-  note: "Booking starts with a 20-minute call to check your stack is a fit.",
+  note: "Booking starts with a free 20-minute call to check your stack is a fit.",
 };
 
 export const sprint = {
@@ -154,10 +154,15 @@ export const sprint = {
     },
   ],
   price: "Founding engagement: $7,500. Standard engagement value: $12,500.",
-  terms: ["50% upfront.", "Scope cap of 24 to 30 hours.", "10 working days."],
+  terms: [
+    "50% upfront.",
+    "Scope and exclusions agreed in writing.",
+    "10 working days.",
+    "Complex setups quoted separately.",
+  ],
   cta: "Book a call",
   provide:
-    "As a founding client you provide repository access, one named contact from day 0, rights to an anonymized case study, and a testimonial if satisfied. Founding pricing covers only the first two engagements booked; after that, every engagement is the standard $12,500.",
+    "As a founding client you provide repository access, one named contact from day 0, rights to an anonymized case study, and a testimonial if satisfied. Founding pricing covers only the first two engagements booked.",
 };
 
 export const sprintPlan = {
@@ -203,9 +208,9 @@ export const faq = {
   headline: "FAQ",
   items: [
     {
-      question: "What if the work is bigger than the scope cap?",
+      question: "What if the work turns out bigger than planned?",
       answer:
-        "The 24 to 30 hour cap is locked at the plan review call on day 1 or 2. Anything bigger becomes a separately scoped follow-on, never a surprise overrun.",
+        "Scope, exclusions and acceptance criteria are agreed in writing at the plan review call on day 1 or 2. Anything bigger becomes a separately scoped follow-on, never a surprise overrun.",
     },
     {
       question: "How do you use coding agents, and who checks their work?",
