@@ -162,7 +162,7 @@ export const sprint = {
   ],
   cta: "Book a call",
   provide:
-    "As a founding client you provide repository access, one named contact from day 0, rights to an anonymized case study, and a testimonial if satisfied. Founding pricing covers only the first two engagements booked.",
+    "As a founding client you provide repository access, one named contact from day 0, rights to an anonymized case study, and a testimonial if satisfied. Founding pricing covers only the first three engagements booked; after that, every engagement is the standard $12,500.",
 };
 
 export const sprintPlan = {

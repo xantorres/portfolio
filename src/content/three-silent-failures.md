@@ -90,8 +90,6 @@ Roughly 150 subagents ran across the ten review rounds, 72 in round one alone, p
 
 None of these took the migration down. Each is the same shape as the three traps above: left uncaught, it produces a confident wrong answer instead of a visible failure. Catching them was not a side effect of the process. It is the process.
 
-Human hours across review and verification: roughly 4 to 10, reconstructed afterwards from session timestamps rather than logged during the work. Time spent reading outside those sessions is not counted, so the real figure is somewhat higher.
-
 ## What This Did Not Cover
 
 - `make lint` (golangci-lint) did not run in the final review session: the toolchain is not installed locally, and its installer wants a network curl-to-shell, which I skipped. The Apache Software Foundation license-header half of the lint target did run, clean, and golangci-lint itself ran clean earlier in the branch's history, when it found and fixed a hazard.
