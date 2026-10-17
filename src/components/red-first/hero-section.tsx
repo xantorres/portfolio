@@ -1,9 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ctaHref, hero, heroProof } from "@/lib/red-first";
-
-// Narrow screens otherwise break "10-day" at its hyphen.
-const unbroken = "10-day";
+import { keepCompounds } from "./keep-compounds";
 
 export function HeroSection() {
   return (
@@ -13,11 +11,7 @@ export function HeroSection() {
           <p className="meta-label">{hero.eyebrow}</p>
           <h1 className="display-type mt-6 max-w-[18ch] text-balance">{hero.headline}</h1>
           <p className="body-measure mt-6 text-base text-muted-foreground sm:text-lg">
-            {hero.subhead.split(unbroken).flatMap((part, index) =>
-              index === 0
-                ? [part]
-                : [<span key={index} className="whitespace-nowrap">{unbroken}</span>, part],
-            )}
+            {keepCompounds(hero.subhead)}
           </p>
           <Button asChild size="lg" className="mt-8">
             <a href={ctaHref}>{hero.cta}</a>

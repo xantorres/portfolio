@@ -1,16 +1,17 @@
-import { Bot, Check, Layers, Zap } from "lucide-react";
+import { Check, Layers, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ctaHref, sprint } from "@/lib/red-first";
+import { keepCompounds } from "./keep-compounds";
 
-const doorIcons = [Zap, Layers, Bot];
+const doorIcons = [Zap, Layers];
 
 export function SprintSection() {
   return (
     <section id="sprint" className="section-pad">
       <div className="container-editorial">
-        <h2 className="headline-type max-w-[28ch] text-balance">{sprint.headline}</h2>
+        <h2 className="headline-type max-w-[28ch] text-balance">{keepCompounds(sprint.headline)}</h2>
 
-        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+        <ul className="mt-10 grid gap-4 md:grid-cols-2">
           {sprint.doors.map((door, index) => {
             const Icon = doorIcons[index % doorIcons.length];
             return (
@@ -31,7 +32,16 @@ export function SprintSection() {
           })}
         </ul>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <dl className="mt-10 grid gap-x-12 gap-y-6 md:grid-cols-2">
+          {sprint.details.map((detail) => (
+            <div key={detail.label} className="min-w-0 border-t border-border pt-4">
+              <dt className="font-medium">{detail.label}</dt>
+              <dd className="body-measure mt-2 text-base text-muted-foreground">{detail.body}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:gap-8">
           <div className="min-w-0">
             <div className="rounded-[var(--radius-md)] bg-wash p-6 sm:p-8">
               <p className="text-xl font-medium sm:text-2xl">{sprint.price}</p>

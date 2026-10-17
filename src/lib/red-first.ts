@@ -16,7 +16,7 @@ export const hero = {
   eyebrow: "Frontend modernization studio",
   headline: "We upgrade old React apps without breaking them.",
   subhead:
-    "Stuck on Create React App, an old Webpack setup or an aging React codebase? Red First moves it to Vite and modern tooling in a fixed 10-day sprint, and checks that every change works before it ships. It starts with a $2,500 audit.",
+    "Stuck on Create React App or an old Webpack setup? Red First moves your React app to Vite in a fixed 10-day sprint: fixed scope, a tested migration and measured results. It starts with a $2,500 audit.",
   cta: "Book a call (20 minutes)",
 };
 
@@ -107,19 +107,33 @@ export const audit = {
 };
 
 export const sprint = {
-  headline: "After the audit, pick one fixed-scope sprint",
+  headline: "After the audit: a fixed-scope migration to Vite",
   doors: [
     {
-      name: "Webpack/CRA to Vite migration",
-      body: "Move off Create React App or an old Webpack setup to Vite.",
+      name: "Webpack to Vite migration",
+      body: "Replace an aging Webpack setup with Vite.",
     },
     {
-      name: "React architecture rescue",
-      body: "Untangle a React codebase that has become hard to change.",
+      name: "Create React App to Vite migration",
+      body: "Move off Create React App, now deprecated, to Vite.",
+    },
+  ],
+  details: [
+    {
+      label: "Every migration includes",
+      body: "Config, scripts and compatible plugins moved over, CI updated, tests verified, and a before and after build comparison.",
     },
     {
-      name: "Agent-ready repository setup",
-      body: "Set up your repository so coding agents can work in it safely.",
+      label: "Done means",
+      body: "The app behaves the same, the checks we agreed on pass, and you have a way to roll back. We measure the gains but never promise a percentage before we know your project.",
+    },
+    {
+      label: "Optional add-ons",
+      body: "npm or Yarn to pnpm, ESLint and Prettier to Biome, Jest to Vitest. Scoped in the audit.",
+    },
+    {
+      label: "Coming next",
+      body: "JavaScript to TypeScript, and legacy React to modern React. Not on sale yet.",
     },
   ],
   price: "Founding engagement: $7,500. Standard engagement value: $12,500.",
@@ -193,7 +207,7 @@ export const faq = {
     {
       question: "Is my stack a fit?",
       answer:
-        "Best fit is React and TypeScript on Webpack or Create React App, at a company with 5 to 50 engineers. Not sure? Start with the audit.",
+        "Best fit is a React single-page app in JavaScript or TypeScript on Webpack or Create React App, with a reasonably maintained repository and a reproducible build, at a company with 5 to 50 engineers. Complex server rendering, Module Federation and heavily customized loaders get a separate quote. Not sure? Start with the audit.",
     },
   ],
 };
@@ -208,5 +222,5 @@ export const finalCta = {
 export const meta = {
   title: "Red First · React and frontend modernization studio",
   description:
-    "Red First upgrades old React apps to Vite and modern tooling without breaking them. It starts with a $2,500 audit, then a fixed-price 10-day sprint.",
+    "Red First moves React apps off Webpack or Create React App to Vite without breaking them. It starts with a $2,500 audit, then a fixed-price 10-day sprint.",
 };
