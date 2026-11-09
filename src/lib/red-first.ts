@@ -62,12 +62,12 @@ export const proof = {
   body: [
     {
       kind: "text",
-      text: "We moved the frontend of apache/answer, an Apache Software Foundation project, from Create React App to Vite. The build passed, yet a review built to find faults caught three hidden bugs. The switch to Vite is merged into the project and ships in the v2.0.3-RC1 pre-release: ",
+      text: "We moved the frontend of apache/answer, an Apache Software Foundation project, from Create React App to Vite. The build passed, yet a review built to find faults caught three hidden bugs. The switch to Vite is merged into the project and ships in the v2.0.3 release: ",
     },
     {
       kind: "link",
-      text: "https://github.com/apache/answer/releases/tag/v2.0.3-RC1",
-      href: "https://github.com/apache/answer/releases/tag/v2.0.3-RC1",
+      text: "https://github.com/apache/answer/releases/tag/v2.0.3",
+      href: "https://github.com/apache/answer/releases/tag/v2.0.3",
       external: true,
     },
     {

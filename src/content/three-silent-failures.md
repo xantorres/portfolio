@@ -20,7 +20,7 @@ The migration landed as nine commits, each scoped to one concern, from the build
 
 I opened it upstream as [apache/answer#1567](https://github.com/apache/answer/pull/1567), "build: replace Create React App with Vite," where a maintainer asked about its size and purpose and received an answer offering a discussion venue and a staged split. A project reviewer then built and ran the migrated application locally, production binary and dev server both, and reported no blocking defects for the default same-origin deployment, calling the server-side fixes "correct and necessary." That exchange also produced a small follow-up commit correcting two stale code comments and a regression run across the deployment scenarios raised in review, which passed in all three.
 
-On August 17 a maintainer asked for the staged split, a tracking issue ([apache/answer#1578](https://github.com/apache/answer/issues/1578)) plus three pull requests that each leave the `dev` branch buildable, and I closed #1567 on August 22 as suggested. The Go asset contract merged on September 15 ([#1582](https://github.com/apache/answer/pull/1582)) and the Vite cutover on September 18 ([#1616](https://github.com/apache/answer/pull/1616)); the v2.0.3-RC1 pre-release, published September 23, ships the new frontend. The Go test described below landed with the first; the guard scripts are the third pull request ([#1641](https://github.com/apache/answer/pull/1641)), still open as of October 4. Every measurement in this article was taken on the original single-PR branch, before the split.
+On August 17 a maintainer asked for the staged split, a tracking issue ([apache/answer#1578](https://github.com/apache/answer/issues/1578)) plus three pull requests that each leave the `dev` branch buildable, and I closed #1567 on August 22 as suggested. The Go asset contract merged on September 15 ([#1582](https://github.com/apache/answer/pull/1582)) and the Vite cutover on September 18 ([#1616](https://github.com/apache/answer/pull/1616)); the stable v2.0.3 release, published October 9, ships the new frontend. The Go test described below landed with the first; the guard scripts are the third pull request ([#1641](https://github.com/apache/answer/pull/1641)), approved by a maintainer on October 12 and awaiting merge. Every measurement in this article was taken on the original single-PR branch, before the split.
 
 ## Three Silent Failures That Shipped Green Builds Anyway
 
@@ -94,7 +94,7 @@ None of these took the migration down. Each is the same shape as the three traps
 
 - `make lint` (golangci-lint) did not run in the final review session: the toolchain is not installed locally, and its installer wants a network curl-to-shell, which I skipped. The Apache Software Foundation license-header half of the lint target did run, clean, and golangci-lint itself ran clean earlier in the branch's history, when it found and fixed a hazard.
 - The Docker image was not rebuilt after the review's fixes landed. The release path was proven toolchain-agnostic at an earlier tag and nothing the fixes touched should affect it, but "should" is weaker than the direct verification this project insists on, so I am naming the gap rather than rounding it to done.
-- The CDN module-script CORS path was not reproduced live (it needs a second origin and a configured CDN plugin I do not have set up); the consequence is documented instead of demonstrated, in the CDN plugin READMEs ([apache/answer-plugins#326](https://github.com/apache/answer-plugins/pull/326)) and the v2.0.3-RC1 release notes.
+- The CDN module-script CORS path was not reproduced live (it needs a second origin and a configured CDN plugin I do not have set up); the consequence is documented instead of demonstrated, in the CDN plugin READMEs ([apache/answer-plugins#326](https://github.com/apache/answer-plugins/pull/326)) and the v2.0.3 release notes.
 - The claim that this migration does not regress old-Safari support rests on chained evidence (resolved browserslist queries against caniuse data), not a real device; `vite preview`'s behavior was verified by reading its source, not a live run against this application.
 - HMR latency was not re-measured at the final review head; the figure below is carried forward from an earlier commit, disclosed as such, because no commit since touches the hot-update path.
 - The upstream repository's branch-protection settings were unreadable without admin API access, so nothing here characterizes them.
@@ -135,7 +135,7 @@ Caveats that stay attached to every one of these rows:
 
 ## Where This Leaves It
 
-As of October 6, the Vite cutover is merged upstream and shipping in a release candidate, and the guard scripts are still open. These are the numbers I would defend to whoever lives with this build after I am gone: slower where honesty made them slower, faster everywhere it actually is faster, every caveat attached to its row.
+As of November 9, the Vite cutover is merged upstream and shipping in the stable v2.0.3 release, and the guard scripts are approved and awaiting merge. These are the numbers I would defend to whoever lives with this build after I am gone: slower where honesty made them slower, faster everywhere it actually is faster, every caveat attached to its row.
 
 That is the whole pitch. Not fast. Honest.
 
